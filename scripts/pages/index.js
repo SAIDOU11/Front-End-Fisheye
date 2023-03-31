@@ -7,70 +7,92 @@ async function getPhotographers() {
   console.log(response);
   let data = await response.json();
   console.log(data);
-  console.log(data.photographers);
-  console.log(data.media);
-  console.log(data.photographers[0].country);
-  console.log(data.photographers[1].country);
-  data.map((values) => {
-    let display = "";
-    display = `<div class="photographer_section">
-    <article class="thumb-photographer">
-    <img src=${values.portrait} alt="" class="user" />
-    <h2>${values.name}</h2>
-    <p class="city-country"></p>
-    <p class="tagline"></p>
-    <p class="price"></p>
-  </article>
-  </div>`;
-  });
+  let photographers = [
+    {
+      name: "Mimi Keel",
+      id: 243,
+      city: "London",
+      country: "UK",
+      tagline: "Voir le beau dans le quotidien",
+      price: 400,
+      portrait: "MimiKeel.jpg",
+    },
+    {
+      name: "Ellie-Rose Wilkens",
+      id: 930,
+      city: "Paris",
+      country: "France",
+      tagline: "Capturer des compositions complexes",
+      price: 250,
+      portrait: "EllieRoseWilkens.jpg",
+    },
 
-  //   let photographers = [{
-  //       name: "Ma data test",
-  //       id: 1,
-  //       city: "Paris",
-  //       country: "France",
-  //       tagline: "Ceci est ma data test",
-  //       price: 400,
-  //       portrait: "account.png",
-  //     },
-  //     {
-  //       name: "Autre data test",
-  //       id: 2,
-  //       city: "Londres",
-  //       country: "UK",
-  //       tagline: "Ceci est ma data test 2",
-  //       price: 500,
-  //       portrait: "account.png",
-  //     },
-  //   ];
+    {
+      name: "Tracy Galindo",
+      id: 82,
+      city: "Montreal",
+      country: "Canada",
+      tagline: "Photographe freelance",
+      price: 500,
+      portrait: "TracyGalindo.jpg",
+    },
+
+    {
+      name: "Nabeel Bradford",
+      id: 527,
+      city: "Mexico City",
+      country: "Mexico",
+      tagline: "Toujours aller de l'avant",
+      price: 350,
+      portrait: "NabeelBradford.jpg",
+    },
+    {
+      name: "Rhode Dubois",
+      id: 925,
+      city: "Barcelona",
+      country: "Spain",
+      tagline: "Je crée des souvenirs",
+      price: 275,
+      portrait: "RhodeDubois.jpg",
+    },
+    {
+      name: "Marcel Nikolic",
+      id: 195,
+      city: "Berlin",
+      country: "Germany",
+      tagline: "Toujours à la recherche de LA photo",
+      price: 300,
+      portrait: "MarcelNikolic.jpg",
+    },
+  ];
 
   // ********************************************************************************************************************
   // et bien retourner le tableau photographers seulement une fois récupéré
 
   // ********************************************************************************************************************
-  //   return {
-  //     photographers: [...photographers, ...photographers, ...photographers],
-  //   };
+  return {
+    photographers: [...photographers],
+  };
 }
 getPhotographers();
 
-// async function displayData(photographers) {
-//   const photographersSection = document.querySelector(".photographer_section");
+async function displayData(photographers) {
+  const photographersSection = document.querySelector(".photographer_section");
 
-//   photographers.forEach((photographer) => {
-//     const photographerModel = photographerFactory(photographer);
-//     const userCardDOM = photographerModel.getUserCardDOM();
-//     photographersSection.appendChild(userCardDOM);
-//   });
-// }
+  photographers.forEach((photographer) => {
+    const photographerModel = photographerFactory(photographer);
+    const userCardDOM = photographerModel.getUserCardDOM();
+    photographersSection.appendChild(userCardDOM);
+  });
+}
 
-// async function init() {
-//   // Récupère les datas des photographes
-//   const { photographers } = await getPhotographers();
-//   displayData(photographers);
-// }
+async function init() {
+  // Récupère les datas des photographes
+  const { photographers } = await getPhotographers();
+  displayData(photographers);
+}
 
-// init();
+init();
 
 // ********************************************************************************************************************
 
