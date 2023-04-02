@@ -37,3 +37,19 @@ function photographerFactory(data) {
   }
   return { name, picture, getUserCardDOM };
 }
+
+function mediaFactory(dataMedia) {
+  const { photographerId, title } = dataMedia;
+  function getUserIdWork() {
+    const article = document.createElement("article");
+    const a = document.createElement("a");
+    const img = document.createElement("img");
+    const h2 = document.createElement("h2");
+    article.appendChild(a);
+    a.appendChild(img);
+    article.appendChild(h2);
+    h2.textContent = title;
+    return article;
+  }
+  return { photographerId, getUserIdWork };
+}
