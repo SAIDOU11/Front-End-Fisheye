@@ -1,5 +1,4 @@
 function photographerFactory(data) {
-  console.log(data.id);
   const { name, portrait, price, city, country, tagline, id } = data;
 
   const picture = `assets/photographers/${portrait}`;
@@ -10,14 +9,12 @@ function photographerFactory(data) {
     const a2 = document.createElement("a");
     const img = document.createElement("img");
     const h2 = document.createElement("h2");
-    a.setAttribute("href", "photographer.html");
-
+    a.setAttribute("href", `photographer.html?id=${id}`);
     img.setAttribute("src", picture);
     img.setAttribute("id", id);
     img.setAttribute("alt", name);
-    a2.setAttribute("href", "photographer.html");
+    a2.setAttribute("href", `photographer.html?id=${id}`);
     h2.textContent = name;
-    h2.setAttribute("href", "photographer.html");
     h2.setAttribute("alt", name);
     h2.setAttribute("id", id);
     article.appendChild(a);
@@ -40,8 +37,3 @@ function photographerFactory(data) {
   }
   return { name, picture, getUserCardDOM };
 }
-
-// const linkPhotographers = document.getElementById("id");
-// linkPhotographers.addEventListener("click", () => {
-//   openInNewTab("photographer.html");
-// });
