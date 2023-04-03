@@ -39,16 +39,21 @@ function photographerFactory(data) {
 }
 
 function mediaFactory(dataMedia) {
-  const { photographerId, title } = dataMedia;
+  const { photographerId, title, image, video } = dataMedia;
+  const multimedia = `assets/images/${image}`;
+  const multimediaVideo = `assets/images/${video}`;
+
   function getUserIdWork() {
     const article = document.createElement("article");
     const a = document.createElement("a");
     const img = document.createElement("img");
     const h2 = document.createElement("h2");
+    img.setAttribute("src", multimedia);
     article.appendChild(a);
     a.appendChild(img);
     article.appendChild(h2);
     h2.textContent = title;
+    img.textContent = image;
     return article;
   }
   return { photographerId, getUserIdWork };
