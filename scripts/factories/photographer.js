@@ -39,7 +39,7 @@ function photographerFactory(data) {
 }
 
 function mediaFactory(dataMedia) {
-  const { photographerId, title, image, video } = dataMedia;
+  const { photographerId, title, image, video, likes } = dataMedia;
   const multimedia = `assets/images/${image}`;
   const multimediaVideo = `assets/images/${video}`;
 
@@ -47,13 +47,21 @@ function mediaFactory(dataMedia) {
     const article = document.createElement("article");
     const a = document.createElement("a");
     const img = document.createElement("img");
+    const divTitle = document.createElement("div");
     const h2 = document.createElement("h2");
+    const like = document.createElement("p");
     img.setAttribute("src", multimedia);
     article.appendChild(a);
+    article.appendChild(divTitle);
+    divTitle.appendChild(h2);
+    divTitle.appendChild(like);
+    divTitle.setAttribute("class", "divTitle");
     a.appendChild(img);
-    article.appendChild(h2);
-    h2.textContent = title;
+    // article.appendChild(h2);
+
     img.textContent = image;
+    h2.textContent = title;
+    like.textContent = likes;
     return article;
   }
   return { photographerId, getUserIdWork };

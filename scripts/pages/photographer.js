@@ -4,28 +4,16 @@ async function getDataMedia(url) {
   console.log(response);
   let data = await response.json();
   console.log(data);
-  console.log(data.media);
-  let medias = [];
-  medias.push(data.media);
-  console.log(medias);
-
   // // Extraire ID
-
   let getUrlId = window.location.search;
   let getParamsId = new URLSearchParams(getUrlId);
   let numberId = getParamsId.get("id");
   console.log(numberId);
+  let filterId = data.media;
 
-  // **********************************************************************************************************************
-  if (medias.id === medias.photographerId) {
-    console.log(
-      "ok ????????????????",
-      numberId,
-      "??????????????????????",
-      numberId
-    );
-    return { medias: [...medias[0]] };
-  }
+  let medias = filterId.filter((obj) => obj.photographerId == numberId);
+  console.log(medias);
+  return { medias: [...medias] };
 }
 
 async function displayData(medias) {
