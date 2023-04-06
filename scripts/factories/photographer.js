@@ -48,19 +48,17 @@ function mediaFactory(dataMedia) {
     const a = document.createElement("a");
     const img = document.createElement("img");
     const divTitle = document.createElement("div");
-    const h2 = document.createElement("h2");
+    const p1 = document.createElement("p");
     const like = document.createElement("p");
     img.setAttribute("src", multimedia);
     article.appendChild(a);
     article.appendChild(divTitle);
-    divTitle.appendChild(h2);
+    divTitle.appendChild(p1);
     divTitle.appendChild(like);
     divTitle.setAttribute("class", "divTitle");
     a.appendChild(img);
-    // article.appendChild(h2);
-
     img.textContent = image;
-    h2.textContent = title;
+    p1.textContent = title;
     like.textContent = likes;
     return article;
   }
