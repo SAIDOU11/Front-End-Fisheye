@@ -98,6 +98,12 @@ a > img {
   object-fit: cover;
 }
 
+.fa-regular,
+.fa-heart {
+  color: #d3573c;
+  height: 10px;
+}
+
 .divTitle {
   display: flex;
   flex-direction: row;

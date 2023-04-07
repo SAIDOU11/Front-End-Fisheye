@@ -49,17 +49,27 @@ function mediaFactory(dataMedia) {
     const img = document.createElement("img");
     const divTitle = document.createElement("div");
     const p1 = document.createElement("p");
-    const like = document.createElement("p");
+    const iconLike = document.createElement("p");
+    const icon = document.createElement("i");
+    const numberLikes = document.createElement("p");
+    icon.setAttribute("class", "fa-regular fa-heart");
     img.setAttribute("src", multimedia);
+
+    // <i class="fa-regular fa-heart"></i>;
     article.appendChild(a);
     article.appendChild(divTitle);
     divTitle.appendChild(p1);
-    divTitle.appendChild(like);
+    divTitle.appendChild(iconLike);
+    divTitle.appendChild(icon);
+    divTitle.appendChild(numberLikes);
     divTitle.setAttribute("class", "divTitle");
     a.appendChild(img);
     img.textContent = image;
     p1.textContent = title;
-    like.textContent = likes;
+    iconLike.appendChild(icon);
+    numberLikes.textContent = likes;
+    console.log(iconLike);
+    // icon.textContent = icon;
     return article;
   }
   return { photographerId, getUserIdWork };
