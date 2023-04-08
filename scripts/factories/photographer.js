@@ -52,10 +52,8 @@ function mediaFactory(dataMedia) {
     const iconLike = document.createElement("p");
     const icon = document.createElement("i");
     const numberLikes = document.createElement("p");
-    icon.setAttribute("class", "fa-regular fa-heart");
+    icon.setAttribute("class", "fa-solid fa-heart");
     img.setAttribute("src", multimedia);
-
-    // <i class="fa-regular fa-heart"></i>;
     article.appendChild(a);
     article.appendChild(divTitle);
     divTitle.appendChild(p1);
@@ -67,10 +65,18 @@ function mediaFactory(dataMedia) {
     img.textContent = image;
     p1.textContent = title;
     iconLike.appendChild(icon);
-    numberLikes.textContent = likes;
+    numberLikes.textContent += likes;
     console.log(iconLike);
     // icon.textContent = icon;
     return article;
   }
   return { photographerId, getUserIdWork };
 }
+/*
+  <script type="text/javascript">
+      const player = new Plyr("video", { captions: { active: true } });
+
+      // Expose player so it can be used from the console
+      window.player = player;
+    </script>
+*/
