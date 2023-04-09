@@ -44,39 +44,44 @@ function mediaFactory(dataMedia) {
   const multimediaVideo = `assets/images/${video}`;
 
   function getUserIdWork() {
+    console.log("Vidéo", video);
+    console.log("Image", image);
     const article = document.createElement("article");
-    const a = document.createElement("a");
-    const img = document.createElement("img");
+    if (image) {
+      const a = document.createElement("a");
+      a.setAttribute("class", "size");
+      const img = document.createElement("img");
+      img.setAttribute("src", multimedia);
+      article.appendChild(a);
+      a.appendChild(img);
+      img.textContent = image;
+    }
+    if (video) {
+      const videoLink = document.createElement("video");
+      videoLink.setAttribute("controls", multimediaVideo);
+      const sourceVideo = document.createElement("source");
+      sourceVideo.setAttribute("src", multimediaVideo);
+      sourceVideo.setAttribute("type", "video/mp4");
+      article.appendChild(videoLink);
+      videoLink.appendChild(sourceVideo);
+    }
+
     const divTitle = document.createElement("div");
     const p1 = document.createElement("p");
     const iconLike = document.createElement("p");
     const icon = document.createElement("i");
     const numberLikes = document.createElement("p");
     icon.setAttribute("class", "fa-solid fa-heart");
-    img.setAttribute("src", multimedia);
-    article.appendChild(a);
     article.appendChild(divTitle);
     divTitle.appendChild(p1);
     divTitle.appendChild(iconLike);
     divTitle.appendChild(icon);
     divTitle.appendChild(numberLikes);
     divTitle.setAttribute("class", "divTitle");
-    a.appendChild(img);
-    img.textContent = image;
     p1.textContent = title;
     iconLike.appendChild(icon);
     numberLikes.textContent += likes;
-    console.log(iconLike);
-    // icon.textContent = icon;
     return article;
   }
   return { photographerId, getUserIdWork };
 }
-/*
-  <script type="text/javascript">
-      const player = new Plyr("video", { captions: { active: true } });
-
-      // Expose player so it can be used from the console
-      window.player = player;
-    </script>
-*/
