@@ -74,13 +74,14 @@ function mediaFactory(dataMedia) {
     iconLike.setAttribute("class", "fa-solid fa-heart");
     divBanner.setAttribute("class", "divBanner");
 
-    paraTitle.textContent = `${title} `;
-    iconLike.textContent = ` ${likes}`;
+    paraTitle.textContent = title;
+    numberOfLikes.textContent = likes;
 
     if (image) {
       const a = document.createElement("a");
       const img = document.createElement("img");
       img.setAttribute("src", multimedia);
+      img.setAttribute("alt", title);
       divContent.appendChild(a);
       a.appendChild(img);
       img.textContent = image;
@@ -91,6 +92,7 @@ function mediaFactory(dataMedia) {
       const sourceVideo = document.createElement("source");
       sourceVideo.setAttribute("src", multimediaVideo);
       sourceVideo.setAttribute("type", "video/mp4");
+      sourceVideo.setAttribute("alt", title);
       divContent.appendChild(videoLink);
       videoLink.appendChild(sourceVideo);
     }

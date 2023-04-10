@@ -84,12 +84,13 @@ form input {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
-  margin: 0 100px;
+  margin: 100px 100px;
 }
 
 article .divContainer {
   height: 350px;
   width: 350px;
+  margin-bottom: 30px;
 }
 
 .divContainer {
@@ -114,7 +115,14 @@ video {
   flex-direction: row;
   justify-content: space-between;
   color: #d3573c;
-  height: 20px;
+  height: 0px;
+}
+
+.divLikes {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 10px;
 }
 
 .fa-solid,
