@@ -10,7 +10,7 @@ main {
 .photograph-header {
   background-color: #fafafa;
   height: 300px;
-  margin: 0 80px; /*100px; */
+  margin: 0 100px;
 }
 
 .contact_button {
@@ -83,36 +83,42 @@ form input {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  margin: 100px 25px;
+  justify-content: space-between;
+  margin: 0 100px;
 }
 
-article {
-  margin: 40px;
+article .divContainer {
   height: 350px;
   width: 350px;
 }
 
-.size > img {
+.divContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.divContent a img {
   width: 100%;
-  height: 90%;
+  height: 300px;
   object-fit: cover;
 }
 
 video {
   width: 100%;
-  height: 90%;
+  height: 300px;
   object-fit: cover;
+}
+
+.divBanner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #d3573c;
+  height: 20px;
 }
 
 .fa-solid,
 .fa-heart {
   color: #d3573c;
   height: 10px;
-}
-
-.divTitle {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  color: #d3573c;
 }

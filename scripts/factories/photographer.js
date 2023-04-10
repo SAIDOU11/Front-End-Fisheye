@@ -5,6 +5,7 @@ function photographerFactory(data) {
 
   function getUserCardDOM() {
     const article = document.createElement("article");
+
     const a = document.createElement("a");
     const a2 = document.createElement("a");
     const img = document.createElement("img");
@@ -47,12 +48,40 @@ function mediaFactory(dataMedia) {
     console.log("Vidéo", video);
     console.log("Image", image);
     const article = document.createElement("article");
+    const divContainer = document.createElement("div");
+    const divContent = document.createElement("div");
+    const divBanner = document.createElement("div");
+    const divTitle = document.createElement("div");
+    const paraTitle = document.createElement("p");
+    const divLikes = document.createElement("div");
+    const numberOfLikes = document.createElement("p");
+    const iconLike = document.createElement("i");
+
+    article.appendChild(divContainer);
+    divContainer.appendChild(divContent);
+    divContainer.appendChild(divBanner);
+    divBanner.appendChild(divTitle);
+    divBanner.appendChild(divLikes);
+    divTitle.appendChild(paraTitle);
+    divLikes.appendChild(numberOfLikes);
+    divLikes.appendChild(iconLike);
+
+    divContainer.setAttribute("class", "divContainer");
+    divContent.setAttribute("class", "divContent");
+    divBanner.setAttribute("class", "divBanner");
+    divTitle.setAttribute("class", "divTitle");
+    divLikes.setAttribute("class", "divLikes");
+    iconLike.setAttribute("class", "fa-solid fa-heart");
+    divBanner.setAttribute("class", "divBanner");
+
+    paraTitle.textContent = `${title} `;
+    iconLike.textContent = ` ${likes}`;
+
     if (image) {
       const a = document.createElement("a");
-      a.setAttribute("class", "size");
       const img = document.createElement("img");
       img.setAttribute("src", multimedia);
-      article.appendChild(a);
+      divContent.appendChild(a);
       a.appendChild(img);
       img.textContent = image;
     }
@@ -62,25 +91,10 @@ function mediaFactory(dataMedia) {
       const sourceVideo = document.createElement("source");
       sourceVideo.setAttribute("src", multimediaVideo);
       sourceVideo.setAttribute("type", "video/mp4");
-      article.appendChild(videoLink);
+      divContent.appendChild(videoLink);
       videoLink.appendChild(sourceVideo);
     }
 
-    const divTitle = document.createElement("div");
-    const p1 = document.createElement("p");
-    const iconLike = document.createElement("p");
-    const icon = document.createElement("i");
-    const numberLikes = document.createElement("p");
-    icon.setAttribute("class", "fa-solid fa-heart");
-    article.appendChild(divTitle);
-    divTitle.appendChild(p1);
-    divTitle.appendChild(iconLike);
-    divTitle.appendChild(icon);
-    divTitle.appendChild(numberLikes);
-    divTitle.setAttribute("class", "divTitle");
-    p1.textContent = title;
-    iconLike.appendChild(icon);
-    numberLikes.textContent += likes;
     return article;
   }
   return { photographerId, getUserIdWork };
