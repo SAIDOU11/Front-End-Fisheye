@@ -1,60 +1,42 @@
 function photographerFactory(data) {
   const { name, portrait, price, city, country, tagline, id } = data;
-
   const picture = `assets/photographers/${portrait}`;
 
   function getUserCardDOM() {
     const article = document.createElement("article");
-
     const linkPicName = document.createElement("a");
     const headerName = document.createElement("h2");
-    // const picProfil = document.createElement("img");
+    const divContainer = document.createElement("div");
+    const cityCountry = document.createElement("p");
+    const paraTag = document.createElement("p");
+    const priceDay = document.createElement("p");
 
-    // const a2 = document.createElement("a");
-    // const pa1 = document.createElement("p");
-    // const p1 = document.createElement("p");
-    // const p = document.createElement("p");
-
-    article.appendChild(linkPicName);
-
-    linkPicName.setAttribute("href", `photographer.html?id=${id}`);
-    linkPicName.setAttribute("title", `Voir la page de ${name}`);
-    linkPicName.setAttribute("role", "link");
-    linkPicName.setAttribute("target", "blank");
-
-    linkPicName.appendChild(headerName);
-
-    // headerName.setAttribute("alt", name);
-    // headerName.setAttribute("id", id);
-
-    // headerName.appendChild(picProfil);
-
-    // picProfil.setAttribute("src", picture);
     headerName.innerHTML += `
     <img src=${picture} alt="Photo de profil de ${name}" >
     ${name}
     `;
-    // headerName.textContent += `${name}`;
-    // picProfil.setAttribute("id", id);
-    // picProfil.setAttribute("alt", name);
-    // a2.setAttribute("href", `photographer.html?id=${id}`);
 
-    // pa1.setAttribute("class", "city-country");
-    // p1.setAttribute("class", "tagline");
+    article.setAttribute("class", "article");
+    linkPicName.setAttribute("href", `photographer.html?id=${id}`);
+    linkPicName.setAttribute("title", `Voir la page de ${name}`);
+    linkPicName.setAttribute("role", "link");
+    linkPicName.setAttribute("target", "blank");
+    divContainer.setAttribute("class", "textContainer");
+    headerName.setAttribute("class", "headerName");
+    priceDay.setAttribute("class", "price");
+    cityCountry.setAttribute("class", "city-country");
+    paraTag.setAttribute("class", "tagline");
 
-    // article.appendChild(pa1);
-    // article.appendChild(p1);
+    article.appendChild(linkPicName);
+    linkPicName.appendChild(headerName);
+    article.appendChild(divContainer);
+    divContainer.appendChild(cityCountry);
+    divContainer.appendChild(paraTag);
+    divContainer.appendChild(priceDay);
 
-    // article.appendChild(a2);
-    // a2.appendChild(h2);
-
-    // h2.textContent = name;
-    // pa1.textContent = `${city}, ${country}`;
-    // p1.textContent = tagline;
-
-    // article.appendChild(p);
-    // p.textContent = `${price}€/jour`;
-    // p.setAttribute("class", "price");
+    priceDay.textContent = `${price}€/jour`;
+    cityCountry.textContent += `${city}, ${country}`;
+    paraTag.textContent += `${tagline}`;
 
     return article;
   }
