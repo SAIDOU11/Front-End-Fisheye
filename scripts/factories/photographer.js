@@ -6,34 +6,56 @@ function photographerFactory(data) {
   function getUserCardDOM() {
     const article = document.createElement("article");
 
-    const a = document.createElement("a");
-    const a2 = document.createElement("a");
-    const img = document.createElement("img");
-    const h2 = document.createElement("h2");
-    a.setAttribute("href", `photographer.html?id=${id}`);
-    img.setAttribute("src", picture);
-    img.setAttribute("id", id);
-    img.setAttribute("alt", name);
-    a2.setAttribute("href", `photographer.html?id=${id}`);
-    h2.textContent = name;
-    h2.setAttribute("alt", name);
-    h2.setAttribute("id", id);
-    article.appendChild(a);
-    a.appendChild(img);
-    article.appendChild(a2);
-    a2.appendChild(h2);
-    const pa1 = document.createElement("p");
-    article.appendChild(pa1);
-    pa1.textContent = `${city}, ${country}`;
-    pa1.setAttribute("class", "city-country");
-    const p1 = document.createElement("p");
-    article.appendChild(p1);
-    p1.textContent = tagline;
-    p1.setAttribute("class", "tagline");
-    const p = document.createElement("p");
-    p.textContent = `${price}€/jour`;
-    p.setAttribute("class", "price");
-    article.appendChild(p);
+    const linkPicName = document.createElement("a");
+    const headerName = document.createElement("h2");
+    // const picProfil = document.createElement("img");
+
+    // const a2 = document.createElement("a");
+    // const pa1 = document.createElement("p");
+    // const p1 = document.createElement("p");
+    // const p = document.createElement("p");
+
+    article.appendChild(linkPicName);
+
+    linkPicName.setAttribute("href", `photographer.html?id=${id}`);
+    linkPicName.setAttribute("title", `Voir la page de ${name}`);
+    linkPicName.setAttribute("role", "link");
+    linkPicName.setAttribute("target", "blank");
+
+    linkPicName.appendChild(headerName);
+
+    // headerName.setAttribute("alt", name);
+    // headerName.setAttribute("id", id);
+
+    // headerName.appendChild(picProfil);
+
+    // picProfil.setAttribute("src", picture);
+    headerName.innerHTML += `
+    <img src=${picture} alt="Photo de profil de ${name}" >
+    ${name}
+    `;
+    // headerName.textContent += `${name}`;
+    // picProfil.setAttribute("id", id);
+    // picProfil.setAttribute("alt", name);
+    // a2.setAttribute("href", `photographer.html?id=${id}`);
+
+    // pa1.setAttribute("class", "city-country");
+    // p1.setAttribute("class", "tagline");
+
+    // article.appendChild(pa1);
+    // article.appendChild(p1);
+
+    // article.appendChild(a2);
+    // a2.appendChild(h2);
+
+    // h2.textContent = name;
+    // pa1.textContent = `${city}, ${country}`;
+    // p1.textContent = tagline;
+
+    // article.appendChild(p);
+    // p.textContent = `${price}€/jour`;
+    // p.setAttribute("class", "price");
+
     return article;
   }
   return { name, picture, getUserCardDOM };
