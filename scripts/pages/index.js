@@ -22,7 +22,6 @@ async function displayData(photographers) {
     const photographerModel = photographerFactory(photographer);
     const userCardDOM = photographerModel.getUserCardDOM();
     photographersSection.appendChild(userCardDOM);
-    // photographersSection.insertAdjacentHTML("afterbegin", userCardDOM);
   });
 }
 

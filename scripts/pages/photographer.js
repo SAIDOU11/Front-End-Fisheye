@@ -20,7 +20,6 @@ async function displayData(medias) {
     const mediaModel = mediaFactory(media);
     const getUserIdWork = mediaModel.getUserIdWork();
     mediasSection.appendChild(getUserIdWork);
-    // mediasSection.insertAdjacentHTML("afterbegin", getUserIdWork);
   });
 }
 

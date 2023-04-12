@@ -28,12 +28,15 @@ main {
 }
 
 .contact_price {
+  position: fixed;
+  bottom: 0px;
+  right: 40px;
   font-size: 20px;
   font-weight: bold;
   color: black;
   padding: 11px;
   width: 300px;
-  height: 70px;
+  height: 30px;
   border: none;
   background-color: #db8876;
   border-radius: 5px;
@@ -128,19 +131,21 @@ video {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  color: #d3573c;
   height: 0px;
 }
-
+.divTitle {
+  color: #901c1c;
+}
 .divLikes {
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  gap: 10px;
+  color: #901c1c;
+  gap: 6px;
 }
 
 .fa-solid,
 .fa-heart {
-  color: #d3573c;
+  color: #901c1c;
   height: 10px;
 }

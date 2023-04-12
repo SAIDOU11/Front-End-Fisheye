@@ -49,8 +49,6 @@ function mediaFactory(dataMedia) {
   const multimediaVideo = `assets/images/${video}`;
 
   function getUserIdWork() {
-    console.log("Vidéo", video);
-    console.log("Image", image);
     const article = document.createElement("article");
     const divContainer = document.createElement("div");
     const divContent = document.createElement("div");
@@ -82,13 +80,18 @@ function mediaFactory(dataMedia) {
     numberOfLikes.textContent = likes;
 
     if (image) {
-      const a = document.createElement("a");
-      const img = document.createElement("img");
-      img.setAttribute("src", multimedia);
-      img.setAttribute("alt", title);
-      divContent.appendChild(a);
-      a.appendChild(img);
-      img.textContent = image;
+      const picName = document.createElement("a");
+      const pictureArt = document.createElement("img");
+      picName.setAttribute("href", `*`);
+      picName.setAttribute("title", `${title}`);
+      picName.setAttribute("role", "link");
+      picName.setAttribute("aria-label", `Image : ${title} !`);
+      pictureArt.setAttribute("src", multimedia);
+      pictureArt.setAttribute("alt", title);
+
+      divContent.appendChild(picName);
+      picName.appendChild(pictureArt);
+      pictureArt.textContent = image;
     }
     if (video) {
       const videoLink = document.createElement("video");
