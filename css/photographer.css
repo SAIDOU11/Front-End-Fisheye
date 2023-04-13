@@ -1,5 +1,7 @@
 #contact_modal {
   display: none;
+  position: fixed;
+  top: 20%;
 }
 
 main {
