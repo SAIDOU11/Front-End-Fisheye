@@ -29,11 +29,14 @@
       <div class="media_section"></div>
     </main>
 
-    <dialog role="dialog" aria-describedby="Contactez-moi" id="contact_modal">
+    <dialog role="dialog" id="contact_modal">
       <div class="modal">
         <div class="modal_header">
-          <h1>Contactez-moi</h1>
-          <button class="close_button">
+          <h1 class="header_color">
+            Contactez-moi <br />
+            ' ... '
+          </h1>
+          <button class="close_btn">
             <img src="assets/icons/close.svg" onclick="closeModal()" />
           </button>
         </div>
@@ -41,18 +44,11 @@
           <div>
             <label>Prénom</label>
             <input />
-            <label>Nom</label>
-            <input />
-            <label>Email</label>
-            <input />
-            <label>Votre message</label>
-            <input />
           </div>
-          <button class="contact_button send_button">Envoyer</button>
+          <button class="contact_button">Envoyer</button>
         </form>
       </div>
     </dialog>
-    <!-- <dialog></dialog> -->
     <script
       type="text/javascript"
       src="scripts/factories/photographer.js"
