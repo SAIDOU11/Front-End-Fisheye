@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
@@ -16,39 +16,101 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="logo fisheye" />
     </header>
 
     <main id="main">
+      <dialog role="dialog" id="contact_modal">
+        <div class="modal">
+          <div class="modal_header">
+            <h1 class="header_color">
+              Contactez-moi <br />
+              ' ... '
+            </h1>
+            <button
+              type="button"
+              aria-label="Bouton pour fermer la modale contact"
+              class="close_btn"
+            >
+              <img
+                src="assets/icons/close.svg"
+                alt="Fermer la modale"
+                onclick="closeModal()"
+              />
+            </button>
+          </div>
+          <form
+            action="index.html"
+            role="form"
+            method="dialog
+          "
+          >
+            <div>
+              <label for="firstname">Prénom</label>
+              <input type="text" name="name" id="firstname" />
+              <label for="lastname">Nom</label>
+              <input type="text" name="name" id="lastname" />
+              <label for="email">Email</label>
+              <input type="text" name="name" id="email" />
+              <label for="message">Votre message</label>
+              <input
+                class="message_input"
+                type="text"
+                name="name"
+                id="message"
+              />
+            </div>
+            <button
+              type="submit"
+              aria-label="Bouton pour prendre contact avec le photographe "
+              class="contact_button"
+            >
+              Envoyer
+            </button>
+          </form>
+        </div>
+      </dialog>
       <div class="contact_price">Likes et prix/jour (js)</div>
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">
-          Contactez-moi
-        </button>
+      <section class="photograph-header">
+        <div class="headContainer">
+          <div class="headBio">
+            <h2 class="firstLastName">Name Lastname</h2>
+            <h3 class="location">City, Country</h3>
+            <p class="taglinePhotograph">tagline</p>
+          </div>
+          <div class="headBtn">
+            <button
+              type="button"
+              aria-label="Bouton pour ouvrir la modale contact"
+              class="contact_button button_hover"
+              onclick="displayModal()"
+            >
+              Contactez-moi
+            </button>
+          </div>
+          <div class="headPicture">
+            <img
+              src="./assets/photographers/account.png"
+              alt="Photo de profil de "
+            />
+          </div>
+        </div>
+      </section>
+      <div class="dropdown">
+        <label for="select">Trier par :</label>
+        <div class="select">
+          <span class="selected">Popularité</span>
+          <div class="caret"></div>
+        </div>
+        <ul class="menu">
+          <li>Popularité</li>
+          <li>Date</li>
+          <li>Titre</li>
+        </ul>
       </div>
       <div class="media_section"></div>
     </main>
 
-    <dialog role="dialog" id="contact_modal">
-      <div class="modal">
-        <div class="modal_header">
-          <h1 class="header_color">
-            Contactez-moi <br />
-            ' ... '
-          </h1>
-          <button class="close_btn">
-            <img src="assets/icons/close.svg" onclick="closeModal()" />
-          </button>
-        </div>
-        <form>
-          <div>
-            <label>Prénom</label>
-            <input />
-          </div>
-          <button class="contact_button">Envoyer</button>
-        </form>
-      </div>
-    </dialog>
     <script
       type="text/javascript"
       src="scripts/factories/photographer.js"

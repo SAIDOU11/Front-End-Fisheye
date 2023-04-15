@@ -40,6 +40,8 @@ function photographerFactory(data) {
 
     return article;
   }
+  const img_header = document.getElementsByClassName("headPicture");
+  console.log(img_header);
   return { name, picture, getUserCardDOM };
 }
 
@@ -83,11 +85,12 @@ function mediaFactory(dataMedia) {
       const picName = document.createElement("a");
       const pictureArt = document.createElement("img");
       picName.setAttribute("href", `*`);
-      picName.setAttribute("title", `${title}`);
+      picName.setAttribute("title", title);
       picName.setAttribute("role", "link");
-      picName.setAttribute("aria-label", `Image : ${title} !`);
+      picName.setAttribute("aria-label", `Belle image intitulée : ${title} !`);
+
       pictureArt.setAttribute("src", multimedia);
-      pictureArt.setAttribute("alt", title);
+      pictureArt.setAttribute("alt", `Photo : ${title} `);
 
       divContent.appendChild(picName);
       picName.appendChild(pictureArt);
