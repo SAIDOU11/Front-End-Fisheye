@@ -5,6 +5,22 @@
   bottom: 20px;
 }
 
+#lightbox {
+  padding: 1em;
+  max-width: 50ch;
+  /* display: none; */
+
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #80808080;
+  top: 0px;
+  left: 0px;
+}
+
+/* .contentLightbox {
+} */
+
 main {
   border: 5px solid #95fff9;
   margin: 10px;

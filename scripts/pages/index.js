@@ -8,7 +8,6 @@ async function getPhotographers() {
   let photographers = [];
   photographers.push(data.photographers);
   console.log(photographers);
-
   return {
     photographers: [...photographers[0]],
   };

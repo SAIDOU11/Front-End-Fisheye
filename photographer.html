@@ -20,56 +20,6 @@
     </header>
 
     <main id="main">
-      <dialog role="dialog" id="contact_modal">
-        <div class="modal">
-          <div class="modal_header">
-            <h1 class="header_color">
-              Contactez-moi <br />
-              ' ... '
-            </h1>
-            <button
-              type="button"
-              aria-label="Bouton pour fermer la modale contact"
-              class="close_btn"
-            >
-              <img
-                src="assets/icons/close.svg"
-                alt="Fermer la modale"
-                onclick="closeModal()"
-              />
-            </button>
-          </div>
-          <form
-            action="index.html"
-            role="form"
-            method="dialog
-          "
-          >
-            <div>
-              <label for="firstname">Prénom</label>
-              <input type="text" name="name" id="firstname" />
-              <label for="lastname">Nom</label>
-              <input type="text" name="name" id="lastname" />
-              <label for="email">Email</label>
-              <input type="text" name="name" id="email" />
-              <label for="message">Votre message</label>
-              <input
-                class="message_input"
-                type="text"
-                name="name"
-                id="message"
-              />
-            </div>
-            <button
-              type="submit"
-              aria-label="Bouton pour prendre contact avec le photographe "
-              class="contact_button"
-            >
-              Envoyer
-            </button>
-          </form>
-        </div>
-      </dialog>
       <div class="contact_price">Likes et prix/jour (js)</div>
       <section class="photograph-header">
         <div class="headContainer">
@@ -126,13 +76,68 @@
       </div>
       <div class="media_section"></div>
     </main>
-
+    <dialog role="dialog" id="contact_modal">
+      <div class="modal">
+        <div class="modal_header">
+          <h1 class="header_color">
+            Contactez-moi <br />
+            ' ... '
+          </h1>
+          <button
+            type="button"
+            aria-label="Bouton pour fermer la modale contact"
+            class="close_btn"
+          >
+            <img
+              src="assets/icons/close.svg"
+              alt="Fermer la modale"
+              onclick="closeModal()"
+            />
+          </button>
+        </div>
+        <form
+          action="index.html"
+          role="form"
+          method="dialog
+        "
+        >
+          <div>
+            <label for="firstname">Prénom</label>
+            <input type="text" name="name" id="firstname" />
+            <label for="lastname">Nom</label>
+            <input type="text" name="name" id="lastname" />
+            <label for="email">Email</label>
+            <input type="text" name="name" id="email" />
+            <label for="message">Votre message</label>
+            <input class="message_input" type="text" name="name" id="message" />
+          </div>
+          <button
+            type="submit"
+            aria-label="Bouton pour prendre contact avec le photographe "
+            class="contact_button"
+          >
+            Envoyer
+          </button>
+        </form>
+      </div>
+    </dialog>
+    <dialog role="dialog" class="lightbox" id="lightbox">
+      <div class="contentLightbox">
+        <h3>titree</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem debitis
+          similique accusamus, sunt porro culpa consequuntur quo? Magni, ab
+          libero praesentium blanditiis, voluptatem expedita vitae culpa quam
+          mollitia, non sed!
+        </p>
+      </div>
+    </dialog>
     <script
       type="text/javascript"
       src="scripts/factories/photographer.js"
     ></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
-    <script type="text" src="/scripts/pages/test.js"></script>
+    <script src="scripts/utils/Lightbox.js"></script>
   </body>
 </html>

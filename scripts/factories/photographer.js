@@ -46,7 +46,7 @@ function photographerFactory(data) {
 }
 
 function mediaFactory(dataMedia) {
-  const { photographerId, title, image, video, likes } = dataMedia;
+  const { date, id, photographerId, title, image, video, likes } = dataMedia;
   const multimedia = `assets/images/${image}`;
   const multimediaVideo = `assets/images/${video}`;
 
@@ -71,6 +71,10 @@ function mediaFactory(dataMedia) {
     divLikes.appendChild(iconLike);
 
     divContainer.setAttribute("class", "divContainer");
+    divContainer.setAttribute("data-id", id);
+    divContainer.setAttribute("data-photographers-id", photographerId);
+    divContainer.setAttribute("data-publication-date", date);
+    divContainer.setAttribute("data-likes", likes);
     divContent.setAttribute("class", "divContent");
     divBanner.setAttribute("class", "divBanner");
     divTitle.setAttribute("class", "divTitle");
@@ -84,7 +88,8 @@ function mediaFactory(dataMedia) {
     if (image) {
       const picName = document.createElement("a");
       const pictureArt = document.createElement("img");
-      picName.setAttribute("href", `*`);
+      picName.setAttribute("class", "lightMedia");
+      picName.setAttribute("href", "#");
       picName.setAttribute("title", title);
       picName.setAttribute("role", "link");
       picName.setAttribute("aria-label", `Belle image intitulée : ${title} !`);
@@ -97,13 +102,16 @@ function mediaFactory(dataMedia) {
       pictureArt.textContent = image;
     }
     if (video) {
+      const vidName = document.createElement("a");
+      vidName.setAttribute("class", "lightMedia");
       const videoLink = document.createElement("video");
       videoLink.setAttribute("controls", multimediaVideo);
       const sourceVideo = document.createElement("source");
       sourceVideo.setAttribute("src", multimediaVideo);
       sourceVideo.setAttribute("type", "video/mp4");
       sourceVideo.setAttribute("alt", title);
-      divContent.appendChild(videoLink);
+      divContent.appendChild(vidName);
+      vidName.appendChild(videoLink);
       videoLink.appendChild(sourceVideo);
     }
 
