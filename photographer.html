@@ -98,10 +98,10 @@
       </section>
 
       <div class="dropdownContainer">
-        <label for="select">Trier par :</label>
+        <label class="label_select" for="select">Trier par </label>
         <div class="dropdown">
           <div class="select">
-            <span class="selected">Popularité</span>
+            <span aria-labelledby="Order by" class="selected">Popularité</span>
 
             <div class="arrow">
               <svg
@@ -118,9 +118,9 @@
             </div>
           </div>
           <ul class="menu">
-            <li class="active">Popularité</li>
-            <li>Date</li>
-            <li>Titre</li>
+            <li class="dropdown_list">Date</li>
+            <li class="dropdown_list">Titre</li>
+            <li class="dropdown_list active">Popularité</li>
           </ul>
         </div>
       </div>
