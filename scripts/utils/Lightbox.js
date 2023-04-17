@@ -1,20 +1,29 @@
-// const lightbox = document.querySelector(".lightbox");
 // const openLightbox = document.querySelector(".lightMedia");
-
-// openLightbox.addEventListener("click", () => {
-//   lightbox.showModal();
-// });
-
-// const contactBtn = document.querySelectorAll(".contact_button");
-
-// contactBtn.forEach((btn) => btn.addEventListener("click", displayLightbox));
+// console.log(openLightbox);
+// openLightbox.forEach((btn) => btn.addEventListener("click", displayLightbox));
 
 // function displayLightbox() {
 //   const lightbox = document.getElementById("lightbox");
 //   lightbox.style.display = "block";
 // }
 
-// function closeLightbox() {
-//   const lightbox = document.getElementById("lightbox");
-//   lightbox.style.display = "none";
-// }
+/*
+*******************************************************************************************
+
+
+const contactBtn = document.querySelectorAll(".contact_button");
+
+contactBtn.forEach((btn) => btn.addEventListener("click", displayModal));
+
+function displayModal() {
+  const modal = document.getElementById("contact_modal");
+  modal.style.display = "block";
+}
+
+function closeModal() {
+  const modal = document.getElementById("contact_modal");
+  modal.style.display = "none";
+}
+
+
+*/

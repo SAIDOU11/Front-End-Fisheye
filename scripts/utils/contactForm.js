@@ -1,4 +1,5 @@
 const contactBtn = document.querySelectorAll(".contact_button");
+console.log(contactBtn);
 
 contactBtn.forEach((btn) => btn.addEventListener("click", displayModal));
 

@@ -40,8 +40,7 @@ function photographerFactory(data) {
 
     return article;
   }
-  const img_header = document.getElementsByClassName("headPicture");
-  console.log(img_header);
+
   return { name, picture, getUserCardDOM };
 }
 
@@ -88,7 +87,7 @@ function mediaFactory(dataMedia) {
     if (image) {
       const picName = document.createElement("a");
       const pictureArt = document.createElement("img");
-      picName.setAttribute("class", "lightMedia");
+
       picName.setAttribute("href", "#");
       picName.setAttribute("title", title);
       picName.setAttribute("role", "link");
@@ -96,6 +95,7 @@ function mediaFactory(dataMedia) {
 
       pictureArt.setAttribute("src", multimedia);
       pictureArt.setAttribute("alt", `Photo : ${title} `);
+      pictureArt.setAttribute("class", "lightMedia");
 
       divContent.appendChild(picName);
       picName.appendChild(pictureArt);
@@ -106,6 +106,7 @@ function mediaFactory(dataMedia) {
       vidName.setAttribute("class", "lightMedia");
       const videoLink = document.createElement("video");
       videoLink.setAttribute("controls", multimediaVideo);
+      videoLink.setAttribute("class", "lightMedia");
       const sourceVideo = document.createElement("source");
       sourceVideo.setAttribute("src", multimediaVideo);
       sourceVideo.setAttribute("type", "video/mp4");
@@ -117,5 +118,20 @@ function mediaFactory(dataMedia) {
 
     return article;
   }
+  function getDataProfil() {
+    const div = document.createElement("div");
+    console.log("Give me something ?????????????????????????");
+    return div;
+  }
   return { photographerId, getUserIdWork };
+}
+
+function ProfilFactory(data) {
+  const { name, portrait, price, city, country, tagline, id } = data;
+  function getDataProfil() {
+    const div = document.createElement("div");
+    console.log("Give me something ?????????????????????????");
+    return div;
+  }
+  return { getDataProfil };
 }

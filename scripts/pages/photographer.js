@@ -1,4 +1,4 @@
-async function getDataMedia(url) {
+async function getDataMedia() {
   let apiUrl = "./data/photographers.json";
   let response = await fetch(apiUrl);
   let data = await response.json();
@@ -9,9 +9,22 @@ async function getDataMedia(url) {
   console.log(numberId);
   let filterId = data.media;
   let medias = filterId.filter((obj) => obj.photographerId == numberId);
+  let mediaProfil = data.photographers;
+  let ProfilPers = mediaProfil.filter((obj) => obj.photographerId == numberId);
   console.log(medias);
-  return { medias: [...medias] };
+  console.log(mediaProfil);
+  return { medias: [...medias], ProfilPers: [...ProfilPers] };
 }
+
+// async function displayProfil(profils) {
+//   const headerProfil = document.querySelector(".photograph-header");
+//   console.log(headerProfil);
+//   profils.forEach((profil) => {
+//     const profilModel = mediaFactory(profil);
+//     const getDataProfil = profilModel.getDataProfil();
+//     headerProfil.appendChild(getDataProfil);
+//   });
+// }
 
 async function displayData(medias) {
   const mediasSection = document.querySelector(".media_section");
@@ -23,10 +36,21 @@ async function displayData(medias) {
   });
 }
 
+async function displayProfil(profils) {
+  const headerProfil = document.querySelector(".photograph-header");
+  console.log(headerProfil);
+  profils.forEach((profil) => {
+    const profilModel = ProfilFactory(profil);
+    const getDataProfil = profilModel.getDataProfil();
+    headerProfil.appendChild(getDataProfil);
+  });
+}
+
 async function init() {
   // Récupère les datas des photographes
-  const { medias } = await getDataMedia();
-  displayData(medias);
+  const { medias, ProfilPers } = await getDataMedia();
+  displayData(medias, ProfilPers);
+  displayProfil(ProfilPers);
 }
 
 init();

@@ -6,20 +6,24 @@
 }
 
 #lightbox {
-  padding: 1em;
-  max-width: 50ch;
-  /* display: none; */
-
+  /* padding: 1em;
+  max-width: 50ch; */
+  display: none;
   position: fixed;
+  top: 20px;
+  bottom: 20px;
+  background-color: #80808080;
+  /* position: fixed;
   width: 100vw;
   height: 100vh;
-  background-color: #80808080;
+
   top: 0px;
-  left: 0px;
+  left: 0px; */
 }
 
-/* .contentLightbox {
-} */
+.contentLightbox {
+  border: #901c1c;
+}
 
 main {
   border: 5px solid #95fff9;
