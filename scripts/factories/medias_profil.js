@@ -2,6 +2,9 @@ function photographerFactory(data) {
   const { name, portrait, price, city, country, tagline, id } = data;
   const picture = `assets/photographers/${portrait}`;
 
+  const contactHeader = document.querySelector(".header_color");
+  contactHeader.innerHTML = ` <h1>Contactez-moi <br> ${name}</h1>`;
+
   function getUserCardDOM() {
     console.log("Give me something !!!!!!!!!!!!!!!");
     const headContainer = document.createElement("div");

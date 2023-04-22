@@ -21,31 +21,7 @@
 
     <main id="main">
       <div class="contact_price"></div>
-      <section class="photograph-header">
-        <!-- <div class="headContainer">
-          <div class="headBio">
-            <h2 class="firstLastName">Name Lastname</h2>
-            <h3 class="location">City, Country</h3>
-            <p class="taglinePhotograph">tagline</p>
-          </div>
-          <div class="headBtn">
-            <button
-              type="button"
-              aria-label="Bouton pour ouvrir la modale contact"
-              class="contact_button button_hover"
-              onclick="displayModal()"
-            >
-              Contactez-moi
-            </button>
-          </div>
-          <div class="headPicture">
-            <img
-              src="./assets/photographers/account.png"
-              alt="Photo de profil de "
-            />
-          </div>
-        </div> -->
-      </section>
+      <section class="photograph-header"></section>
 
       <div class="dropdownContainer">
         <label class="label_select" for="select">Trier par </label>
@@ -77,49 +53,52 @@
       <div class="media_section"></div>
     </main>
     <dialog role="dialog" id="contact_modal">
-      <div class="modal">
-        <div class="modal_header">
-          <h1 class="header_color">
-            Contactez-moi <br />
-            ' ... '
-          </h1>
-          <button
-            type="button"
-            aria-label="Bouton pour fermer la modale contact"
-            class="close_btn"
-          >
-            <img
-              src="assets/icons/close.svg"
-              alt="Fermer la modale"
-              onclick="closeModal()"
-            />
-          </button>
-        </div>
-        <form
-          action="index.html"
-          role="form"
-          method="dialog
+      <div class="modal_header">
+        <h1 class="header_color"></h1>
+        <button type="button" aria-label="Close Contact form" class="close_btn">
+          <img
+            src="assets/icons/close.svg"
+            alt="Fermer la modale"
+            onclick="closeModal()"
+          />
+        </button>
+      </div>
+      <form
+        action="index.html"
+        role="form"
+        method="dialog
         "
-        >
-          <div>
+      >
+        <div class="user-details">
+          <div class="inputLabel">
             <label for="firstname">Prénom</label>
             <input type="text" name="name" id="firstname" />
+            <p id="firstnameMessage"></p>
+          </div>
+          <div class="inputLabel">
             <label for="lastname">Nom</label>
             <input type="text" name="name" id="lastname" />
+            <p id="lastnameMessage"></p>
+          </div>
+          <div class="inputLabel">
             <label for="email">Email</label>
             <input type="text" name="name" id="email" />
+            <p id="emailMessage"></p>
+          </div>
+          <div class="inputLabel">
             <label for="message">Votre message</label>
             <input class="message_input" type="text" name="name" id="message" />
+            <p id="messageMessage"></p>
           </div>
-          <button
-            type="submit"
-            aria-label="Bouton pour prendre contact avec le photographe "
-            class="contact_button"
-          >
-            Envoyer
-          </button>
-        </form>
-      </div>
+        </div>
+        <button
+          type="submit"
+          aria-label="Send"
+          class="contact_button submit_button"
+        >
+          Envoyer
+        </button>
+      </form>
     </dialog>
 
     <dialog role="dialog" id="lightbox">
@@ -138,6 +117,7 @@
     ></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/validation.js"></script>
     <script src="scripts/utils/Lightbox.js"></script>
   </body>
 </html>

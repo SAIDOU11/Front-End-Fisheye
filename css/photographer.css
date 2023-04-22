@@ -1,8 +1,10 @@
 #contact_modal {
   display: none;
   position: fixed;
-  top: 20px;
-  bottom: 20px;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  padding: 25px 30px;
 }
 
 #lightbox {
@@ -210,16 +212,6 @@ dialog {
   width: 40%;
   border: none;
 }
-.modal {
-  border-radius: 5px;
-  background-color: #db8876;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px;
-  margin: auto;
-}
 
 .modal_header {
   display: flex;
@@ -228,12 +220,11 @@ dialog {
   align-items: flex-start;
   align-items: baseline;
   width: 100%;
-  height: 150px;
 }
 
 .header_color {
   color: black;
-  font-size: 40px;
+  font-size: 25px;
 }
 
 button > img {
@@ -242,10 +233,9 @@ button > img {
   color: #db8876;
 }
 .close_btn {
-  height: 50px;
-  width: 50px;
   background-color: #db8876;
   border: none;
+  padding: 0;
 }
 
 .modal header {
@@ -276,8 +266,8 @@ form label {
 }
 
 .message_input {
-  width: 100%;
-  height: 150px;
+  width: 97%;
+  height: 120px;
   border: none;
   border-radius: 5px;
 }
@@ -287,11 +277,10 @@ form div {
   flex-direction: column;
   width: 100%;
   align-items: self-start;
-  margin-bottom: 26px;
 }
 
 form input {
-  width: 100%;
+  width: 97%;
   height: 35px;
   border: none;
   border-radius: 5px;
