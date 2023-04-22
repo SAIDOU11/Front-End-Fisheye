@@ -8,11 +8,13 @@ async function getPhotographers() {
   let photographers = [];
   photographers.push(data.photographers);
   console.log(photographers);
+  let medias = [];
+  medias.push(data.media);
   return {
     photographers: [...photographers[0]],
+    medias: [...medias],
   };
 }
-getPhotographers();
 
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");

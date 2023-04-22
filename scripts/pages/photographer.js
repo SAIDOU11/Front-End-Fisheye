@@ -1,34 +1,37 @@
 async function getDataMedia() {
   let apiUrl = "./data/photographers.json";
   let response = await fetch(apiUrl);
-  let data = await response.json();
+  // let data = await response.json();
+  const { photographers, media } = await response.json();
+  console.log(photographers);
+  console.log(media);
   // // Extraire ID
   let getUrlId = window.location.search;
   let getParamsId = new URLSearchParams(getUrlId);
   let numberId = getParamsId.get("id");
   console.log(numberId);
-  let filterId = data.media;
-  let medias = filterId.filter((obj) => obj.photographerId == numberId);
-  let mediaProfil = data.photographers;
-  let ProfilPers = mediaProfil.filter((obj) => obj.photographerId == numberId);
-  console.log(medias);
+
+  let filterProfil = photographers;
+  let photograhProfil = filterProfil.filter((obj) => obj.id == numberId);
+  console.log(photograhProfil);
+
+  let filterId = media;
+  let mediaProfil = filterId.filter((obj) => obj.photographerId == numberId);
   console.log(mediaProfil);
-  return { medias: [...medias], ProfilPers: [...ProfilPers] };
+
+  return { medias: [...mediaProfil], photographers: [...photograhProfil] };
 }
 
-// async function displayProfil(profils) {
-//   const headerProfil = document.querySelector(".photograph-header");
-//   console.log(headerProfil);
-//   profils.forEach((profil) => {
-//     const profilModel = mediaFactory(profil);
-//     const getDataProfil = profilModel.getDataProfil();
-//     headerProfil.appendChild(getDataProfil);
-//   });
-// }
-
-async function displayData(medias) {
+async function displayData(medias, photographers) {
+  const headerProfil = document.querySelector(".photograph-header");
+  console.log(headerProfil);
   const mediasSection = document.querySelector(".media_section");
   console.log(mediasSection);
+  photographers.forEach((photographer) => {
+    const photographerModel = photographerFactory(photographer);
+    const userCardDOM = photographerModel.getUserCardDOM();
+    headerProfil.appendChild(userCardDOM);
+  });
   medias.forEach((media) => {
     const mediaModel = mediaFactory(media);
     const getUserIdWork = mediaModel.getUserIdWork();
@@ -36,21 +39,12 @@ async function displayData(medias) {
   });
 }
 
-async function displayProfil(profils) {
-  const headerProfil = document.querySelector(".photograph-header");
-  console.log(headerProfil);
-  profils.forEach((profil) => {
-    const profilModel = ProfilFactory(profil);
-    const getDataProfil = profilModel.getDataProfil();
-    headerProfil.appendChild(getDataProfil);
-  });
-}
-
 async function init() {
   // Récupère les datas des photographes
-  const { medias, ProfilPers } = await getDataMedia();
-  displayData(medias, ProfilPers);
-  displayProfil(ProfilPers);
+  const { medias, photographers } = await getDataMedia();
+  console.log(photographers);
+  console.log(medias);
+  displayData(medias, photographers);
 }
 
 init();
