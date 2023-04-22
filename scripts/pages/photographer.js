@@ -5,16 +5,18 @@ async function getDataMedia() {
   const { photographers, media } = await response.json();
   console.log(photographers);
   console.log(media);
-  // // Extraire ID
+  // Extraire ID
   let getUrlId = window.location.search;
   let getParamsId = new URLSearchParams(getUrlId);
   let numberId = getParamsId.get("id");
   console.log(numberId);
 
+  // Filtre Profil
   let filterProfil = photographers;
   let photograhProfil = filterProfil.filter((obj) => obj.id == numberId);
   console.log(photograhProfil);
 
+  // Filtre Médias
   let filterId = media;
   let mediaProfil = filterId.filter((obj) => obj.photographerId == numberId);
   console.log(mediaProfil);

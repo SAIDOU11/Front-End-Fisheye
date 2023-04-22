@@ -4,8 +4,50 @@ function photographerFactory(data) {
 
   function getUserCardDOM() {
     console.log("Give me something !!!!!!!!!!!!!!!");
-    const div = document.createElement("div");
-    return div;
+    const headContainer = document.createElement("div");
+    const headBio = document.createElement("div");
+    const firstLastName = document.createElement("h2");
+    const location = document.createElement("h3");
+    const taglinePhotograph = document.createElement("p");
+
+    headContainer.setAttribute("class", "headContainer");
+
+    headBio.setAttribute("class", "headBio");
+    firstLastName.setAttribute("class", "firstLastName");
+    location.setAttribute("class", "location");
+    taglinePhotograph.setAttribute("class", "taglinePhotograph");
+
+    headBio.appendChild(firstLastName);
+    headBio.appendChild(location);
+    headBio.appendChild(taglinePhotograph);
+
+    firstLastName.textContent = name;
+    location.textContent = `${city}, ${country}`;
+    taglinePhotograph.textContent = tagline;
+
+    const headBtn = document.createElement("div");
+    headBtn.setAttribute("class", "headBtn");
+    const button = document.createElement("button");
+
+    button.setAttribute("type", "button");
+    button.setAttribute("aria-label", "Bouton pour ouvrir la modale contact");
+    button.setAttribute("class", "contact_button button_hover");
+    button.setAttribute("onclick", "displayModal()");
+
+    button.textContent = "Contactez-moi";
+    headBtn.appendChild(button);
+
+    const headPicture = document.createElement("div");
+    headPicture.setAttribute("class", "headPicture");
+    const pictureProfil = document.createElement("img");
+    pictureProfil.setAttribute("src", picture);
+    pictureProfil.setAttribute("alt", `Photo de profil de ${name}`);
+    headPicture.appendChild(pictureProfil);
+
+    headContainer.appendChild(headBio);
+    headContainer.appendChild(headBtn);
+    headContainer.appendChild(headPicture);
+    return headContainer;
   }
 
   return { name, picture, getUserCardDOM };
@@ -15,6 +57,14 @@ function mediaFactory(dataMedia) {
   const { date, id, photographerId, title, image, video, likes } = dataMedia;
   const multimedia = `assets/images/${image}`;
   const multimediaVideo = `assets/images/${video}`;
+
+  const contactPrice = document.querySelector(".contact_price");
+  const divLikes = document.createElement("div");
+  const divPriceDay = document.createElement("div");
+  contactPrice.appendChild(divLikes);
+  contactPrice.appendChild(divPriceDay);
+
+  contactPrice.textContent = `Prixxxxxxxxxxxxxxxx`;
 
   function getUserIdWork() {
     const article = document.createElement("article");
@@ -92,5 +142,5 @@ function mediaFactory(dataMedia) {
     console.log("Give me something ?????????????????????????");
     return div;
   }
-  return { photographerId, getUserIdWork, getDataProfil };
+  return { photographerId, contactPrice, getUserIdWork, getDataProfil };
 }
