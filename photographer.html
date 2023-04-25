@@ -51,65 +51,74 @@
         </div>
       </div>
       <div class="media_section"></div>
-    </main>
-    <dialog role="dialog" id="contact_modal">
-      <div class="modal_header">
-        <h1 class="header_color"></h1>
-        <button type="button" aria-label="Close Contact form" class="close_btn">
-          <img
-            src="assets/icons/close.svg"
-            alt="Fermer la modale"
-            onclick="closeModal()"
-          />
-        </button>
-      </div>
-      <form
-        action="index.html"
-        role="form"
-        method="dialog
-        "
-      >
-        <div class="user-details">
-          <div class="inputLabel">
-            <label for="firstname">Prénom</label>
-            <input type="text" name="name" id="firstname" />
-            <p id="firstnameMessage"></p>
-          </div>
-          <div class="inputLabel">
-            <label for="lastname">Nom</label>
-            <input type="text" name="name" id="lastname" />
-            <p id="lastnameMessage"></p>
-          </div>
-          <div class="inputLabel">
-            <label for="email">Email</label>
-            <input type="text" name="name" id="email" />
-            <p id="emailMessage"></p>
-          </div>
-          <div class="inputLabel">
-            <label for="message">Votre message</label>
-            <input class="message_input" type="text" name="name" id="message" />
-            <p id="messageMessage"></p>
-          </div>
+      <dialog role="dialog" id="contact_modal">
+        <div class="modal_header">
+          <h1 class="header_color"></h1>
+          <button
+            type="button"
+            aria-label="Close Contact form"
+            class="close_btn"
+          >
+            <img
+              src="assets/icons/close.svg"
+              alt="Fermer la modale"
+              onclick="closeModal()"
+            />
+          </button>
         </div>
-        <button
-          type="submit"
-          aria-label="Send"
-          class="contact_button submit_button"
+        <form
+          action="index.html"
+          role="form"
+          method="dialog
+        "
         >
-          Envoyer
-        </button>
-      </form>
-    </dialog>
+          <div class="user-details">
+            <div class="inputLabel">
+              <label for="firstname">Prénom</label>
+              <input type="text" name="name" id="firstname" />
+              <p id="firstnameMessage"></p>
+            </div>
+            <div class="inputLabel">
+              <label for="lastname">Nom</label>
+              <input type="text" name="name" id="lastname" />
+              <p id="lastnameMessage"></p>
+            </div>
+            <div class="inputLabel">
+              <label for="email">Email</label>
+              <input type="text" name="name" id="email" />
+              <p id="emailMessage"></p>
+            </div>
+            <div class="inputLabel">
+              <label for="message">Votre message</label>
+              <input
+                class="message_input"
+                type="text"
+                name="name"
+                id="message"
+              />
+              <p id="messageMessage"></p>
+            </div>
+          </div>
+          <button
+            type="submit"
+            aria-label="Send"
+            class="contact_button submit_button"
+          >
+            Envoyer
+          </button>
+        </form>
+      </dialog>
 
-    <dialog role="dialog" id="lightbox">
-      <div class="contentLightbox">
-        <h3>PLUS GROS TITLE</h3>
-        <p>TITLE Photo</p>
-        <button>PREVIOUS</button>
-        <button>NEXT</button>
-        <button>CLOSE</button>
+      <div role="dialog" id="lightbox">
+        <div class="contentLightbox">
+          <h3>PLUS GROS TITLE</h3>
+          <p>TITLE Photo</p>
+          <button>PREVIOUS</button>
+          <button>NEXT</button>
+          <button class="closeLightbox">CLOSE</button>
+        </div>
       </div>
-    </dialog>
+    </main>
 
     <script
       type="text/javascript"

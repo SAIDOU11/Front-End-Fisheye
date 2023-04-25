@@ -20,7 +20,16 @@ async function getDataMedia() {
   let filterId = media;
   let mediaProfil = filterId.filter((obj) => obj.photographerId == numberId);
   console.log(mediaProfil);
-
+  // *****************************************************************
+  let lightbox = new Lightbox(mediaProfil);
+  console.log(lightbox);
+  document.querySelectorAll(".media_section .divContainer").forEach((event) => {
+    event.addEventListener("click", (e) => {
+      console.log("CLICK ??????????");
+      lightbox.show(e.currentTarget.dataset.id);
+    });
+  });
+  // *****************************************************************
   return { medias: [...mediaProfil], photographers: [...photograhProfil] };
 }
 

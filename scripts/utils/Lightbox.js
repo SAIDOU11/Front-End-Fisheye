@@ -1,29 +1,17 @@
-// const openLightbox = document.querySelector(".lightMedia");
-// console.log(openLightbox);
-// openLightbox.forEach((btn) => btn.addEventListener("click", displayLightbox));
+class Lightbox {
+  constructor(listElement) {
+    this.currentElement = null;
+    this.listElement = listElement;
+    console.log("L 55555555555555555555555555555555555555555");
+  }
+  show(element) {
+    console.log("Show 888888888888888888888888");
+    this.currentElement = element;
+    console.log(element);
+  }
+  next() {}
 
-// function displayLightbox() {
-//   const lightbox = document.getElementById("lightbox");
-//   lightbox.style.display = "block";
-// }
+  previous() {}
 
-/*
-*******************************************************************************************
-
-
-const contactBtn = document.querySelectorAll(".contact_button");
-
-contactBtn.forEach((btn) => btn.addEventListener("click", displayModal));
-
-function displayModal() {
-  const modal = document.getElementById("contact_modal");
-  modal.style.display = "block";
+  manageEvent() {}
 }
-
-function closeModal() {
-  const modal = document.getElementById("contact_modal");
-  modal.style.display = "none";
-}
-
-
-*/

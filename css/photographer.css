@@ -8,19 +8,13 @@
 }
 
 #lightbox {
-  /* padding: 1em;
-  max-width: 50ch; */
   display: none;
   position: fixed;
-  top: 20px;
-  bottom: 20px;
   background-color: #80808080;
-  /* position: fixed;
   width: 100vw;
   height: 100vh;
-
   top: 0px;
-  left: 0px; */
+  left: 0px;
 }
 
 .contentLightbox {
@@ -303,6 +297,7 @@ article .divContainer {
 .divContainer {
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .divContent a img {

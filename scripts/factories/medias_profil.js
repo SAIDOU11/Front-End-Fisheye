@@ -112,10 +112,10 @@ function mediaFactory(dataMedia) {
       picName.setAttribute("title", title);
       picName.setAttribute("role", "link");
       picName.setAttribute("aria-label", `Belle image intitulée : ${title} !`);
+      picName.setAttribute("class", "lightMedia");
 
       pictureArt.setAttribute("src", multimedia);
       pictureArt.setAttribute("alt", `Photo : ${title} `);
-      pictureArt.setAttribute("class", "lightMedia");
 
       divContent.appendChild(picName);
       picName.appendChild(pictureArt);
