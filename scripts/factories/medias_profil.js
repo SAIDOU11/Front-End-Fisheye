@@ -108,12 +108,14 @@ function mediaFactory(dataMedia) {
       const picName = document.createElement("a");
       const pictureArt = document.createElement("img");
 
-      picName.setAttribute("href", "#");
+      picName.setAttribute("class", "lightBox");
+      picName.setAttribute("href", multimedia);
+
       picName.setAttribute("title", title);
       picName.setAttribute("role", "link");
       picName.setAttribute("aria-label", `Belle image intitulée : ${title} !`);
-      picName.setAttribute("class", "lightMedia");
 
+      pictureArt.setAttribute("class", "dialog-lightbox-image");
       pictureArt.setAttribute("src", multimedia);
       pictureArt.setAttribute("alt", `Photo : ${title} `);
 
@@ -123,12 +125,14 @@ function mediaFactory(dataMedia) {
     }
     if (video) {
       const vidName = document.createElement("a");
-      vidName.setAttribute("class", "lightMedia");
+      vidName.setAttribute("class", "lightBox");
+      vidName.setAttribute("href", multimediaVideo);
+
       const videoLink = document.createElement("video");
       videoLink.setAttribute("controls", multimediaVideo);
-      videoLink.setAttribute("class", "lightMedia");
       const sourceVideo = document.createElement("source");
       sourceVideo.setAttribute("src", multimediaVideo);
+      sourceVideo.setAttribute("class", "dialog-lightbox-image");
       sourceVideo.setAttribute("type", "video/mp4");
       sourceVideo.setAttribute("alt", title);
       divContent.appendChild(vidName);

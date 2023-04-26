@@ -3,6 +3,7 @@
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
+
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link
       href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
@@ -111,11 +112,19 @@
 
       <div role="dialog" id="lightbox">
         <div class="contentLightbox">
-          <h3>PLUS GROS TITLE</h3>
-          <p>TITLE Photo</p>
-          <button>PREVIOUS</button>
-          <button>NEXT</button>
-          <button class="closeLightbox">CLOSE</button>
+          <button class="closeLightbox">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <button class="previousLightbox">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="nextLightbox">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+          <div class="lightboxMediaContent">
+            <div class="lightboxMedia"></div>
+            <p>TITLE Photo</p>
+          </div>
         </div>
       </div>
     </main>

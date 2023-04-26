@@ -1,0 +1,21 @@
+#lightbox {
+  /* display: none; */
+  position: fixed;
+  background-color: #80808080;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+}
+
+.contentLightbox {
+  border: #901c1c;
+}
+
+.closeLightbox,
+.previousLightbox,
+.nextLightbox {
+  border: none;
+  background-color: inherit;
+  font-size: 30px;
+}
