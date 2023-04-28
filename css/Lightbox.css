@@ -1,15 +1,65 @@
-#lightbox {
-  /* display: none; */
-  position: fixed;
+.lightbox {
+  /*  display: none; Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  /* display: none;
+  padding: 1em;
+  width: 80%;
   background-color: #80808080;
-  width: 100vw;
-  height: 100vh;
-  top: 0px;
-  left: 0px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 80%;
+  height: 95vh;
+  z-index: 3; */
 }
 
 .contentLightbox {
-  border: #901c1c;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  position: relative;
+  width: 80%;
+  height: 80%;
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+  align-items: center; */
+  gap: 0px;
+}
+
+.contentLightbox button {
+  cursor: pointer;
+}
+
+.closeLightbox {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
+.previousLightbox {
+  position: absolute;
+  top: 50%;
+  left: 25px;
+  height: 35px;
+}
+
+.nextLightbox {
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  height: 35px;
 }
 
 .closeLightbox,
@@ -18,4 +68,35 @@
   border: none;
   background-color: inherit;
   font-size: 30px;
+}
+
+.lightboxMediaContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 90%;
+  width: 90%;
+}
+
+.lightboxMedia {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  width: 100%;
+}
+
+.imageLightbox {
+  width: 100%;
+  max-height: 650px;
+  object-fit: cover;
+}
+
+.lightboxTitle {
+  position: absolute;
+  bottom: 22px;
+  left: 81px;
+  color: #901c1c;
 }

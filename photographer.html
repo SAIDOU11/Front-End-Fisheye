@@ -110,7 +110,7 @@
         </form>
       </dialog>
 
-      <div role="dialog" id="lightbox">
+      <dialog role="dialog" id="lightbox" class="lightbox">
         <div class="contentLightbox">
           <button class="closeLightbox">
             <i class="fa-solid fa-xmark"></i>
@@ -122,11 +122,18 @@
             <i class="fa-solid fa-chevron-right"></i>
           </button>
           <div class="lightboxMediaContent">
-            <div class="lightboxMedia"></div>
-            <p>TITLE Photo</p>
+            <div class="lightboxMedia">
+              <a class="openModal">
+                <!-- <img
+                  class="imageLightbox"
+                  src="./assets/images/Animals_Majesty.jpg"
+                /> -->
+              </a>
+            </div>
+            <p class="lightboxTitle"></p>
           </div>
         </div>
-      </div>
+      </dialog>
     </main>
 
     <script
@@ -136,6 +143,6 @@
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
     <script src="/scripts/utils/validation.js"></script>
-    <script src="scripts/utils/Lightbox.js"></script>
+    <script src="scripts/utils/dialog_lightbox.js"></script>
   </body>
 </html>

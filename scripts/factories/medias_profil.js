@@ -6,7 +6,6 @@ function photographerFactory(data) {
   contactHeader.innerHTML = ` <h1>Contactez-moi <br> ${name}</h1>`;
 
   function getUserCardDOM() {
-    console.log("Give me something !!!!!!!!!!!!!!!");
     const headContainer = document.createElement("div");
     const headBio = document.createElement("div");
     const firstLastName = document.createElement("h2");
@@ -61,6 +60,9 @@ function mediaFactory(dataMedia) {
   const multimedia = `assets/images/${image}`;
   const multimediaVideo = `assets/images/${video}`;
 
+  const lightboxTitle = document.querySelector(".lightboxTitle");
+  lightboxTitle.textContent = title;
+
   const contactPrice = document.querySelector(".contact_price");
   const divLikes = document.createElement("div");
   const divPriceDay = document.createElement("div");
@@ -108,14 +110,14 @@ function mediaFactory(dataMedia) {
       const picName = document.createElement("a");
       const pictureArt = document.createElement("img");
 
-      picName.setAttribute("class", "lightBox");
-      picName.setAttribute("href", multimedia);
+      picName.setAttribute("id", "openModal");
+      // picName.setAttribute("href", multimedia);
 
       picName.setAttribute("title", title);
       picName.setAttribute("role", "link");
       picName.setAttribute("aria-label", `Belle image intitulée : ${title} !`);
 
-      pictureArt.setAttribute("class", "dialog-lightbox-image");
+      pictureArt.setAttribute("id", "dialog-openModal-image");
       pictureArt.setAttribute("src", multimedia);
       pictureArt.setAttribute("alt", `Photo : ${title} `);
 
@@ -125,14 +127,14 @@ function mediaFactory(dataMedia) {
     }
     if (video) {
       const vidName = document.createElement("a");
-      vidName.setAttribute("class", "lightBox");
-      vidName.setAttribute("href", multimediaVideo);
+      vidName.setAttribute("id", "openModal");
+      // vidName.setAttribute("href", multimediaVideo);
 
       const videoLink = document.createElement("video");
       videoLink.setAttribute("controls", multimediaVideo);
       const sourceVideo = document.createElement("source");
       sourceVideo.setAttribute("src", multimediaVideo);
-      sourceVideo.setAttribute("class", "dialog-lightbox-image");
+      // sourceVideo.setAttribute("class", "dialog-openModal-image");
       sourceVideo.setAttribute("type", "video/mp4");
       sourceVideo.setAttribute("alt", title);
       divContent.appendChild(vidName);
