@@ -60,9 +60,6 @@ function mediaFactory(dataMedia) {
   const multimedia = `assets/images/${image}`;
   const multimediaVideo = `assets/images/${video}`;
 
-  const lightboxTitle = document.querySelector(".lightboxTitle");
-  lightboxTitle.textContent = title;
-
   const contactPrice = document.querySelector(".contact_price");
   const divLikes = document.createElement("div");
   const divPriceDay = document.createElement("div");
@@ -110,16 +107,17 @@ function mediaFactory(dataMedia) {
       const picName = document.createElement("a");
       const pictureArt = document.createElement("img");
 
-      picName.setAttribute("id", "openModal");
-      picName.setAttribute("onclick", "openLightbox()");
+      const lightboxTitle = document.querySelector(".lightboxTitle");
+      lightboxTitle.textContent = title;
 
       picName.setAttribute("title", title);
       picName.setAttribute("role", "link");
       picName.setAttribute("aria-label", `Belle image intitulée : ${title} !`);
 
-      pictureArt.setAttribute("id", "dialog-openModal-image");
+      pictureArt.setAttribute("id", "openModal");
       pictureArt.setAttribute("src", multimedia);
       pictureArt.setAttribute("alt", `Photo : ${title} `);
+      pictureArt.setAttribute("onclick", "openLightbox()");
 
       divContent.appendChild(picName);
       picName.appendChild(pictureArt);
@@ -129,13 +127,14 @@ function mediaFactory(dataMedia) {
       const vidName = document.createElement("a");
       vidName.setAttribute("id", "openModal");
       vidName.setAttribute("onclick", "openLightbox()");
+
       // vidName.setAttribute("href", multimediaVideo);
 
       const videoLink = document.createElement("video");
       videoLink.setAttribute("controls", multimediaVideo);
       const sourceVideo = document.createElement("source");
       sourceVideo.setAttribute("src", multimediaVideo);
-      // sourceVideo.setAttribute("class", "dialog-openModal-image");
+
       sourceVideo.setAttribute("type", "video/mp4");
       sourceVideo.setAttribute("alt", title);
       divContent.appendChild(vidName);
