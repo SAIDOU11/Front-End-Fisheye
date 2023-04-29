@@ -111,7 +111,7 @@ function mediaFactory(dataMedia) {
       const pictureArt = document.createElement("img");
 
       picName.setAttribute("id", "openModal");
-      // picName.setAttribute("href", multimedia);
+      picName.setAttribute("onclick", "openLightbox()");
 
       picName.setAttribute("title", title);
       picName.setAttribute("role", "link");
@@ -128,6 +128,7 @@ function mediaFactory(dataMedia) {
     if (video) {
       const vidName = document.createElement("a");
       vidName.setAttribute("id", "openModal");
+      vidName.setAttribute("onclick", "openLightbox()");
       // vidName.setAttribute("href", multimediaVideo);
 
       const videoLink = document.createElement("video");
