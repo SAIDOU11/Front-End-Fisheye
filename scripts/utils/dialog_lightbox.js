@@ -8,3 +8,6 @@ function openLightbox() {
 function closeLightbox() {
   document.getElementById("lightbox").style.display = "none";
 }
+
+const lightboxContent = document.querySelector(".lightbox");
+console.log(lightboxContent);

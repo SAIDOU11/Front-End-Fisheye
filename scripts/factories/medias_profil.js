@@ -88,11 +88,16 @@ function mediaFactory(dataMedia) {
     divLikes.appendChild(numberOfLikes);
     divLikes.appendChild(iconLike);
 
+    article.setAttribute("class", "card");
+    article.setAttribute("data-id", id);
+    article.setAttribute("id", "openModal"); // TEST ..
+    article.setAttribute("onclick", "openLightbox()"); // TEST ..
     divContainer.setAttribute("class", "divContainer");
-    divContainer.setAttribute("data-id", id);
+
     divContainer.setAttribute("data-photographers-id", photographerId);
     divContainer.setAttribute("data-publication-date", date);
     divContainer.setAttribute("data-likes", likes);
+
     divContent.setAttribute("class", "divContent");
     divBanner.setAttribute("class", "divBanner");
     divTitle.setAttribute("class", "divTitle");
@@ -107,17 +112,21 @@ function mediaFactory(dataMedia) {
       const picName = document.createElement("a");
       const pictureArt = document.createElement("img");
 
-      const lightboxTitle = document.querySelector(".lightboxTitle");
-      lightboxTitle.textContent = title;
+      // const imageLightbox = document.querySelector(".imageLightbox"); // ................ test
+      // const imageInModal = document.createElement("img"); // ................ test
+      // imageInModal.setAttribute("src", multimedia); // ................ test
+      // imageLightbox.appendChild(imageInModal); // ................ test
+      // const lightboxTitle = document.querySelector(".lightboxTitle"); // ................ test
+      // lightboxTitle.textContent = title; // ................ test
 
       picName.setAttribute("title", title);
       picName.setAttribute("role", "link");
       picName.setAttribute("aria-label", `Belle image intitulée : ${title} !`);
 
-      pictureArt.setAttribute("id", "openModal");
+      // pictureArt.setAttribute("id", "openModal"); // ................ test
       pictureArt.setAttribute("src", multimedia);
       pictureArt.setAttribute("alt", `Photo : ${title} `);
-      pictureArt.setAttribute("onclick", "openLightbox()");
+      // pictureArt.setAttribute("onclick", "openLightbox()");
 
       divContent.appendChild(picName);
       picName.appendChild(pictureArt);
@@ -125,8 +134,8 @@ function mediaFactory(dataMedia) {
     }
     if (video) {
       const vidName = document.createElement("a");
-      vidName.setAttribute("id", "openModal");
-      vidName.setAttribute("onclick", "openLightbox()");
+      // vidName.setAttribute("id", "openModal"); // ................ test
+      // vidName.setAttribute("onclick", "openLightbox()");
 
       // vidName.setAttribute("href", multimediaVideo);
 
@@ -151,5 +160,6 @@ function mediaFactory(dataMedia) {
     console.log("Give me something ?????????????????????????");
     return div;
   }
+
   return { photographerId, contactPrice, getUserIdWork, getDataProfil };
 }

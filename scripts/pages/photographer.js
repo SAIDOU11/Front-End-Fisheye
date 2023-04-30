@@ -23,12 +23,12 @@ async function getDataMedia() {
   // *****************************************************************
   let lightbox = new Lightbox(mediaProfil);
   console.log(lightbox);
-  document.querySelectorAll(".media_section #openModal ").forEach((event) => {
-    event.addEventListener("click", (e) => {
-      console.log("CLICK ??????????");
-      lightbox.show(e.currentTarget.dataset.id);
-    });
-  });
+  // document.querySelectorAll("#lightbox .openModal").forEach((categoryDom) => {
+  //   categoryDom.addEventListener("click", (e) => {
+  //     console.log("CLICK ??????????");
+  //     lightbox.show(e.currentTarget.dataset.id);
+  //   });
+  // });
   // *****************************************************************
   return { medias: [...mediaProfil], photographers: [...photograhProfil] };
 }
@@ -59,33 +59,3 @@ async function init() {
 }
 
 init();
-
-const dropdowns = document.querySelectorAll(".dropdown");
-console.log(dropdowns);
-
-dropdowns.forEach((dropdown) => {
-  const select = dropdown.querySelector(".select");
-  const arrow = dropdown.querySelector(".arrow");
-  const menu = dropdown.querySelector(".menu");
-  const options = dropdown.querySelectorAll(".menu li");
-  const selected = dropdown.querySelector(".selected");
-
-  select.addEventListener("click", () => {
-    select.classList.toggle("select-clicked");
-    arrow.classList.toggle("arrow-rotate");
-    menu.classList.toggle("menu-open");
-  });
-  // loop options
-  options.forEach((option) => {
-    option.addEventListener("click", () => {
-      selected.innerText = option.innerText;
-      select.classList.remove("select-clicked");
-      arrow.classList.remove("arrow-rotate");
-      menu.classList.remove("menu-open");
-      options.forEach((option) => {
-        option.classList.remove("active");
-      });
-      option.classList.add("active");
-    });
-  });
-});

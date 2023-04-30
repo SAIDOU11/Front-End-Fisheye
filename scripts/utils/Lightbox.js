@@ -3,9 +3,9 @@ class Lightbox {
     this.currentElement = null;
     this.listElement = listElement;
   }
-  show(element) {
-    console.log("Show 888888888888888888888888");
-    this.currentElement = element;
+  show(id) {
+    console.log(id);
+    this.currentElement = this.getElementById(id);
     console.log(element);
   }
   next() {}
@@ -13,4 +13,8 @@ class Lightbox {
   previous() {}
 
   manageEvent() {}
+
+  getElementById(id) {
+    return this.listElement.find((element) => element.id == id);
+  }
 }
