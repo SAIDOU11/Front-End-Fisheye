@@ -1,13 +1,11 @@
 // Open the Modal
-function openLightbox() {
-  document.getElementById("lightbox").style.display = "block";
-  console.log("OPen ? ");
+const lightbox = document.querySelector("#lightbox");
+function openLightbox(e) {
+  lightbox.style.display = "block";
+  console.log("Open ?");
 }
 
 // Close the Modal
 function closeLightbox() {
-  document.getElementById("lightbox").style.display = "none";
+  lightbox.style.display = "none";
 }
-
-const lightboxContent = document.querySelector(".lightbox");
-console.log(lightboxContent);

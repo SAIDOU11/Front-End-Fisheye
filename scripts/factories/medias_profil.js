@@ -1,5 +1,5 @@
 function photographerFactory(data) {
-  const { name, portrait, price, city, country, tagline, id } = data;
+  const { name, portrait, price, city, country, tagline } = data;
   const picture = `assets/photographers/${portrait}`;
 
   const contactHeader = document.querySelector(".header_color");
@@ -163,3 +163,15 @@ function mediaFactory(dataMedia) {
 
   return { photographerId, contactPrice, getUserIdWork, getDataProfil };
 }
+
+// function lightboxFactory(dataMedia) {
+//   const { date, id, photographerId, title, image, video, likes } = dataMedia;
+//   const picture = `assets/photographers/${portrait}`;
+//   function getLightbox() {
+//     const mediaContainer = document.createElement("div");
+//     mediaContainer.setAttribute("class", "lightboxMedia");
+
+//     return mediaContainer;
+//   }
+//   return { title, picture, getLightbox };
+// }

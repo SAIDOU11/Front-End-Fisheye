@@ -21,14 +21,17 @@ async function getDataMedia() {
   let mediaProfil = filterId.filter((obj) => obj.photographerId == numberId);
   console.log(mediaProfil);
   // *****************************************************************
-  let lightbox = new Lightbox(mediaProfil);
+  let lightbox = new LightBox(mediaProfil);
   console.log(lightbox);
-  // document.querySelectorAll("#lightbox .openModal").forEach((categoryDom) => {
-  //   categoryDom.addEventListener("click", (e) => {
-  //     console.log("CLICK ??????????");
-  //     lightbox.show(e.currentTarget.dataset.id);
-  //   });
-  // });
+
+  document.querySelectorAll(".media_section, .card").forEach((categoryDom) => {
+    categoryDom.addEventListener("click", (e) => {
+      console.log(lightbox);
+      lightbox.show(e.currentTarget.dataset.id);
+      // LightBox.run();
+    });
+  });
+
   // *****************************************************************
   return { medias: [...mediaProfil], photographers: [...photograhProfil] };
 }
@@ -38,6 +41,8 @@ async function displayData(medias, photographers) {
   console.log(headerProfil);
   const mediasSection = document.querySelector(".media_section");
   console.log(mediasSection);
+  const contentLightbox = document.querySelector(".contentLightbox");
+  console.log(contentLightbox);
   photographers.forEach((photographer) => {
     const photographerModel = photographerFactory(photographer);
     const userCardDOM = photographerModel.getUserCardDOM();
@@ -53,8 +58,8 @@ async function displayData(medias, photographers) {
 async function init() {
   // Récupère les datas des photographes
   const { medias, photographers } = await getDataMedia();
-  console.log(photographers);
-  console.log(medias);
+  // console.log(photographers);
+  // console.log(medias);
   displayData(medias, photographers);
 }
 
