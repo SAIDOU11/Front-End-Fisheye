@@ -18,6 +18,7 @@ async function getDataMedia() {
 
   // Filtre Médias
   let filterId = media;
+  console.log(filterId);
   let mediaProfil = filterId.filter((obj) => obj.photographerId == numberId);
   console.log(mediaProfil);
   // *****************************************************************

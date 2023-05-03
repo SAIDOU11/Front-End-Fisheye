@@ -3,6 +3,7 @@ async function getPhotographers() {
   let response = await fetch(apiUrl);
   console.log(response);
   let data = await response.json();
+
   console.log(data);
   console.log(data.photographers);
   let photographers = [];

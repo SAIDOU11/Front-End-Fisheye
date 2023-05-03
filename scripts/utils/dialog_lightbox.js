@@ -1,6 +1,6 @@
 // Open the Modal
 const lightbox = document.querySelector("#lightbox");
-function openLightbox(e) {
+function openLightbox() {
   lightbox.style.display = "block";
   console.log("Open ?");
 }
