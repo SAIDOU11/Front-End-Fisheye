@@ -1,6 +1,13 @@
+class Photographer {
+  constructor(json) {
+    json && Object.assign(this, json);
+  }
+}
+
 function photographerFactory(data) {
   const { name, portrait, price, city, country, tagline, id } = data;
   const picture = `assets/photographers/${portrait}`;
+  console.log(picture);
 
   function getUserCardDOM() {
     const article = document.createElement("article");
@@ -12,9 +19,9 @@ function photographerFactory(data) {
     const priceDay = document.createElement("p");
 
     headerName.innerHTML += `
-    <img src=${picture} alt="Photo de profil de ${name}" >
-    ${name}
-    `;
+        <img src=${picture} alt="Photo de profil de ${name}" >
+        ${name}
+        `;
 
     article.setAttribute("class", "article");
     linkPicName.setAttribute("href", `photographer.html?id=${id}`);
@@ -41,5 +48,5 @@ function photographerFactory(data) {
     return article;
   }
 
-  return { name, picture, getUserCardDOM };
+  return { getUserCardDOM, picture };
 }

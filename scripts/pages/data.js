@@ -5,3 +5,11 @@ async function getDataModal() {
   console.log(photographers, media);
   return { photographers, media };
 }
+// async function init() {
+//   // Récupère les datas des photographes
+//   const { photographers } = await getDataModal();
+//   console.log(photographers);
+//   displayData(photographers);
+// }
+
+// init();

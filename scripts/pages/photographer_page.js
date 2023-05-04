@@ -1,21 +1,12 @@
-async function getPhotographers() {
-  let apiUrl = "./data/photographers.json";
-  let response = await fetch(apiUrl);
-  console.log(response);
-  let data = await response.json();
-
-  console.log(data);
-  console.log(data.photographers);
-  let photographers = [];
-  photographers.push(data.photographers);
+getDataModal().then((result) => {
+  console.log(result);
+  const { photographers } = result;
   console.log(photographers);
-  let medias = [];
-  medias.push(data.media);
-  return {
-    photographers: [...photographers[0]],
-    medias: [...medias],
-  };
-}
+  let listPhotographers = photographers.map(
+    (photographer) => new Photographer(photographer)
+  );
+  console.log(listPhotographers);
+});
 
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
@@ -29,7 +20,7 @@ async function displayData(photographers) {
 
 async function init() {
   // Récupère les datas des photographes
-  const { photographers } = await getPhotographers();
+  const { photographers } = await getDataModal();
   console.log(photographers);
   displayData(photographers);
 }
