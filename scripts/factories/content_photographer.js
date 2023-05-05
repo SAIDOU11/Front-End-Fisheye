@@ -23,12 +23,14 @@ function photographerFactory(data) {
         `;
 
     article.setAttribute("class", "article");
-    linkPicName.setAttribute("href", `photographer.html?id=${id}`);
+    // linkPicName.setAttribute("href", `photographer.html?id=${id}`);
     linkPicName.setAttribute("title", `Voir la page de ${name}`);
     linkPicName.setAttribute("role", "link");
-    linkPicName.setAttribute("target", "blank");
+    // linkPicName.setAttribute("target", "blank");
     divContainer.setAttribute("class", "textContainer");
     headerName.setAttribute("class", "headerName");
+    headerName.setAttribute("onclick", `logID(${id})`);
+
     priceDay.setAttribute("class", "price");
     cityCountry.setAttribute("class", "city-country");
     paraTag.setAttribute("class", "tagline");
