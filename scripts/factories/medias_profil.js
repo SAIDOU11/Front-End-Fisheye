@@ -57,11 +57,9 @@ function photographerFactory(data) {
 
 function mediaFactory(dataMedia) {
   const { date, id, photographerId, title, image, video, likes } = dataMedia;
+
   const multimedia = `assets/images/${image}`;
   const multimediaVideo = `assets/images/${video}`;
-
-  const lightboxTitle = document.querySelector(".lightboxTitle");
-  lightboxTitle.textContent = title;
 
   const contactPrice = document.querySelector(".contact_price");
   const divLikes = document.createElement("div");
@@ -134,7 +132,7 @@ function mediaFactory(dataMedia) {
       sourceVideo.setAttribute("src", multimediaVideo);
       // sourceVideo.setAttribute("class", "dialog-openModal-image");
       sourceVideo.setAttribute("type", "video/mp4");
-      sourceVideo.setAttribute("alt", title);
+      sourceVideo.setAttribute("alt", `Vidéo : ${title}`);
       divContent.appendChild(vidName);
       vidName.appendChild(videoLink);
       videoLink.appendChild(sourceVideo);
@@ -142,12 +140,67 @@ function mediaFactory(dataMedia) {
 
     return article;
   }
-  // function getDataProfil() {
-  //   const div = document.createElement("div");
-  //   const div2 = document.createElement("div");
-  //   div.appendChild(div2);
+
+  // function contentModal() {
+  //   const divContentLightbox = document.createElement("div");
+  //   const close = document.createElement("button");
+  //   const iconX = document.createElement("i");
+  //   iconX.setAttribute("class", "fa-solid fa-xmark");
+  //   close.appendChild(iconX);
+  //   close.setAttribute("class", "closeLightbox ");
+  //   close.setAttribute("onclick", "closeModal()");
+  //   divContentLightbox.appendChild(close);
+  //   const previous = document.createElement("button");
+  //   previous.setAttribute("class", "previousLightbox");
+  //   const iconPrev = document.createElement("i");
+  //   iconPrev.setAttribute("class", "fa-solid fa-chevron-left");
+  //   previous.appendChild(iconPrev);
+  //   divContentLightbox.appendChild(previous);
+  //   const next = document.createElement("button");
+  //   next.setAttribute("class", "nextLightbox");
+  //   const iconNext = document.createElement("i");
+  //   iconNext.setAttribute("class", "fa-solid fa-chevron-right");
+  //   next.appendChild(iconNext);
+  //   divContentLightbox.appendChild(next);
+  //   divContentLightbox.setAttribute("class", "contentLightbox");
+  //   console.log(divContentLightbox);
+  //   const lightboxMediaContent = document.createElement("div");
+  //   lightboxMediaContent.setAttribute("class", "lightboxMediaContent");
+  //   const lightboxMedia = document.createElement("div");
+  //   divContentLightbox.appendChild(lightboxMediaContent);
+  //   lightboxMediaContent.appendChild(lightboxMedia);
+  //   lightboxMedia.setAttribute("class", "lightboxMedia");
+
+  //   if (image) {
+  //     const imgModal = document.querySelector("#imageLightbox");
+  //     console.log(imgModal);
+  //     imgModal.textContent += multimedia;
+  //     const pictureModal = document.querySelector("imageLightbox");
+  //     // pictureModal.setAttribute("class", "imageLightbox");
+  //     pictureModal.setAttribute("src", multimedia);
+  //     pictureModal.setAttribute("alt", `Photo : ${title} `);
+  //     lightboxMedia.appendChild(picName);
+  //     picName.appendChild(pictureModal);
+  //     pictureModal.textContent = image;
+  //   }
+  //   if (video) {
+  //     const videoModal = document.createElement("video");
+  //     videoModal.setAttribute("class", "videoLightBox");
+  //     videoModal.setAttribute("controls", multimediaVideo);
+  //     // const sourceVideo = document.createElement("source");
+  //     // sourceVideo.setAttribute("src", multimediaVideo);
+  //     // sourceVideo.setAttribute("class", "dialog-openModal-image");
+  //     // sourceVideo.setAttribute("type", "video/mp4");
+  //     videoModal.setAttribute("alt", `Vidéo : ${title}`);
+  //     // lightboxMediaContent.appendChild(vidName);
+  //     lightboxMedia.appendChild(videoModal);
+  //     videoModal.textContent = video;
+  //   }
   //   console.log("Give me something ?????????????????????????");
-  //   return div;getDataProfil
-  // }
+  //   const lightboxTitle = document.createElement("p");
+  //   lightboxTitle.setAttribute("class", "lightboxTitle");
+  //   lightboxTitle.textContent = title;
+  //   return;
+  // }contentModal
   return { contactPrice, getUserIdWork };
 }

@@ -1,22 +1,21 @@
-// class Profil {
-//   constructor(json) {
-//     json && Object.assign(this.json);
-//   }
-// }
-
 class LightBox {
-  constructor(json, listElement) {
-    json && Object.assign(this.json);
+  constructor(listElement) {
     this.currentElement = null;
     this.listElement = listElement;
-    console.log(typeof listElement);
+    console.log(listElement);
   }
-  show(id) {
-    this.currentElement = this.getElementById(id);
-    document.querySelectorAll(
-      ".lightbox, .contentLightbox .imageLightbox"
-    ).src = this.currentElement.picture;
+  show(element) {
+    const { date, id, photographerId, title, image, video, likes } =
+      listElement;
+    this.id = element;
+
+    console.log(id, element, listElement, this.listElement);
   }
+  // show(id) {
+  //   this.currentElement = this.getElementById(id);
+  //   document.querySelector("#lightbox").src = this.currentElement.picture;
+  //   console.log(id);
+  // }
   next() {}
 
   previous() {}

@@ -21,14 +21,17 @@ async function getDataMedia() {
   let mediaProfil = filterId.filter((obj) => obj.photographerId == numberId);
   console.log(mediaProfil);
   // *****************************************************************
-  // let lightbox = new Lightbox(mediaProfil);
-  // console.log(lightbox);
-  // document.querySelectorAll(".media_section .divContainer").forEach((event) => {
-  //   event.addEventListener("click", (e) => {
+
+  let lightbox = new LightBox(mediaProfil);
+  console.log(lightbox);
+  // document.querySelectorAll(".media_section, .card").forEach((event) => {
+  //   document.addEventListener("click", (e) => {
   //     console.log("CLICK ??????????");
   //     lightbox.show(e.currentTarget.dataset.id);
+  //     // lightbox.run();
   //   });
   // });
+
   // *****************************************************************
   return { medias: [...mediaProfil], photographers: [...photograhProfil] };
 }
@@ -49,6 +52,11 @@ async function displayData(medias, photographers) {
     const mediaModel = mediaFactory(media);
     const getUserIdWork = mediaModel.getUserIdWork();
     mediasSection.appendChild(getUserIdWork);
+    // const lightbox = document.querySelector("lightbox");
+    // console.log(lightbox);
+    // const modalBloc = mediaFactory(media);
+    // const contentModal = modalBloc.contentModal();
+    // lightbox.appendChild(contentModal);
   });
 }
 
