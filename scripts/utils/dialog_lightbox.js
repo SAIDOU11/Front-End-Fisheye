@@ -1,8 +1,8 @@
 // Open the Modal
 
-function openLightbox() {
+function openLightbox(clicked_id) {
   document.querySelector("#lightbox").style.display = "block";
-  console.log("Open ?");
+  console.log("Open ?", clicked_id);
 }
 
 // Close the Modal

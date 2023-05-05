@@ -1,8 +1,8 @@
-class Profil {
-  constructor(json) {
-    json && Object.assign(this.json);
-  }
-}
+// class Profil {
+//   constructor(json) {
+//     json && Object.assign(this.json);
+//   }
+// }
 
 class LightBox {
   constructor(json, listElement) {

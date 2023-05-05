@@ -1,4 +1,4 @@
-getDataModal().then((result) => {
+async function getDataMedia() {
   let apiUrl = "./data/photographers.json";
   let response = await fetch(apiUrl);
   // let data = await response.json();
@@ -18,37 +18,33 @@ getDataModal().then((result) => {
 
   // Filtre Médias
   let filterId = media;
-  console.log(filterId);
   let mediaProfil = filterId.filter((obj) => obj.photographerId == numberId);
   console.log(mediaProfil);
   // *****************************************************************
-  let lightbox = new LightBox(mediaProfil);
-  console.log(lightbox);
-
-  document.querySelectorAll(".media_section, .card").forEach((categoryDom) => {
-    categoryDom.addEventListener("click", (e) => {
-      console.log(lightbox);
-      lightbox.show(e.currentTarget.dataset.id);
-      // LightBox.run();
-    });
-  });
-
+  // let lightbox = new Lightbox(mediaProfil);
+  // console.log(lightbox);
+  // document.querySelectorAll(".media_section .divContainer").forEach((event) => {
+  //   event.addEventListener("click", (e) => {
+  //     console.log("CLICK ??????????");
+  //     lightbox.show(e.currentTarget.dataset.id);
+  //   });
+  // });
   // *****************************************************************
   return { medias: [...mediaProfil], photographers: [...photograhProfil] };
-})
+}
 
 async function displayData(medias, photographers) {
   const headerProfil = document.querySelector(".photograph-header");
   console.log(headerProfil);
   const mediasSection = document.querySelector(".media_section");
   console.log(mediasSection);
-  const contentLightbox = document.querySelector(".contentLightbox");
-  console.log(contentLightbox);
+
   photographers.forEach((photographer) => {
     const photographerModel = photographerFactory(photographer);
     const userCardDOM = photographerModel.getUserCardDOM();
     headerProfil.appendChild(userCardDOM);
   });
+
   medias.forEach((media) => {
     const mediaModel = mediaFactory(media);
     const getUserIdWork = mediaModel.getUserIdWork();
@@ -56,12 +52,12 @@ async function displayData(medias, photographers) {
   });
 }
 
-init().then(medias, (photographers) => {
+async function init() {
   // Récupère les datas des photographes
-  // const { medias, photographers } = await getDataMedia();
-  // console.log(photographers);
-  // console.log(medias);
+  const { medias, photographers } = await getDataMedia();
+  console.log(photographers);
+  console.log(medias);
   displayData(medias, photographers);
-});
+}
 
 init();
