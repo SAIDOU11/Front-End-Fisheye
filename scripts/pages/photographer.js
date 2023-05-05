@@ -1,4 +1,4 @@
-async function getDataMedia() {
+getDataModal().then((result) => {
   let apiUrl = "./data/photographers.json";
   let response = await fetch(apiUrl);
   // let data = await response.json();
@@ -35,7 +35,7 @@ async function getDataMedia() {
 
   // *****************************************************************
   return { medias: [...mediaProfil], photographers: [...photograhProfil] };
-}
+})
 
 async function displayData(medias, photographers) {
   const headerProfil = document.querySelector(".photograph-header");
@@ -56,12 +56,12 @@ async function displayData(medias, photographers) {
   });
 }
 
-async function init() {
+init().then(medias, (photographers) => {
   // Récupère les datas des photographes
-  const { medias, photographers } = await getDataMedia();
+  // const { medias, photographers } = await getDataMedia();
   // console.log(photographers);
   // console.log(medias);
   displayData(medias, photographers);
-}
+});
 
 init();

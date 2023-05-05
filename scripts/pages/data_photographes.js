@@ -1,16 +1,13 @@
-getDataModal().then((result) => {
-  console.log(result);
-  const { photographers } = result;
-  console.log(photographers);
-  let listPhotographers = photographers.map(
-    (photographer) => new Photographer(photographer)
-  );
-  console.log(listPhotographers);
-});
+async function getDataModal() {
+  let apiUrl = "./data/photographers.json";
+  let response = await fetch(apiUrl);
+  const { photographers, media } = await response.json();
+  console.log(photographers, media);
+  return { photographers, media };
+}
 
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
-
   photographers.forEach((photographer) => {
     const photographerModel = photographerFactory(photographer);
     const userCardDOM = photographerModel.getUserCardDOM();
@@ -20,9 +17,9 @@ async function displayData(photographers) {
 
 async function init() {
   // Récupère les datas des photographes
-  const { photographers } = await getDataModal();
-  console.log(photographers);
-  displayData(photographers);
+  const { photographers, media } = await getDataModal();
+  console.log(photographers, media);
+  displayData(photographers, media);
 }
 
 init();
