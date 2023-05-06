@@ -1,5 +1,3 @@
-// import { LightBox } from "../utils/Lightbox.js";
-
 async function getDataMedia() {
   let apiUrl = "./data/photographers.json";
   let response = await fetch(apiUrl);
@@ -7,7 +5,6 @@ async function getDataMedia() {
   const { photographers, media } = await response.json();
   console.log(photographers);
   console.log(media);
-
   // Extraire ID
   let getUrlId = window.location.search;
   let getParamsId = new URLSearchParams(getUrlId);
@@ -24,26 +21,6 @@ async function getDataMedia() {
   let mediaProfil = filterId.filter((obj) => obj.photographerId == numberId);
   console.log(mediaProfil);
   // *****************************************************************
-  // for (let photographer of mediaProfil) {
-  //   let lightbox = new LightBox(
-  //     photographer.id,
-  //     photographer.image,
-  //     photographer.video,
-  //     photographer.title
-  //   );
-  //   console.log(lightbox);
-  //   document.querySelectorAll(".media_section, .card").forEach((document) => {
-  //     document.addEventListener("click", () => {
-  //       console.log(
-  //         "CLICK ??????????",
-  //         photographer.id,
-  //         photographer.image,
-  //         photographer.video,
-  //         photographer.title
-  //       );
-  //     });
-  //   });
-  // }
 
   // *****************************************************************
   return { medias: [...mediaProfil], photographers: [...photograhProfil] };
@@ -58,16 +35,19 @@ async function displayLightbox(medias) {
       photographer.title
     );
     console.log(lightbox);
-    document.addEventListener("click", (e) => {
-      console.log(e.target.id);
-      lightbox.show(e.target.id);
-      console.log(
-        "CLICK ??????????",
-        photographer.id,
-        photographer.image,
-        photographer.video,
-        photographer.title
-      );
+    document.querySelectorAll(".media_section, .card").forEach((document) => {
+      document.addEventListener("click", (e) => {
+        console.log(e);
+        console.log(e.target.id);
+        lightbox.show(e.target.id, e.target.currentSrc);
+        console.log(
+          "CLICK ??????????",
+          photographer.id,
+          photographer.image,
+          photographer.video,
+          photographer.title
+        );
+      });
     });
   });
 }
@@ -83,16 +63,16 @@ async function displayData(medias, photographers) {
     const userCardDOM = photographerModel.getUserCardDOM();
     headerProfil.appendChild(userCardDOM);
   });
-
+  const lightbox = document.querySelector(".lightbox");
+  console.log(lightbox);
   medias.forEach((media) => {
     const mediaModel = mediaFactory(media);
     const getUserIdWork = mediaModel.getUserIdWork();
     mediasSection.appendChild(getUserIdWork);
-    // const lightbox = document.querySelector("lightbox");
-    // console.log(lightbox);
-    // const modalBloc = mediaFactory(media);
-    // const contentModal = modalBloc.contentModal();
-    // lightbox.appendChild(contentModal);
+
+    const modalBloc = mediaFactory(media);
+    const contentModal = modalBloc.contentModal();
+    lightbox.appendChild(contentModal);
   });
 }
 

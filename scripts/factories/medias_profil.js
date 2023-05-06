@@ -1,10 +1,8 @@
 function photographerFactory(data) {
   const { name, portrait, price, city, country, tagline, id } = data;
   const picture = `assets/photographers/${portrait}`;
-
   const contactHeader = document.querySelector(".header_color");
   contactHeader.innerHTML = ` <h1>Contactez-moi <br> ${name}</h1>`;
-
   function getUserCardDOM() {
     const headContainer = document.createElement("div");
     const headBio = document.createElement("div");
@@ -106,50 +104,21 @@ function mediaFactory(dataMedia) {
     numberOfLikes.textContent = likes;
 
     if (image) {
-      let lightboxTitle = document.querySelector(".lightboxTitle");
-      console.log(lightboxTitle);
-      lightboxTitle.textContent = title;
-      let imageLightbox = document.querySelector(".imageLightbox");
-      console.log(imageLightbox);
-      imageLightbox.setAttribute("src", `${multimedia}`);
       const picName = document.createElement("a");
       const pictureArt = document.createElement("img");
 
       picName.setAttribute("title", title);
       picName.setAttribute("role", "link");
       picName.setAttribute("aria-label", `Belle image intitulée : ${title} !`);
-
       pictureArt.setAttribute("id", `${id}`);
       pictureArt.setAttribute("src", multimedia);
       pictureArt.setAttribute("alt", `Photo : ${title} `);
-
       divContent.appendChild(picName);
       picName.appendChild(pictureArt);
       pictureArt.textContent = image;
     }
     if (video) {
-      // const videoLink = document.createElement("video");
-      // videoLink.setAttribute("controls", multimediaVideo);
-      // const sourceVideo = document.createElement("source");
-      // sourceVideo.setAttribute("src", multimediaVideo);
-      // sourceVideo.setAttribute("type", "video/mp4");
-      let videoLightbox = document.querySelector(".videoLightbox");
-      videoLightbox.setAttribute("controls", multimediaVideo);
-      console.log(videoLightbox);
-      const sourceModal = document.createElement("source");
-      sourceModal.setAttribute("src", multimediaVideo);
-      videoLightbox.setAttribute("src", `${multimediaVideo}`);
-      videoLightbox.appendChild(sourceModal);
-      let lightboxTitle = document.querySelector(".lightboxTitle");
-      console.log(lightboxTitle);
-      lightboxTitle.textContent = title;
-      // const lightboxTitle = document.querySelector(".lightboxTitle");
-      // lightboxTitle.textContent = title;
-      // console.log(lightboxTitle);
       const vidName = document.createElement("a");
-
-      // vidName.setAttribute("href", multimediaVideo);
-
       const videoLink = document.createElement("video");
       videoLink.setAttribute("controls", multimediaVideo);
       const sourceVideo = document.createElement("source");
@@ -164,66 +133,42 @@ function mediaFactory(dataMedia) {
     return article;
   }
 
-  // function contentModal() {
-  //   const divContentLightbox = document.createElement("div");
-  //   const close = document.createElement("button");
-  //   const iconX = document.createElement("i");
-  //   iconX.setAttribute("class", "fa-solid fa-xmark");
-  //   close.appendChild(iconX);
-  //   close.setAttribute("class", "closeLightbox ");
-  //   close.setAttribute("onclick", "closeModal()");
-  //   divContentLightbox.appendChild(close);
-  //   const previous = document.createElement("button");
-  //   previous.setAttribute("class", "previousLightbox");
-  //   const iconPrev = document.createElement("i");
-  //   iconPrev.setAttribute("class", "fa-solid fa-chevron-left");
-  //   previous.appendChild(iconPrev);
-  //   divContentLightbox.appendChild(previous);
-  //   const next = document.createElement("button");
-  //   next.setAttribute("class", "nextLightbox");
-  //   const iconNext = document.createElement("i");
-  //   iconNext.setAttribute("class", "fa-solid fa-chevron-right");
-  //   next.appendChild(iconNext);
-  //   divContentLightbox.appendChild(next);
-  //   divContentLightbox.setAttribute("class", "contentLightbox");
-  //   console.log(divContentLightbox);
-  //   const lightboxMediaContent = document.createElement("div");
-  //   lightboxMediaContent.setAttribute("class", "lightboxMediaContent");
-  //   const lightboxMedia = document.createElement("div");
-  //   divContentLightbox.appendChild(lightboxMediaContent);
-  //   lightboxMediaContent.appendChild(lightboxMedia);
-  //   lightboxMedia.setAttribute("class", "lightboxMedia");
+  function contentModal() {
+    const divContentLightbox = document.querySelector(".contentLightbox");
+    const lightboxMediaContent = document.querySelector(
+      ".lightboxMediaContent"
+    );
+    const lightboxMedia = document.createElement("div");
+    lightboxMedia.setAttribute("class", "lightboxMedia");
+    divContentLightbox.appendChild(lightboxMediaContent);
+    lightboxMediaContent.appendChild(lightboxMedia);
 
-  //   if (image) {
-  //     const imgModal = document.querySelector("#imageLightbox");
-  //     console.log(imgModal);
-  //     imgModal.textContent += multimedia;
-  //     const pictureModal = document.querySelector("imageLightbox");
-  //     // pictureModal.setAttribute("class", "imageLightbox");
-  //     pictureModal.setAttribute("src", multimedia);
-  //     pictureModal.setAttribute("alt", `Photo : ${title} `);
-  //     lightboxMedia.appendChild(picName);
-  //     picName.appendChild(pictureModal);
-  //     pictureModal.textContent = image;
-  //   }
-  //   if (video) {
-  //     const videoModal = document.createElement("video");
-  //     videoModal.setAttribute("class", "videoLightBox");
-  //     videoModal.setAttribute("controls", multimediaVideo);
-  //     // const sourceVideo = document.createElement("source");
-  //     // sourceVideo.setAttribute("src", multimediaVideo);
-  //     // sourceVideo.setAttribute("class", "dialog-openModal-image");
-  //     // sourceVideo.setAttribute("type", "video/mp4");
-  //     videoModal.setAttribute("alt", `Vidéo : ${title}`);
-  //     // lightboxMediaContent.appendChild(vidName);
-  //     lightboxMedia.appendChild(videoModal);
-  //     videoModal.textContent = video;
-  //   }
-  //   console.log("Give me something ?????????????????????????");
-  //   const lightboxTitle = document.createElement("p");
-  //   lightboxTitle.setAttribute("class", "lightboxTitle");
-  //   lightboxTitle.textContent = title;
-  //   return;
-  // }contentModal
-  return { contactPrice, getUserIdWork };
+    if (image) {
+      const pictureModal = document.createElement("img");
+      pictureModal.setAttribute("class", "imageLightbox");
+      pictureModal.setAttribute("src", multimedia);
+      pictureModal.setAttribute("alt", `Photo : ${title} `);
+      lightboxMedia.appendChild(pictureModal);
+    }
+    if (video) {
+      const videoModal = document.createElement("video");
+      videoModal.setAttribute("class", "videoLightBox");
+      videoModal.setAttribute("controls", multimediaVideo);
+      const sourceLightbox = document.createElement("source");
+      sourceLightbox.setAttribute("src", multimediaVideo);
+      sourceLightbox.setAttribute("class", "dialog-openModal-image");
+      sourceLightbox.setAttribute("type", "video/mp4");
+      videoModal.setAttribute("alt", `Vidéo : ${title}`);
+      videoModal.appendChild(sourceLightbox);
+      lightboxMedia.appendChild(videoModal);
+    }
+    console.log("Give me something ?????????????????????????");
+    const lightboxTitle = document.createElement("p");
+    lightboxTitle.setAttribute("class", "lightboxTitle");
+    lightboxTitle.textContent = title;
+    lightboxMedia.appendChild(lightboxTitle);
+
+    return divContentLightbox;
+  }
+  return { contactPrice, getUserIdWork, contentModal };
 }

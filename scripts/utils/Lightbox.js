@@ -8,10 +8,12 @@ class LightBox {
   show(element) {
     this.element = element;
     console.log(element);
+    document.querySelector(".lightboxMedia").classList.add("show");
+    // document.querySelector(."lightboxMedia")
+    // document.querySelector(".lightboxMedia");
+    // let slides = document.querySelector(".lightboxMedia");
+    // console.log(slides);
   }
-  // getElementById(id) {
-  //   return this.id.find((element) => element.id == id);
-  // }
 }
 
 /* *******************************************************************************
