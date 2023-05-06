@@ -106,6 +106,12 @@ function mediaFactory(dataMedia) {
     numberOfLikes.textContent = likes;
 
     if (image) {
+      let lightboxTitle = document.querySelector(".lightboxTitle");
+      console.log(lightboxTitle);
+      lightboxTitle.textContent = title;
+      let imageLightbox = document.querySelector(".imageLightbox");
+      console.log(imageLightbox);
+      imageLightbox.setAttribute("src", `${multimedia}`);
       const picName = document.createElement("a");
       const pictureArt = document.createElement("img");
 
@@ -113,7 +119,7 @@ function mediaFactory(dataMedia) {
       picName.setAttribute("role", "link");
       picName.setAttribute("aria-label", `Belle image intitulée : ${title} !`);
 
-      pictureArt.setAttribute("id", "dialog-openModal-image");
+      pictureArt.setAttribute("id", `${id}`);
       pictureArt.setAttribute("src", multimedia);
       pictureArt.setAttribute("alt", `Photo : ${title} `);
 
@@ -122,6 +128,24 @@ function mediaFactory(dataMedia) {
       pictureArt.textContent = image;
     }
     if (video) {
+      // const videoLink = document.createElement("video");
+      // videoLink.setAttribute("controls", multimediaVideo);
+      // const sourceVideo = document.createElement("source");
+      // sourceVideo.setAttribute("src", multimediaVideo);
+      // sourceVideo.setAttribute("type", "video/mp4");
+      let videoLightbox = document.querySelector(".videoLightbox");
+      videoLightbox.setAttribute("controls", multimediaVideo);
+      console.log(videoLightbox);
+      const sourceModal = document.createElement("source");
+      sourceModal.setAttribute("src", multimediaVideo);
+      videoLightbox.setAttribute("src", `${multimediaVideo}`);
+      videoLightbox.appendChild(sourceModal);
+      let lightboxTitle = document.querySelector(".lightboxTitle");
+      console.log(lightboxTitle);
+      lightboxTitle.textContent = title;
+      // const lightboxTitle = document.querySelector(".lightboxTitle");
+      // lightboxTitle.textContent = title;
+      // console.log(lightboxTitle);
       const vidName = document.createElement("a");
 
       // vidName.setAttribute("href", multimediaVideo);
@@ -130,7 +154,6 @@ function mediaFactory(dataMedia) {
       videoLink.setAttribute("controls", multimediaVideo);
       const sourceVideo = document.createElement("source");
       sourceVideo.setAttribute("src", multimediaVideo);
-      // sourceVideo.setAttribute("class", "dialog-openModal-image");
       sourceVideo.setAttribute("type", "video/mp4");
       sourceVideo.setAttribute("alt", `Vidéo : ${title}`);
       divContent.appendChild(vidName);

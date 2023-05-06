@@ -1,3 +1,5 @@
+// import { LightBox } from "../utils/Lightbox.js";
+
 async function getDataMedia() {
   let apiUrl = "./data/photographers.json";
   let response = await fetch(apiUrl);
@@ -5,6 +7,7 @@ async function getDataMedia() {
   const { photographers, media } = await response.json();
   console.log(photographers);
   console.log(media);
+
   // Extraire ID
   let getUrlId = window.location.search;
   let getParamsId = new URLSearchParams(getUrlId);
@@ -21,19 +24,52 @@ async function getDataMedia() {
   let mediaProfil = filterId.filter((obj) => obj.photographerId == numberId);
   console.log(mediaProfil);
   // *****************************************************************
-
-  let lightbox = new LightBox(mediaProfil);
-  console.log(lightbox);
-  // document.querySelectorAll(".media_section, .card").forEach((event) => {
-  //   document.addEventListener("click", (e) => {
-  //     console.log("CLICK ??????????");
-  //     lightbox.show(e.currentTarget.dataset.id);
-  //     // lightbox.run();
+  // for (let photographer of mediaProfil) {
+  //   let lightbox = new LightBox(
+  //     photographer.id,
+  //     photographer.image,
+  //     photographer.video,
+  //     photographer.title
+  //   );
+  //   console.log(lightbox);
+  //   document.querySelectorAll(".media_section, .card").forEach((document) => {
+  //     document.addEventListener("click", () => {
+  //       console.log(
+  //         "CLICK ??????????",
+  //         photographer.id,
+  //         photographer.image,
+  //         photographer.video,
+  //         photographer.title
+  //       );
+  //     });
   //   });
-  // });
+  // }
 
   // *****************************************************************
   return { medias: [...mediaProfil], photographers: [...photograhProfil] };
+}
+
+async function displayLightbox(medias) {
+  medias.forEach((photographer) => {
+    let lightbox = new LightBox(
+      photographer.id,
+      photographer.image,
+      photographer.video,
+      photographer.title
+    );
+    console.log(lightbox);
+    document.addEventListener("click", (e) => {
+      console.log(e.target.id);
+      lightbox.show(e.target.id);
+      console.log(
+        "CLICK ??????????",
+        photographer.id,
+        photographer.image,
+        photographer.video,
+        photographer.title
+      );
+    });
+  });
 }
 
 async function displayData(medias, photographers) {
@@ -66,6 +102,7 @@ async function init() {
   console.log(photographers);
   console.log(medias);
   displayData(medias, photographers);
+  displayLightbox(medias);
 }
 
 init();
