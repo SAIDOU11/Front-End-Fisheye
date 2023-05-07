@@ -87,12 +87,12 @@ function mediaFactory(dataMedia) {
     divLikes.appendChild(numberOfLikes);
     divLikes.appendChild(iconLike);
 
-    article.setAttribute("onclick", `openLightbox(${id})`);
     divContainer.setAttribute("class", "divContainer");
     divContainer.setAttribute("data-id", id);
     divContainer.setAttribute("data-photographers-id", photographerId);
     divContainer.setAttribute("data-publication-date", date);
     divContainer.setAttribute("data-likes", likes);
+    divContent.setAttribute("onclick", `openLightbox(${id})`);
     divContent.setAttribute("class", "divContent");
     divBanner.setAttribute("class", "divBanner");
     divTitle.setAttribute("class", "divTitle");
@@ -140,6 +140,7 @@ function mediaFactory(dataMedia) {
     );
     const lightboxMedia = document.createElement("div");
     lightboxMedia.setAttribute("class", "lightboxMedia");
+    lightboxMedia.setAttribute("id", `${id}`);
     divContentLightbox.appendChild(lightboxMediaContent);
     lightboxMediaContent.appendChild(lightboxMedia);
 

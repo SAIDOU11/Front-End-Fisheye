@@ -1,13 +1,22 @@
-getDataMedia().then((result) => {
-  let media = result;
-  console.log(media);
-});
-
 // Open the Modal
-//title
+
 function openLightbox(clicked_id) {
   document.querySelector("#lightbox").style.display = "block";
   console.log("Open ?", clicked_id);
+  showSlides(clicked_id);
+  currentSlide(clicked_id);
+
+  const previous = document.querySelector(".previousLightbox");
+  previous.addEventListener("click", () => {
+    console.log("previous?");
+    plusSlides(-1);
+  });
+
+  const next = document.querySelector(".nextLightbox");
+  next.addEventListener("click", () => {
+    console.log("next?");
+    plusSlides(1);
+  });
 }
 
 // Close the Modal
@@ -15,71 +24,30 @@ function closeLightbox() {
   document.querySelector("#lightbox").style.display = "none";
 }
 
-async function displayLightbox(medias) {
-  medias.forEach((photographer) => {
-    let lightbox = new LightBox(
-      photographer.id,
-      photographer.image,
-      photographer.video,
-      photographer.title
-    );
+let slideIndex = 1;
+showSlides(slideIndex);
 
-    console.log(lightbox);
-    document.querySelectorAll(".media_section, .card").forEach((document) => {
-      document.addEventListener("click", (e) => {
-        console.log(e.target.id);
-        lightbox.show(e.target.id);
-        console.log(
-          "CLICK ??????????",
-          photographer.id,
-          photographer.image,
-          photographer.video,
-          photographer.title
-        );
-      });
-    });
-  });
+// Next/previous controls
+function plusSlides(n) {
+  showSlides((slideIndex += n));
 }
 
-// onclick="plusSlides(1)" NEXT
-
-// onclick="plusSlides(-1)" PREVIOUS
-
-// let slideIndex = 1;
-// showSlides(slideIndex);
-
-// // Next/previous controls
-// function plusSlides(n) {
-//   showSlides((slideIndex += n));
-// }
-
-// function currentSlide(n) {
-//   showSlides((slideIndex = n));
-// }
-
-// function showSlides(n) {
-//   let i;
-//   let slides = document.querySelector(".lightboxMedia");
-//   console.log(slides);
-//   if (n > slides.length) {
-//     slideIndex = 1;
-//   }
-//   if (n < 1) {
-//     slideIndex = slides.length;
-//   }
-//   for (i = 0; i < slides.length; i++) {
-//     slides[i].style.display = "none";
-//   }
-
-//   slides[slideIndex - 1].style.display = "block";
-// }
-
-async function init() {
-  // Récupère les datas des photographes
-  const { medias } = await getDataMedia();
-  console.log(medias);
-  displayLightbox(medias);
-  getDataMedia(medias);
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides((slideIndex = n));
 }
 
-init();
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("lightboxMedia");
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex - 1].style.display = "block";
+}

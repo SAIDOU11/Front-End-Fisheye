@@ -1,0 +1,99 @@
+.select > button {
+  background-color: #901c1c;
+  color: white;
+  border: none;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.dropdown_list {
+  padding: 5px 5px 5px 0px;
+}
+.dropdownContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 30px 100px 115px;
+}
+
+.label_select {
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.dropdown {
+  position: relative;
+  height: 50px;
+  width: 150px;
+}
+
+.select {
+  background-color: #901c1c;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5em;
+  padding: 5px;
+  height: 50px;
+  width: 150px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+.select-clicked {
+  border-radius: 0.5em;
+  padding: 5px;
+  height: 50px;
+  width: 150px;
+  cursor: pointer;
+}
+
+.menu li:hover {
+  background-color: #db8876;
+  color: black;
+}
+.arrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrow-rotate {
+  transform: rotate(180deg);
+}
+
+.menu {
+  list-style: none;
+  background-color: #901c1c;
+  color: white;
+  padding: 5px 5px;
+  border-radius: 0px 0px 5px 5px;
+  position: absolute;
+  width: 130px;
+  left: 6%;
+  margin: 0;
+  opacity: 0;
+  display: none;
+  transition: 0.2s;
+  z-index: -1;
+  cursor: pointer;
+}
+
+.menu li {
+  cursor: pointer;
+}
+
+.menu-open li {
+  border-top: 1px solid #fff;
+  margin: 10px 0px 10px 0px;
+  padding: 5px 5px 5px 0px;
+  cursor: pointer;
+}
+
+.menu-open {
+  display: block;
+  opacity: 1;
+  width: 150px;
+  height: 85px;
+  top: 50px;
+  left: 5px;
+}

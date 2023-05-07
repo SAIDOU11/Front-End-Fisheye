@@ -28,7 +28,14 @@
         <label class="label_select" for="select">Trier par </label>
         <div class="dropdown">
           <div class="select">
-            <span aria-labelledby="Order by" class="selected">Popularité</span>
+            <button
+              type="button"
+              role="listbox"
+              aria-level="Ouvrir le menu déroulant"
+              class="selected"
+            >
+              Popularité
+            </button>
 
             <div class="arrow">
               <svg
@@ -112,13 +119,23 @@
 
       <dialog role="dialog" id="lightbox" class="lightbox">
         <div class="contentLightbox">
-          <button class="closeLightbox" onclick="closeLightbox()">
+          <button
+            class="closeLightbox"
+            onclick="closeLightbox()"
+            aria-label="Bouton pour fermer la lightbox"
+          >
             <i class="fa-solid fa-xmark"></i>
           </button>
-          <button class="previousLightbox">
+          <button
+            class="previousLightbox"
+            aria-label="Bouton pour retourner à la photo précédente"
+          >
             <i class="fa-solid fa-chevron-left"></i>
           </button>
-          <button class="nextLightbox">
+          <button
+            class="nextLightbox"
+            aria-label="Bouton pour aller la photo suivante"
+          >
             <i class="fa-solid fa-chevron-right"></i>
           </button>
           <div class="lightboxMediaContent">
