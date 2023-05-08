@@ -26,3 +26,13 @@ dropdowns.forEach((dropdown) => {
     });
   });
 });
+
+function liked(heart) {
+  let countLikes = document.getElementById("clicks");
+  console.log(countLikes.innerHTML);
+  console.log(heart);
+  countLikes.innerHTML = heart + 1;
+  console.log("heart log", heart);
+  console.log(countLikes.innerHTML);
+  console.log(countLikes);
+}

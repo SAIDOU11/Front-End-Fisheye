@@ -81,7 +81,9 @@ main {
   cursor: pointer;
 }
 
-.contact_price {
+.contact_price_like {
+  display: flex;
+  justify-content: space-between;
   position: fixed;
   bottom: 0px;
   right: 50px;
@@ -234,3 +236,9 @@ article .divContainer {
   color: #901c1c;
   height: 10px;
 }
+/* #like.isLiked {
+} */
+
+/* #clicks::after {
+  content: ;
+} */

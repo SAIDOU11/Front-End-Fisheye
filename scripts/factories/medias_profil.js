@@ -1,8 +1,13 @@
 function photographerFactory(data) {
   const { name, portrait, price, city, country, tagline, id } = data;
+
   const picture = `assets/photographers/${portrait}`;
   const contactHeader = document.querySelector(".header_color");
   contactHeader.innerHTML = ` <h1>Contactez-moi <br> ${name}</h1>`;
+
+  const paraPrice = document.querySelector(".paraPrice");
+  paraPrice.textContent = `${price}€/jour`;
+
   function getUserCardDOM() {
     const headContainer = document.createElement("div");
     const headBio = document.createElement("div");
@@ -50,7 +55,7 @@ function photographerFactory(data) {
     return headContainer;
   }
 
-  return { name, picture, getUserCardDOM };
+  return { paraPrice, name, picture, getUserCardDOM };
 }
 
 function mediaFactory(dataMedia) {
@@ -58,14 +63,6 @@ function mediaFactory(dataMedia) {
 
   const multimedia = `assets/images/${image}`;
   const multimediaVideo = `assets/images/${video}`;
-
-  const contactPrice = document.querySelector(".contact_price");
-  const divLikes = document.createElement("div");
-  const divPriceDay = document.createElement("div");
-  contactPrice.appendChild(divLikes);
-  contactPrice.appendChild(divPriceDay);
-
-  contactPrice.textContent = `Prixxxxxxxxxxxxxxxx`;
 
   function getUserIdWork() {
     const article = document.createElement("article");
@@ -76,7 +73,10 @@ function mediaFactory(dataMedia) {
     const paraTitle = document.createElement("p");
     const divLikes = document.createElement("div");
     const numberOfLikes = document.createElement("p");
+    numberOfLikes.setAttribute("id", "clicks");
     const iconLike = document.createElement("i");
+    iconLike.setAttribute("id", "like");
+    iconLike.setAttribute("onclick", `liked(${likes})`);
 
     article.appendChild(divContainer);
     divContainer.appendChild(divContent);
@@ -102,6 +102,7 @@ function mediaFactory(dataMedia) {
 
     paraTitle.textContent = title;
     numberOfLikes.textContent = likes;
+    console.log(numberOfLikes);
 
     if (image) {
       const picName = document.createElement("a");
@@ -163,7 +164,6 @@ function mediaFactory(dataMedia) {
       videoModal.appendChild(sourceLightbox);
       lightboxMedia.appendChild(videoModal);
     }
-    console.log("Give me something ?????????????????????????");
     const lightboxTitle = document.createElement("p");
     lightboxTitle.setAttribute("class", "lightboxTitle");
     lightboxTitle.textContent = title;
@@ -171,5 +171,9 @@ function mediaFactory(dataMedia) {
 
     return divContentLightbox;
   }
-  return { contactPrice, getUserIdWork, contentModal };
+  const paraLikes = document.querySelector(".paraLikes");
+  console.log(paraLikes);
+  paraLikes.textContent += likes;
+  return { paraLikes, getUserIdWork, contentModal };
 }
+//`+=${likes}`
