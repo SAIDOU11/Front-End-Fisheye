@@ -31,11 +31,13 @@ async function displayLightbox(medias) {
       photographer.title
     );
     console.log(lightbox);
-    document.querySelector(".divContent").forEach((document) => {
-      document.addEventListener("click", (e) => {
-        lightbox.show(e.target.id);
+    document
+      .querySelectorAll(".media_content, .divContent")
+      .forEach((document) => {
+        document.addEventListener("click", (e) => {
+          lightbox.show(e.target.id);
+        });
       });
-    });
   });
 }
 

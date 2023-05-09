@@ -5,7 +5,6 @@ function openLightbox(clicked_id) {
   console.log("Open ?", clicked_id);
   showSlides(clicked_id);
   currentSlide(clicked_id);
-
   const previous = document.querySelector(".previousLightbox");
   previous.addEventListener("click", () => {
     console.log("previous?");
