@@ -77,6 +77,7 @@ function mediaFactory(dataMedia) {
     const iconLike = document.createElement("i");
     iconLike.setAttribute("id", "like");
     iconLike.setAttribute("onclick", `liked(${likes})`);
+    iconLike.setAttribute("tabindex", 0);
 
     article.appendChild(divContainer);
     divContainer.appendChild(divContent);
@@ -93,6 +94,7 @@ function mediaFactory(dataMedia) {
     divContainer.setAttribute("data-publication-date", date);
     divContainer.setAttribute("data-likes", likes);
     divContent.setAttribute("onclick", `openLightbox(${id})`);
+    divContent.setAttribute("tabindex", 0);
     divContent.setAttribute("class", "divContent");
     divBanner.setAttribute("class", "divBanner");
     divTitle.setAttribute("class", "divTitle");
