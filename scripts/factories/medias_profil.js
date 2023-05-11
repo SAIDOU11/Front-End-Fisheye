@@ -123,6 +123,7 @@ function mediaFactory(dataMedia) {
     if (video) {
       const vidName = document.createElement("a");
       const videoLink = document.createElement("video");
+      videoLink.setAttribute("id", `${id}`);
       videoLink.setAttribute("controls", multimediaVideo);
       const sourceVideo = document.createElement("source");
       sourceVideo.setAttribute("src", multimediaVideo);

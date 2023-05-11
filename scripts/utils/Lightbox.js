@@ -1,14 +1,11 @@
 class LightBox {
-  constructor(id, image, video, title) {
-    this.id = id;
-    this.image = image;
-    this.video = video;
-    this.title = title;
+  constructor(photographer) {
+    this.photographer = photographer;
   }
-  show(element) {
-    this.currentElement = element;
+  show() {
     document.querySelector("#lightbox").style.display = "block";
     // document.querySelector(".lightboxMedia").classList.add("show");
-    console.log(element);
+    const modalBloc = mediaFactory(this.photographer);
+    modalBloc.contentModal();
   }
 }

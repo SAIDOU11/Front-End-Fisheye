@@ -23,22 +23,17 @@ async function getDataMedia() {
 }
 
 async function displayLightbox(medias) {
-  medias.forEach((photographer) => {
-    let lightbox = new LightBox(
-      photographer.id,
-      photographer.image,
-      photographer.video,
-      photographer.title
-    );
-    console.log(lightbox);
-    document
-      .querySelectorAll(".media_content, .divContent")
+
+    document.querySelectorAll(".divContent")
       .forEach((document) => {
         document.addEventListener("click", (e) => {
-          lightbox.show(e.target.id);
+          photographer = medias.filter(elem=> e.target.id == elem.id)[0];
+          let lightbox = new LightBox(photographer);
+          console.log("ASASA",e.target)
+          lightbox.show();
         });
       });
-  });
+
 }
 
 async function displayData(medias, photographers) {
@@ -59,9 +54,6 @@ async function displayData(medias, photographers) {
     const getUserIdWork = mediaModel.getUserIdWork();
     mediasSection.appendChild(getUserIdWork);
 
-    const modalBloc = mediaFactory(media);
-    const contentModal = modalBloc.contentModal();
-    lightbox.appendChild(contentModal);
   });
 }
 

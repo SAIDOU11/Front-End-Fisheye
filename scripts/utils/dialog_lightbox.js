@@ -1,6 +1,8 @@
 // Open the Modal
 
 function openLightbox(clicked_id) {
+  // Tu as fais 2 event listner pour ouvrir lightbox, c'est quoi l'intert de ca (peux tu m'expliquer duranr la sesssion prochaine) ?
+  
   document.querySelector("#lightbox").style.display = "block";
   console.log("Open ?", clicked_id);
   showSlides(clicked_id);
@@ -48,5 +50,5 @@ function showSlides(n) {
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
-  slides[slideIndex - 1].style.display = "block";
+ // slides[slideIndex - 1].style.display = "block";
 }
