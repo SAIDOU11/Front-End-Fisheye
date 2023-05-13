@@ -1,16 +1,26 @@
 class LightBox {
-  constructor(photographer) {
-    this.photographer = photographer;
-    console.log(photographer);
+  constructor(listElement) {
+    this.currentElement = null;
+    this.listElement = listElement;
+    this.manageEvent();
+    console.log(listElement);
   }
+  // constructor(photographer) {
+  //   this.photographer = photographer;
+  //   console.log(photographer);
+  // }
 
-  show(photographer, n) {
-    this.photographer = photographer;
+  show(photographer) {
+    this.currentElement = photographer;
+    console.log(photographer);
+    this.display();
+  }
+  display(n) {
     document.querySelector("#lightbox").style.display = "block";
     let slides = document.getElementsByClassName("lightboxMedia");
-    console.log(slides);
+
     let i;
-    let slideIndex = 1;
+    let slideIndex;
     if (n > slides.length) {
       slideIndex = 1;
     }
@@ -20,27 +30,43 @@ class LightBox {
     for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
     }
-    //slides[slideIndex - 1].style.display = "block";
-    const modalBloc = mediaFactory(this.photographer);
+    // slides[slideIndex - 1].style.display = "block";
+    const modalBloc = mediaFactory(this.currentElement);
     modalBloc.contentModal();
   }
   next() {
-    const next = document.querySelector(".nextLightbox");
-    next.addEventListener("click", () => {
-      console.log("next?");
-      // plusSlides(1);
-    });
+    this.display();
+    let index = this.listElement.findIndex(
+      (elem) => elem.id == this.currentElement.id
+    );
+
+    if (index == this.listElement.length - 1) {
+      console.log(this.listElement[0], "TERMINER !! ");
+      this.currentElement = this.listElement[0];
+    } else {
+      this.currentElement = this.listElement[index + 1];
+    }
   }
   previous() {
-    const previous = document.querySelector(".previousLightbox");
-    previous.addEventListener("click", () => {
-      console.log("previous?");
-      // plusSlides(-1);
+    let index = this.listElement.findIndex(
+      (elem) => elem.id == this.currentElement.id
+    );
+    this.display();
+    if (index == 0) {
+      this.currentElement = this.listElement[this.listElement.length - 1];
+    } else {
+      this.currentElement = this.listElement[index - 1];
+    }
+  }
+
+  manageEvent() {
+    document.querySelector(".nextLightbox").addEventListener("click", () => {
+      this.next();
     });
+    document
+      .querySelector(".previousLightbox")
+      .addEventListener("click", () => {
+        this.previous();
+      });
   }
 }
-
-// function plusSlides(n) {
-//   let slideIndex;
-//   slideIndex += n;
-// }

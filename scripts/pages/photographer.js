@@ -27,14 +27,13 @@ async function displayLightbox(medias) {
     document.addEventListener("click", (e) => {
       console.log(medias);
       photographer = medias.filter((elem) => e.target.id == elem.id)[0];
-      let lightbox = new LightBox(photographer, medias);
+      let lightbox = new LightBox(medias, photographer);
       console.log(photographer, medias);
       console.log("GET ??", e.target.id);
       console.log(e);
       lightbox.show(photographer);
       lightbox.previous();
       lightbox.next();
-      // lightbox.plusSlides();
     });
   });
 }
