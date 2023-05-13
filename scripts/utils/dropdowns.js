@@ -29,10 +29,10 @@ dropdowns.forEach((dropdown) => {
 
 function liked(heart) {
   let countLikes = document.getElementById("clicks");
-  console.log(countLikes.innerHTML);
+  console.log(countLikes);
   console.log(heart);
-  countLikes.innerHTML = heart + 1;
+  heart += 1;
+  countLikes.innerHTML = heart;
   console.log("heart log", heart);
-  console.log(countLikes.innerHTML);
   console.log(countLikes);
 }

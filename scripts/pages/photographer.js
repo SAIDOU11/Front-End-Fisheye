@@ -23,21 +23,19 @@ async function getDataMedia() {
 }
 
 async function displayLightbox(medias) {
-  medias.forEach((photographer) => {
-    let lightbox = new LightBox(
-      photographer.id,
-      photographer.image,
-      photographer.video,
-      photographer.title
-    );
-    console.log(lightbox);
-    document
-      .querySelectorAll(".media_content, .divContent")
-      .forEach((document) => {
-        document.addEventListener("click", (e) => {
-          lightbox.show(e.target.id);
-        });
-      });
+  document.querySelectorAll(".divContent").forEach((document) => {
+    document.addEventListener("click", (e) => {
+      console.log(medias);
+      photographer = medias.filter((elem) => e.target.id == elem.id)[0];
+      let lightbox = new LightBox(photographer, medias);
+      console.log(photographer, medias);
+      console.log("GET ??", e.target.id);
+      console.log(e);
+      lightbox.show(photographer);
+      lightbox.previous();
+      lightbox.next();
+      // lightbox.plusSlides();
+    });
   });
 }
 
@@ -58,18 +56,12 @@ async function displayData(medias, photographers) {
     const mediaModel = mediaFactory(media);
     const getUserIdWork = mediaModel.getUserIdWork();
     mediasSection.appendChild(getUserIdWork);
-
-    const modalBloc = mediaFactory(media);
-    const contentModal = modalBloc.contentModal();
-    lightbox.appendChild(contentModal);
   });
 }
 
 async function init() {
   // Récupère les datas des photographes
   const { medias, photographers } = await getDataMedia();
-  // console.log(photographers);
-  // console.log(medias);
   displayData(medias, photographers);
   displayLightbox(medias);
 }

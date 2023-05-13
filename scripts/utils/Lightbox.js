@@ -1,14 +1,46 @@
 class LightBox {
-  constructor(id, image, video, title) {
-    this.id = id;
-    this.image = image;
-    this.video = video;
-    this.title = title;
+  constructor(photographer) {
+    this.photographer = photographer;
+    console.log(photographer);
   }
-  show(element) {
-    this.currentElement = element;
+
+  show(photographer, n) {
+    this.photographer = photographer;
     document.querySelector("#lightbox").style.display = "block";
-    // document.querySelector(".lightboxMedia").classList.add("show");
-    console.log(element);
+    let slides = document.getElementsByClassName("lightboxMedia");
+    console.log(slides);
+    let i;
+    let slideIndex = 1;
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    //slides[slideIndex - 1].style.display = "block";
+    const modalBloc = mediaFactory(this.photographer);
+    modalBloc.contentModal();
+  }
+  next() {
+    const next = document.querySelector(".nextLightbox");
+    next.addEventListener("click", () => {
+      console.log("next?");
+      // plusSlides(1);
+    });
+  }
+  previous() {
+    const previous = document.querySelector(".previousLightbox");
+    previous.addEventListener("click", () => {
+      console.log("previous?");
+      // plusSlides(-1);
+    });
   }
 }
+
+// function plusSlides(n) {
+//   let slideIndex;
+//   slideIndex += n;
+// }

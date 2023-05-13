@@ -71,7 +71,7 @@ function mediaFactory(dataMedia) {
     const divBanner = document.createElement("div");
     const divTitle = document.createElement("div");
     const paraTitle = document.createElement("p");
-    const divLikes = document.createElement("div");
+    const buttonLikes = document.createElement("button");
     const numberOfLikes = document.createElement("p");
     numberOfLikes.setAttribute("id", "clicks");
     const iconLike = document.createElement("i");
@@ -83,33 +83,32 @@ function mediaFactory(dataMedia) {
     divContainer.appendChild(divContent);
     divContainer.appendChild(divBanner);
     divBanner.appendChild(divTitle);
-    divBanner.appendChild(divLikes);
+    divBanner.appendChild(buttonLikes);
     divTitle.appendChild(paraTitle);
-    divLikes.appendChild(numberOfLikes);
-    divLikes.appendChild(iconLike);
+    numberOfLikes.textContent += likes;
+    buttonLikes.appendChild(numberOfLikes);
+    buttonLikes.appendChild(iconLike);
+    console.log(buttonLikes);
 
     divContainer.setAttribute("class", "divContainer");
     divContainer.setAttribute("data-id", id);
     divContainer.setAttribute("data-photographers-id", photographerId);
     divContainer.setAttribute("data-publication-date", date);
     divContainer.setAttribute("data-likes", likes);
-    divContent.setAttribute("onclick", `openLightbox(${id})`);
+    // divContent.setAttribute("onclick", `openLightbox(${id})`);
     divContent.setAttribute("tabindex", 0);
     divContent.setAttribute("class", "divContent");
     divBanner.setAttribute("class", "divBanner");
     divTitle.setAttribute("class", "divTitle");
-    divLikes.setAttribute("class", "divLikes");
+    buttonLikes.setAttribute("class", "buttonLikes");
     iconLike.setAttribute("class", "fa-solid fa-heart");
     divBanner.setAttribute("class", "divBanner");
 
     paraTitle.textContent = title;
-    numberOfLikes.textContent = likes;
-    console.log(numberOfLikes);
 
     if (image) {
       const picName = document.createElement("a");
       const pictureArt = document.createElement("img");
-
       picName.setAttribute("title", title);
       picName.setAttribute("role", "link");
       picName.setAttribute("aria-label", `Belle image intitulée : ${title} !`);
@@ -123,6 +122,7 @@ function mediaFactory(dataMedia) {
     if (video) {
       const vidName = document.createElement("a");
       const videoLink = document.createElement("video");
+      videoLink.setAttribute("id", `${id}`);
       videoLink.setAttribute("controls", multimediaVideo);
       const sourceVideo = document.createElement("source");
       sourceVideo.setAttribute("src", multimediaVideo);
@@ -173,9 +173,9 @@ function mediaFactory(dataMedia) {
 
     return divContentLightbox;
   }
-  const paraLikes = document.querySelector(".paraLikes");
-  console.log(paraLikes);
-  paraLikes.textContent += likes;
-  return { paraLikes, getUserIdWork, contentModal };
+  // const paraLikes = document.querySelector(".paraLikes");
+  // console.log(paraLikes);
+  // paraLikes.textContent += likes;paraLikes
+  return { getUserIdWork, contentModal };
 }
 //`+=${likes}`
