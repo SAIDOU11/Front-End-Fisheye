@@ -1,10 +1,8 @@
 async function getDataMedia() {
   let apiUrl = "./data/photographers.json";
   let response = await fetch(apiUrl);
-  // let data = await response.json();
   const { photographers, media } = await response.json();
-  // console.log(photographers);
-  // console.log(media);
+
   // Extraire ID
   let getUrlId = window.location.search;
   let getParamsId = new URLSearchParams(getUrlId);
@@ -14,7 +12,6 @@ async function getDataMedia() {
   // Filtre Profil
   let filterProfil = photographers;
   let photograhProfil = filterProfil.filter((obj) => obj.id == numberId);
-  // console.log(photograhProfil);
 
   // Filtre Médias
   let filterId = media;
@@ -25,12 +22,8 @@ async function getDataMedia() {
 async function displayLightbox(medias) {
   document.querySelectorAll(".divContent").forEach((document) => {
     document.addEventListener("click", (e) => {
-      console.log(medias);
       photographer = medias.filter((elem) => e.target.id == elem.id)[0];
       let lightbox = new LightBox(medias, photographer);
-      console.log(photographer, medias);
-      console.log("GET ??", e.target.id);
-      console.log(e);
       lightbox.show(photographer);
       lightbox.previous();
       lightbox.next();
