@@ -1,7 +1,7 @@
 const dropdowns = document.querySelectorAll(".dropdown");
 
 dropdowns.forEach((dropdown) => {
-  const select = dropdown.querySelector(".select");
+  const select = dropdown.querySelector(".select-button");
   const arrow = dropdown.querySelector(".arrow");
   const menu = dropdown.querySelector(".menu");
   const options = dropdown.querySelectorAll(".menu li");
@@ -27,12 +27,12 @@ dropdowns.forEach((dropdown) => {
   });
 });
 
-function liked(heart) {
-  let countLikes = document.getElementById("clicks");
-  console.log(countLikes);
-  console.log(heart);
-  heart += 1;
-  countLikes.innerHTML = heart;
-  console.log("heart log", heart);
-  console.log(countLikes);
-}
+// function liked(heart) {
+//   let countLikes = document.getElementById("clicks");
+//   console.log(countLikes);
+//   console.log(heart);
+//   heart += 1;
+//   countLikes.innerHTML = heart;
+//   console.log("heart log", heart);
+//   console.log(countLikes);
+// }
