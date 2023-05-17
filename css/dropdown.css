@@ -3,32 +3,42 @@
   flex-direction: row;
   margin: 30px 100px 130px;
   width: 260px;
-  height: 60px;
+  height: 160px;
 }
 
 .dropdown {
   position: relative;
-  width: 150px;
+}
+
+.dropdown,
+.select-clicked {
+  height: 160px;
+  cursor: pointer;
 }
 
 .select-button > button {
   background-color: #901c1c;
   color: white;
   border: none;
+  margin-left: 0;
   width: 100%;
   height: 100%;
-  font-weight: bold;
-  margin-right: 20px;
+  margin-right: 35px;
 }
 
-.dropdown_list {
+/* button.selected {
+  cursor: pointer;
+} */
+
+/* .dropdown_list.active {
   cursor: pointer;
   padding: 5px 5px 5px 0px;
-}
+} */
 
 .label_select {
   font-weight: bold;
   margin-right: 15px;
+  height: 25px;
 }
 
 .select-button {
@@ -79,17 +89,6 @@
   z-index: -1;
   cursor: pointer;
 }
-
-.menu-open li:hover {
-  cursor: pointer;
-  background-color: #db8876;
-  color: black;
-}
-
-.menu li {
-  cursor: pointer;
-}
-
 .menu-open {
   display: block;
   opacity: 1;
@@ -101,7 +100,12 @@
 
 .menu-open li {
   border-top: 1px solid #fff;
-  margin: 10px 0px 10px 0px;
+  margin: 8px 0px 10px 10px;
   padding: 5px 5px 5px 0px;
-  /* cursor: pointer; */
+  width: 155px;
+  cursor: pointer;
 }
+
+/* .dropdown_list {
+  border-top: 1px solid #fff;
+} */
