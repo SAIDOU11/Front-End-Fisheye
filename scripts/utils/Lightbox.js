@@ -54,13 +54,36 @@ class LightBox {
   }
 
   manageEvent() {
-    document.querySelector(".nextLightbox").addEventListener("click", () => {
-      this.next();
-    });
     document
-      .querySelector(".previousLightbox")
+      .querySelector("#lightbox .nextLightbox")
+      .addEventListener("click", () => {
+        this.next();
+      });
+    document
+      .querySelector("#lightbox .previousLightbox")
       .addEventListener("click", () => {
         this.previous();
       });
+    document
+      .querySelector("#lightbox .closeLightbox")
+      .addEventListener("click", () => {
+        this.close();
+      });
+    document.addEventListener("keyup", (e) => {
+      switch (e.key) {
+        case "ArrowRight":
+          this.next();
+          break;
+        case "ArrowLeft":
+          this.previous();
+          break;
+        case "Escape":
+          this.close();
+          break;
+      }
+    });
+  }
+  close() {
+    document.querySelector("#lightbox").style.display = "none";
   }
 }

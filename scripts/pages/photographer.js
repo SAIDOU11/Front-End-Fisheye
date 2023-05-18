@@ -25,8 +25,6 @@ async function displayLightbox(medias) {
       photographer = medias.filter((elem) => e.target.id == elem.id)[0];
       let lightbox = new LightBox(medias, photographer);
       lightbox.show(photographer);
-      lightbox.previous();
-      lightbox.next();
     });
   });
 }

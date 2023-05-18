@@ -3,16 +3,21 @@
   flex-direction: row;
   margin: 30px 100px 130px;
   width: 260px;
-  height: 160px;
+  height: 130px;
 }
 
 .dropdown {
   position: relative;
+  height: 185px;
 }
+
+/* .selected {
+  font-family: "DM Sans", sans-serif;
+} */
 
 .dropdown,
 .select-clicked {
-  height: 160px;
+  height: 185px;
   cursor: pointer;
 }
 
@@ -24,16 +29,8 @@
   width: 100%;
   height: 100%;
   margin-right: 35px;
+  cursor: pointer;
 }
-
-/* button.selected {
-  cursor: pointer;
-} */
-
-/* .dropdown_list.active {
-  cursor: pointer;
-  padding: 5px 5px 5px 0px;
-} */
 
 .label_select {
   font-weight: bold;
@@ -51,7 +48,6 @@
   padding: 5px;
   height: 50px;
   width: 150px;
-  cursor: pointer;
   margin-left: 5px;
 }
 
@@ -60,7 +56,6 @@
   padding: 5px;
   height: 50px;
   width: 150px;
-  cursor: pointer;
 }
 
 .arrow {
@@ -87,13 +82,12 @@
   display: none;
   transition: 0.2s;
   z-index: -1;
-  cursor: pointer;
 }
 .menu-open {
   display: block;
   opacity: 1;
   width: 150px;
-  height: 85px;
+  height: 130px;
   top: 50px;
   left: 5px;
 }
@@ -101,11 +95,10 @@
 .menu-open li {
   border-top: 1px solid #fff;
   margin: 8px 0px 10px 10px;
-  padding: 5px 5px 5px 0px;
-  width: 155px;
-  cursor: pointer;
+  padding: 5px 0px 5px 0px;
+  width: 85%;
 }
 
-/* .dropdown_list {
-  border-top: 1px solid #fff;
-} */
+.dropdown_list {
+  text-decoration: none;
+}
