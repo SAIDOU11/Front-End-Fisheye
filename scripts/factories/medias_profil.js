@@ -88,14 +88,12 @@ function mediaFactory(dataMedia) {
     numberOfLikes.textContent += likes;
     buttonLikes.appendChild(numberOfLikes);
     buttonLikes.appendChild(iconLike);
-    console.log(buttonLikes);
 
     divContainer.setAttribute("class", "divContainer");
     divContainer.setAttribute("data-id", id);
     divContainer.setAttribute("data-photographers-id", photographerId);
     divContainer.setAttribute("data-publication-date", date);
     divContainer.setAttribute("data-likes", likes);
-    // divContent.setAttribute("onclick", `openLightbox(${id})`);
     divContent.setAttribute("tabindex", 0);
     divContent.setAttribute("class", "divContent");
     divBanner.setAttribute("class", "divBanner");
@@ -173,9 +171,13 @@ function mediaFactory(dataMedia) {
 
     return divContentLightbox;
   }
-  // const paraLikes = document.querySelector(".paraLikes");
-  // console.log(paraLikes);
-  // paraLikes.textContent += likes;paraLikes
-  return { getUserIdWork, contentModal };
+
+  function totalLikes() {
+    const paraLikes = document.querySelector(".paraLikes");
+    // console.log(paraLikes);
+    paraLikes.textContent = likes;
+    // paraLikes;
+  }
+
+  return { getUserIdWork, contentModal, totalLikes };
 }
-//`+=${likes}`

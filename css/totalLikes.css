@@ -1,0 +1,29 @@
+.contact_price_like {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0px;
+  right: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  padding: 11px;
+  width: 350px;
+  height: 35px;
+  border: none;
+  background-color: #db8876;
+  border-radius: 5px;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .contact_price_like {
+    width: 300px;
+    font-size: 18px;
+  }
+}
+.divPrice,
+.likes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

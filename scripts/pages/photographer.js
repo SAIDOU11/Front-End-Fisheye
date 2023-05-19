@@ -7,7 +7,6 @@ async function getDataMedia() {
   let getUrlId = window.location.search;
   let getParamsId = new URLSearchParams(getUrlId);
   let numberId = getParamsId.get("id");
-  console.log(numberId);
 
   // Filtre Profil
   let filterProfil = photographers;
@@ -31,21 +30,18 @@ async function displayLightbox(medias) {
 
 async function displayData(medias, photographers) {
   const headerProfil = document.querySelector(".photograph-header");
-  console.log(headerProfil);
   const mediasSection = document.querySelector(".media_section");
-  console.log(mediasSection);
 
   photographers.forEach((photographer) => {
     const photographerModel = photographerFactory(photographer);
     const userCardDOM = photographerModel.getUserCardDOM();
     headerProfil.appendChild(userCardDOM);
   });
-  const lightbox = document.querySelector(".lightbox");
-  console.log(lightbox);
   medias.forEach((media) => {
     const mediaModel = mediaFactory(media);
     const getUserIdWork = mediaModel.getUserIdWork();
-    mediasSection.appendChild(getUserIdWork);
+    const totalLikes = mediaModel.totalLikes();
+    mediasSection.appendChild(getUserIdWork, totalLikes);
   });
 }
 
