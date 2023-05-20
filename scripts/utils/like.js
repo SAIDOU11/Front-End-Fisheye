@@ -1,28 +1,14 @@
 const btn = document.getElementsByClassName("buttonLikes");
-console.log(btn);
-const likeButton = document.getElementById("like");
 
 function liked(like) {
   for (let i = 0; i < btn.length; i++) {
     let button = btn[i];
-    console.log(button);
     button.addEventListener("click", (e) => {
-      console.log(e.currentTarget);
-      let btnClicked = e.currentTarget;
-      let numberOfLikes = btnClicked.children[0];
-      console.log(numberOfLikes);
-      numberOfLikes = like++;
-      console.log(numberOfLikes);
+      let btnClicked = e.target;
+      console.log(btnClicked);
+      let numberOfLikes = btnClicked.parentElement.children[0];
+      let newValue = ++like;
+      numberOfLikes.innerHTML = newValue;
     });
   }
 }
-//
-//     let button = btn[i];
-//     // console.log(button);
-//     button.addEventListener("click", (e) => {
-//       console.log(e.currentTarget);
-//       let btnClicked = e.currentTarget;
-//       let numberOfLikes = btnClicked.children[0];
-//       console.log(numberOfLikes);
-//     });
-//   }

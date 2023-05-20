@@ -178,6 +178,7 @@ function mediaFactory(dataMedia) {
     paraLikes.textContent = likes;
     // paraLikes;
   }
+  const btn = document.getElementsByClassName("buttonLikes");
 
   return { getUserIdWork, contentModal, totalLikes };
 }
