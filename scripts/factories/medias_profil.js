@@ -75,8 +75,9 @@ function mediaFactory(dataMedia) {
     const numberOfLikes = document.createElement("p");
     numberOfLikes.setAttribute("id", "clicks");
     const iconLike = document.createElement("i");
-    iconLike.setAttribute("id", "like");
-    iconLike.setAttribute("onclick", `liked(${likes})`);
+    iconLike.setAttribute("id", "like"); // event sur icon
+    // iconLike.setAttribute("onclick", `liked(${likes})`);
+
     iconLike.setAttribute("tabindex", 0);
 
     article.appendChild(divContainer);
