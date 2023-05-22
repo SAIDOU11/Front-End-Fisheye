@@ -72,8 +72,6 @@ function mediaFactory(dataMedia) {
     const divTitle = document.createElement("div");
     const paraTitle = document.createElement("p");
     const buttonLikes = document.createElement("button");
-    const numberOfLikes = document.createElement("p");
-    numberOfLikes.setAttribute("id", "clicks");
     const iconLike = document.createElement("i");
     iconLike.setAttribute("class", "like"); // event sur icon
     iconLike.setAttribute("tabindex", 0);
@@ -84,8 +82,7 @@ function mediaFactory(dataMedia) {
     divBanner.appendChild(divTitle);
     divBanner.appendChild(buttonLikes);
     divTitle.appendChild(paraTitle);
-    numberOfLikes.textContent += likes;
-    buttonLikes.appendChild(numberOfLikes);
+    buttonLikes.textContent += likes;
     buttonLikes.appendChild(iconLike);
 
     divContainer.setAttribute("class", "divContainer");

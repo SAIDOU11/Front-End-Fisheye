@@ -8,10 +8,3 @@ for (let i = 0; i < btn.length; i++) {
     console.log(e);
   });
 }
-
-//   let btnClicked = e.target;
-//   console.log(btnClicked);
-//   let numberOfLikes = btnClicked.parentElement.children[0];
-//   let newValue = ++like;
-//   numberOfLikes.innerHTML = newValue;
-// });
