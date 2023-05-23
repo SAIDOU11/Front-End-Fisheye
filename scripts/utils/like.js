@@ -5,6 +5,6 @@
 //   let button = btn[i];
 //   console.log(button);
 //   button.addEventListener("click", (e) => {
-//     console.log(e);
+//     console.log(e.target, e.currentTarget);
 //   });
 // }

@@ -72,6 +72,7 @@ function mediaFactory(dataMedia) {
     const divTitle = document.createElement("div");
     const paraTitle = document.createElement("p");
     const buttonLikes = document.createElement("button");
+    const numberLikes = document.createElement("p");
     const iconLike = document.createElement("i");
     iconLike.setAttribute("class", "like"); // event sur icon
     iconLike.setAttribute("tabindex", 0);
@@ -82,7 +83,8 @@ function mediaFactory(dataMedia) {
     divBanner.appendChild(divTitle);
     divBanner.appendChild(buttonLikes);
     divTitle.appendChild(paraTitle);
-    buttonLikes.textContent += likes;
+    numberLikes.textContent = likes;
+    buttonLikes.appendChild(numberLikes);
     buttonLikes.appendChild(iconLike);
 
     divContainer.setAttribute("class", "divContainer");
@@ -97,17 +99,6 @@ function mediaFactory(dataMedia) {
     buttonLikes.setAttribute("class", "buttonLikes");
     iconLike.setAttribute("class", "fa-solid fa-heart");
     divBanner.setAttribute("class", "divBanner");
-
-    const btn = document.getElementsByClassName("buttonLikes");
-    console.log(btn);
-
-    for (let i = 0; i < btn.length; i++) {
-      let button = btn[i];
-      console.log(button);
-      button.addEventListener("click", (e) => {
-        console.log(e);
-      });
-    }
 
     paraTitle.textContent = title;
 
@@ -180,6 +171,20 @@ function mediaFactory(dataMedia) {
   }
 
   function totalLikes() {
+    const btn = document.getElementsByClassName("buttonLikes");
+    console.log(btn);
+
+    for (let i = 0; i < btn.length; i++) {
+      let button = btn[i];
+      console.log(button);
+      button.addEventListener("click", (e) => {
+        console.log(e.target, e.currentTarget);
+        let btnClicked = e.currentTarget.children[0];
+        console.log(btnClicked);
+        let value = valueOf(btnClicked, typeof btnClicked);
+        console.log(value);
+      });
+    }
     const paraLikes = document.querySelector(".paraLikes");
     // console.log(paraLikes);
     paraLikes.textContent = likes;
