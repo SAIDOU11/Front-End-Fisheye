@@ -97,6 +97,7 @@ function mediaFactory(dataMedia) {
     divBanner.setAttribute("class", "divBanner");
     divTitle.setAttribute("class", "divTitle");
     buttonLikes.setAttribute("class", "buttonLikes");
+    buttonLikes.addEventListener("click", totalLikes);
     iconLike.setAttribute("class", "fa-solid fa-heart");
     divBanner.setAttribute("class", "divBanner");
 
@@ -170,27 +171,11 @@ function mediaFactory(dataMedia) {
     return divContentLightbox;
   }
 
-  function totalLikes() {
-    const btn = document.getElementsByClassName("buttonLikes");
-    console.log(btn);
-
-    for (let i = 0; i < btn.length; i++) {
-      let button = btn[i];
-      console.log(button);
-      button.addEventListener("click", (e) => {
-        console.log(e.target, e.currentTarget);
-        let btnClicked = e.currentTarget.children[0];
-        console.log(btnClicked);
-        let value = valueOf(btnClicked, typeof btnClicked);
-        console.log(value);
-      });
-    }
-    const paraLikes = document.querySelector(".paraLikes");
-    // console.log(paraLikes);
-    paraLikes.textContent = likes;
-    // paraLikes;
+  function totalLikes(e) {
+    ++e.currentTarget.getElementsByTagName("p")[0].innerHTML;
   }
+
   const btn = document.getElementsByClassName("buttonLikes");
 
-  return { getUserIdWork, contentModal, totalLikes };
+  return { getUserIdWork, contentModal };
 }

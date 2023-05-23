@@ -40,8 +40,7 @@ async function displayData(medias, photographers) {
   medias.forEach((media) => {
     const mediaModel = mediaFactory(media);
     const getUserIdWork = mediaModel.getUserIdWork();
-    const totalLikes = mediaModel.totalLikes();
-    mediasSection.appendChild(getUserIdWork, totalLikes);
+    mediasSection.appendChild(getUserIdWork);
   });
 }
 
