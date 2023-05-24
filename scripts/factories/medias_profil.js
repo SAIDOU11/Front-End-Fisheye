@@ -172,13 +172,18 @@ function mediaFactory(dataMedia) {
   }
 
   function totalLikes(e) {
-    ++e.currentTarget.getElementsByTagName("p")[0].innerHTML;
+    let countIncrement = ++e.currentTarget.getElementsByTagName("p")[0]
+      .innerHTML;
+    console.log(e, countIncrement);
+    // let calcul = document.getElementsByTagName("p")[0].innerHTML;
+    // console.log(calcul);
+    // let allLikes = countIncrement + likes;
+    // paraLikes.textContent = allLikes;
   }
-
   // const btn = document.getElementsByClassName("buttonLikes");
-  // const paraLikes = document.querySelector(".paraLikes");
-  // console.log(paraLikes);
-  // paraLikes.textContent = likes;
-
+  // console.log(btn);
+  let paraLikes = document.querySelector(".paraLikes").children;
+  console.log(paraLikes);
+  paraLikes.textContent = likes;
   return { getUserIdWork, contentModal };
 }
