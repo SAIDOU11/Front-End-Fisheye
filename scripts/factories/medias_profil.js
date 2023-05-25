@@ -175,15 +175,12 @@ function mediaFactory(dataMedia) {
     let countIncrement = ++e.currentTarget.getElementsByTagName("p")[0]
       .innerHTML;
     console.log(e, countIncrement);
-    // let calcul = document.getElementsByTagName("p")[0].innerHTML;
-    // console.log(calcul);
-    // let allLikes = countIncrement + likes;
-    // paraLikes.textContent = allLikes;
   }
-  // const btn = document.getElementsByClassName("buttonLikes");
-  // console.log(btn);
   let paraLikes = document.querySelector(".paraLikes").children;
-  console.log(paraLikes);
+  let liketxt = [];
+  liketxt = paraLikes.textContent;
+  console.log(paraLikes, liketxt, typeof liketxt);
   paraLikes.textContent = likes;
+
   return { getUserIdWork, contentModal };
 }
