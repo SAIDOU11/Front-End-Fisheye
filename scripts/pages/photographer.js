@@ -2,7 +2,6 @@ async function getDataMedia() {
   let apiUrl = "./data/photographers.json";
   let response = await fetch(apiUrl);
   const { photographers, media } = await response.json();
-
   // Extraire ID
   let getUrlId = window.location.search;
   let getParamsId = new URLSearchParams(getUrlId);
@@ -42,6 +41,12 @@ async function displayData(medias, photographers) {
     const getUserIdWork = mediaModel.getUserIdWork();
     mediasSection.appendChild(getUserIdWork);
   });
+  let paraLikes = document.querySelector(".paraLikes");
+  total = 0;
+  medias.forEach((item) => {
+    total += item.likes;
+  });
+  paraLikes.textContent = total;
 }
 
 async function init() {

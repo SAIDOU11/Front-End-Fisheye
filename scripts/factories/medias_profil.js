@@ -60,7 +60,6 @@ function photographerFactory(data) {
 
 function mediaFactory(dataMedia) {
   const { date, id, photographerId, title, image, video, likes } = dataMedia;
-
   const multimedia = `assets/images/${image}`;
   const multimediaVideo = `assets/images/${video}`;
 
@@ -172,15 +171,12 @@ function mediaFactory(dataMedia) {
   }
 
   function totalLikes(e) {
-    let countIncrement = ++e.currentTarget.getElementsByTagName("p")[0]
-      .innerHTML;
-    console.log(e, countIncrement);
+    ++e.currentTarget.getElementsByTagName("p")[0].innerHTML;
+    let paraLikes = document.querySelector(".paraLikes");
+    let newValue = paraLikes.textContent;
+    newValue = +newValue;
+    paraLikes.textContent = newValue + 1;
   }
-  let paraLikes = document.querySelector(".paraLikes").children;
-  let liketxt = [];
-  liketxt = paraLikes.textContent;
-  console.log(paraLikes, liketxt, typeof liketxt);
-  paraLikes.textContent = likes;
 
   return { getUserIdWork, contentModal };
 }
