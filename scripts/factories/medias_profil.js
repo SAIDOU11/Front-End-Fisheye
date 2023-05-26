@@ -4,7 +4,7 @@ function photographerFactory(data) {
   const picture = `assets/photographers/${portrait}`;
   const contactHeader = document.querySelector(".header_color");
 
-  contactHeader.innerHTML = ` <h1>Contactez-moi <br> ${name}</h1>`;
+  contactHeader.innerHTML = `Contactez-moi <br> ${name}`;
 
   const paraPrice = document.querySelector(".paraPrice");
   paraPrice.textContent = `${price}€/jour`;

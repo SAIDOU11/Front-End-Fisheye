@@ -20,6 +20,10 @@ window.addEventListener("keydown", function (event) {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
   }
+  if (event.key === "Enter") {
+    const modal = document.getElementById("contact_modal");
+    modal.style.display = "none";
+  }
 });
 
 submitBtn.addEventListener("click", (e) => {

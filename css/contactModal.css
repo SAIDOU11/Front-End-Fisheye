@@ -7,7 +7,88 @@
   translate: -50% -50%;
   padding: 25px 30px;
 }
+dialog {
+  border-radius: 5px;
+  background-color: #db8876;
+  width: 40%;
+  border: none;
+}
 
+.modal_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-items: baseline;
+  width: 100%;
+}
+
+.header_color {
+  color: black;
+  font-size: 35px;
+}
+
+button > img {
+  cursor: pointer;
+  background-color: #db8876;
+  color: #db8876;
+}
+.close_btn {
+  background-color: #db8876;
+  border: none;
+  padding: 0;
+}
+
+.modal header {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.modal header img {
+  cursor: pointer;
+}
+
+.modal header h2 {
+  font-size: 64px;
+  font-weight: normal;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+form label {
+  color: #312e2e;
+  font-size: 24px;
+}
+
+.message_input {
+  width: 97%;
+  height: 120px;
+  border: none;
+  border-radius: 5px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: self-start;
+}
+
+form input {
+  width: 97%;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+}
+.header_color {
+  font-size: 35px;
+}
 @media screen and (max-width: 768px) {
   .header_color {
     font-size: 15px;
