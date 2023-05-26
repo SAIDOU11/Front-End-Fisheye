@@ -7,12 +7,20 @@ contactBtn.forEach((btn) => btn.addEventListener("click", displayModal));
 function displayModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "block";
+  modal.showModal();
 }
 
 function closeModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "none";
 }
+
+window.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    const modal = document.getElementById("contact_modal");
+    modal.style.display = "none";
+  }
+});
 
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();

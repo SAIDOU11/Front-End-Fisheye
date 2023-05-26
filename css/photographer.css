@@ -1,15 +1,7 @@
 @import url("Lightbox.css");
 @import url("dropdown.css");
 @import url("totalLikes.css");
-
-#contact_modal {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
-  padding: 25px 30px;
-}
+@import url("contactModal.css");
 
 main {
   border: 5px solid #95fff9;
@@ -224,9 +216,3 @@ article .divContainer {
   color: #901c1c;
   height: 10px;
 }
-/* #like.isLiked {
-} */
-
-/* #clicks::after {
-  content: ;
-} */

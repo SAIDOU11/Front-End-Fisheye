@@ -3,6 +3,7 @@ function photographerFactory(data) {
 
   const picture = `assets/photographers/${portrait}`;
   const contactHeader = document.querySelector(".header_color");
+
   contactHeader.innerHTML = ` <h1>Contactez-moi <br> ${name}</h1>`;
 
   const paraPrice = document.querySelector(".paraPrice");
@@ -73,7 +74,9 @@ function mediaFactory(dataMedia) {
     const buttonLikes = document.createElement("button");
     const numberLikes = document.createElement("p");
     const iconLike = document.createElement("i");
-    iconLike.setAttribute("class", "like"); // event sur icon
+    divBanner.setAttribute("tabindex", 0);
+    paraTitle.setAttribute("tabindex", 0);
+    iconLike.setAttribute("class", "like");
     iconLike.setAttribute("tabindex", 0);
 
     article.appendChild(divContainer);
