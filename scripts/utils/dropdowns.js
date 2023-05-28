@@ -1,5 +1,4 @@
 const dropdowns = document.querySelectorAll(".dropdown");
-console.log(dropdowns);
 
 dropdowns.forEach((dropdown) => {
   const select = dropdown.querySelector(".select");
@@ -7,9 +6,8 @@ dropdowns.forEach((dropdown) => {
   const menu = dropdown.querySelector(".menu");
   const options = dropdown.querySelectorAll(".menu li");
   console.log(options, options.length);
-
   const selected = dropdown.querySelector(".selected");
-
+  // Event select element
   select.addEventListener("click", () => {
     select.classList.toggle("select-clicked");
     arrow.classList.toggle("arrow-rotate");
@@ -17,6 +15,7 @@ dropdowns.forEach((dropdown) => {
   });
   // loop options
   options.forEach((option) => {
+    console.log("OPTIONS ?? ");
     option.addEventListener("click", () => {
       console.log("OPTIONS ?? ");
       selected.innerText = option.innerText;
