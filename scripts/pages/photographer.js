@@ -14,7 +14,15 @@ async function getDataMedia() {
   // Filtre Médias
   let filterId = media;
   let mediaProfil = filterId.filter((obj) => obj.photographerId == numberId);
-  // console.log(mediaProfil);
+  // let selected = document.querySelector(".selected");
+  // console.log(selected.innerText);
+
+  console.log("\n\n Sort by popularité ");
+  console.log(mediaProfil.sort(byLikes));
+  // console.log("\n\n Sort by date ");
+  // console.log(mediaProfil.sort(byDate));
+  // console.log("\n\n Sort by title ");
+  // console.log(mediaProfil.sort(byTitle));
   return { medias: [...mediaProfil], photographers: [...photograhProfil] };
 }
 
