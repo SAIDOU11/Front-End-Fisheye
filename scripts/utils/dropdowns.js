@@ -5,10 +5,17 @@ dropdowns.forEach((dropdown) => {
   const arrow = dropdown.querySelector(".arrow");
   const menu = dropdown.querySelector(".menu");
   const options = dropdown.querySelectorAll(".menu li");
-  console.log(options);
   const selected = dropdown.querySelector(".selected");
   // Event select element
-  select.addEventListener("click", () => {
+  arrow.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      select.classList.toggle("select-clicked");
+      arrow.classList.toggle("arrow-rotate");
+      menu.classList.toggle("menu-open");
+    }
+  });
+  select.addEventListener("click", (e) => {
+    console.log(e.target, e);
     select.classList.toggle("select-clicked");
     arrow.classList.toggle("arrow-rotate");
     menu.classList.toggle("menu-open");

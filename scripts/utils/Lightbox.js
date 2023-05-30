@@ -69,8 +69,13 @@ class LightBox {
       .addEventListener("click", () => {
         this.close();
       });
-    document.addEventListener("keyup", (e) => {
+    document.addEventListener("keydown", (e) => {
+      console.log(e.target, e.key);
       switch (e.key) {
+        case "Enter":
+          console.log("enter");
+          this.display();
+          break;
         case "ArrowRight":
           this.next();
           break;

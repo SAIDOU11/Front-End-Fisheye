@@ -91,6 +91,7 @@ function mediaFactory(dataMedia) {
 
     divContainer.setAttribute("class", "divContainer");
     divContainer.setAttribute("data-id", id);
+    divContainer.setAttribute("data-title", title);
     divContainer.setAttribute("data-photographers-id", photographerId);
     divContainer.setAttribute("data-publication-date", date);
     divContainer.setAttribute("data-likes", likes);
