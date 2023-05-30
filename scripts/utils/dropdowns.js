@@ -5,6 +5,7 @@ dropdowns.forEach((dropdown) => {
   const arrow = dropdown.querySelector(".arrow");
   const menu = dropdown.querySelector(".menu");
   const options = dropdown.querySelectorAll(".menu li");
+  console.log(options);
   const selected = dropdown.querySelector(".selected");
   // Event select element
   select.addEventListener("click", () => {
@@ -15,7 +16,17 @@ dropdowns.forEach((dropdown) => {
   // loop options
   options.forEach((option) => {
     option.addEventListener("click", () => {
+      console.log(option.innerText);
       selected.innerText = option.innerText;
+      if (selected.innerText === "Popularité") {
+        console.log("Popularité !!!!!!!!!!!!!!!!");
+      }
+      if (selected.innerText === "Date") {
+        console.log("Date !!!!!!!!!!!!!!!!");
+      }
+      if (selected.innerText === "Titre") {
+        console.log("Titre !!!!!!!!!!!!!!!!");
+      }
       select.classList.remove("select-clicked");
       arrow.classList.remove("arrow-rotate");
       menu.classList.remove("menu-open");

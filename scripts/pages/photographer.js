@@ -14,11 +14,11 @@ async function getDataMedia() {
   // Filtre Médias
   let filterId = media;
   let mediaProfil = filterId.filter((obj) => obj.photographerId == numberId);
-  // let selected = document.querySelector(".selected");
-  // console.log(selected.innerText);
+  console.log(mediaProfil);
+  mediaProfil.sort(byDate);
 
-  console.log("\n\n Sort by popularité ");
-  console.log(mediaProfil.sort(byLikes));
+  // console.log("\n\n Sort by popularité ");
+  // console.log(mediaProfil.sort(byLikes));
   // console.log("\n\n Sort by date ");
   // console.log(mediaProfil.sort(byDate));
   // console.log("\n\n Sort by title ");
@@ -27,6 +27,7 @@ async function getDataMedia() {
 }
 
 async function displayLightbox(medias) {
+  console.log(medias);
   document.querySelectorAll(".divContent").forEach((document) => {
     document.addEventListener("click", (e) => {
       photographer = medias.filter((elem) => e.target.id == elem.id)[0];
@@ -39,6 +40,7 @@ async function displayLightbox(medias) {
 async function displayData(medias, photographers) {
   const headerProfil = document.querySelector(".photograph-header");
   const mediasSection = document.querySelector(".media_section");
+  const dropdowns = document.querySelectorAll(".dropdown");
 
   photographers.forEach((photographer) => {
     const photographerModel = photographerFactory(photographer);
@@ -50,6 +52,7 @@ async function displayData(medias, photographers) {
     const getUserIdWork = mediaModel.getUserIdWork();
     mediasSection.appendChild(getUserIdWork);
   });
+
   let paraLikes = document.querySelector(".paraLikes");
   total = 0;
   medias.forEach((item) => {

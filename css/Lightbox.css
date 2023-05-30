@@ -73,6 +73,7 @@
 
 .lightboxMedia > img {
   max-height: 650px;
+  max-width: 95%;
   object-fit: cover;
 }
 @media screen and (max-width: 768px) {
@@ -97,8 +98,7 @@
 
 .contentLightbox > button {
   cursor: pointer;
-  /* height: 40px;
-  width: 40px; */
+  color: #901c1c;
 }
 
 .closeLightbox {

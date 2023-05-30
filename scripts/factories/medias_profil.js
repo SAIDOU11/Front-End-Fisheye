@@ -99,7 +99,7 @@ function mediaFactory(dataMedia) {
     divBanner.setAttribute("class", "divBanner");
     divTitle.setAttribute("class", "divTitle");
     buttonLikes.setAttribute("class", "buttonLikes");
-    buttonLikes.addEventListener("click", totalLikes);
+    buttonLikes.children[1].addEventListener("click", totalLikes);
     iconLike.setAttribute("class", "fa-solid fa-heart");
     divBanner.setAttribute("class", "divBanner");
 
@@ -174,7 +174,7 @@ function mediaFactory(dataMedia) {
   }
 
   function totalLikes(e) {
-    ++e.currentTarget.getElementsByTagName("p")[0].innerHTML;
+    ++e.currentTarget.parentElement.getElementsByTagName("p")[0].innerHTML;
     let paraLikes = document.querySelector(".paraLikes");
     let newValue = paraLikes.textContent;
     newValue = +newValue;
