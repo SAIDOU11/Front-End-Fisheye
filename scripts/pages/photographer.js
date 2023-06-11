@@ -36,6 +36,14 @@ async function displayLightbox(medias) {
       let lightbox = new LightBox(medias, photographer);
       lightbox.show(photographer);
     });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.keyCode === 13) {
+        photographer = medias.filter((elem) => e.target.id == elem.id)[0];
+        let lightbox = new LightBox(medias, photographer);
+        lightbox.show(photographer);
+      }
+    });
   });
 }
 

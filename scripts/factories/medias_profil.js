@@ -39,7 +39,6 @@ function photographerFactory(data) {
     button.setAttribute("aria-label", "Bouton pour ouvrir la modale contact");
     button.setAttribute("class", "contact_button button_hover");
     button.setAttribute("onclick", "displayModal()");
-
     button.textContent = "Contactez-moi";
     headBtn.appendChild(button);
 
@@ -96,12 +95,13 @@ function mediaFactory(dataMedia) {
     divContainer.setAttribute("data-publication-date", date);
     divContainer.setAttribute("data-likes", likes);
     divContent.setAttribute("tabindex", 0);
+    divContent.setAttribute("id", id);
     divContent.setAttribute("class", "divContent");
     divBanner.setAttribute("class", "divBanner");
     divTitle.setAttribute("class", "divTitle");
     buttonLikes.setAttribute("class", "buttonLikes");
     buttonLikes.children[1].addEventListener("click", totalLikes);
-    iconLike.setAttribute("class", "fa-solid fa-heart");
+    iconLike.setAttribute("class", "fa-solid fa-heart increase");
     divBanner.setAttribute("class", "divBanner");
 
     paraTitle.textContent = title;
@@ -175,6 +175,13 @@ function mediaFactory(dataMedia) {
   }
 
   function totalLikes(e) {
+    console.log(e);
+    console.log(e.currentTarget);
+
+    let increase = document.getElementsByClassName("increase");
+    console.log(increase);
+    //     console.log(increase);
+
     ++e.currentTarget.parentElement.getElementsByTagName("p")[0].innerHTML;
     let paraLikes = document.querySelector(".paraLikes");
     let newValue = paraLikes.textContent;
