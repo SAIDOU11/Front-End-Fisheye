@@ -30,12 +30,21 @@ async function displayLightbox(medias) {
   console.log(medias);
   document.querySelectorAll(".divContent").forEach((document) => {
     document.addEventListener("click", (e) => {
-      console.log(e);
+      console.log(e.target.id);
       photographer = medias.filter((elem) => e.target.id == elem.id)[0];
       console.log(photographer);
       let lightbox = new LightBox(medias, photographer);
       lightbox.show(photographer);
     });
+
+   document.addEventListener("keydown", (e) => {
+      if (e.keyCode === 13) {
+        photographer = medias.filter((elem) => e.target.id == elem.id)[0];
+        let lightbox = new LightBox(medias, photographer);
+        lightbox.show(photographer);
+      }
+    });
+
   });
 }
 

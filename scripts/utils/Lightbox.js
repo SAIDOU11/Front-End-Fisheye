@@ -74,7 +74,7 @@ class LightBox {
       switch (e.key) {
         case "Enter":
           console.log("enter");
-          this.display();
+          //this.display();
           break;
         case "ArrowRight":
           this.next();

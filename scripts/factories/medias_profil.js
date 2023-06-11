@@ -96,6 +96,7 @@ function mediaFactory(dataMedia) {
     divContainer.setAttribute("data-publication-date", date);
     divContainer.setAttribute("data-likes", likes);
     divContent.setAttribute("tabindex", 0);
+    divContent.setAttribute("id", id);
     divContent.setAttribute("class", "divContent");
     divBanner.setAttribute("class", "divBanner");
     divTitle.setAttribute("class", "divTitle");
