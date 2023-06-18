@@ -82,7 +82,7 @@ main {
   margin: 100px 100px;
 }
 
-article .divContainer {
+.divContainer {
   height: 350px;
   width: 350px;
   margin-bottom: 30px;

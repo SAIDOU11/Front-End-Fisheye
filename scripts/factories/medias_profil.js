@@ -64,7 +64,6 @@ function mediaFactory(dataMedia) {
   const multimediaVideo = `assets/images/${video}`;
 
   function getUserIdWork() {
-    const article = document.createElement("article");
     const divContainer = document.createElement("div");
     const divContent = document.createElement("div");
     const divBanner = document.createElement("div");
@@ -77,8 +76,12 @@ function mediaFactory(dataMedia) {
     paraTitle.setAttribute("tabindex", 0);
     iconLike.setAttribute("class", "like");
     iconLike.setAttribute("tabindex", 0);
-
-    article.appendChild(divContainer);
+    // Increment like
+    iconLike.addEventListener("keydown", (e) => {
+      if (e.code === "Enter") {
+        ++e.target.parentElement.getElementsByTagName("p")[0].innerHTML;
+      }
+    });
     divContainer.appendChild(divContent);
     divContainer.appendChild(divBanner);
     divBanner.appendChild(divTitle);
@@ -133,7 +136,7 @@ function mediaFactory(dataMedia) {
       videoLink.appendChild(sourceVideo);
     }
 
-    return article;
+    return divContainer;
   }
 
   function contentModal() {
@@ -175,13 +178,6 @@ function mediaFactory(dataMedia) {
   }
 
   function totalLikes(e) {
-    console.log(e);
-    console.log(e.currentTarget);
-
-    let increase = document.getElementsByClassName("increase");
-    console.log(increase);
-    //     console.log(increase);
-
     ++e.currentTarget.parentElement.getElementsByTagName("p")[0].innerHTML;
     let paraLikes = document.querySelector(".paraLikes");
     let newValue = paraLikes.textContent;
