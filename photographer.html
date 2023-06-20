@@ -33,10 +33,11 @@
       <section class="photograph-header"></section>
 <section class="main_container">
       <div class="dropdownContainer">
-        <label for="select">Trier par :</label>      
+        <label for="selected">Trier par :</label>      
         <div class="dropdown">
           <div class="select">
               <button
+              
               tabindex="0"
               type="button"
               role="listbox"
@@ -50,9 +51,9 @@
             </div>
           </div>
           <ul class="menu">
-            <li>Date</li>
-            <li>Titre</li>
-            <li class="active">Popularité</li>
+            <li data-date="date">Date</li>
+            <li data-title="title" id="title">Titre</li>
+            <li data-likes="likes" id="likes" class="active">Popularité</li>
           </ul>
         </div>
       </div>
