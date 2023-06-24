@@ -16,18 +16,18 @@ async function getDataMedia() {
   let mediaProfil = filterId.filter((obj) => obj.photographerId == numberId);
   // mediaProfil.sort(byLikes);
   // mediaProfil.sort(byLikes);
-  document.addEventListener("click", (e) => {
-    console.log(e.target.dataset.date);
-    if (e.target.dataset.date === "date") {
-      mediaProfil.sort(byDate);
-    }
-    if (e.target.dataset.likes === "likes") {
-      return mediaProfil.sort(byLikes);
-    }
-    if (e.target.dataset.title === "title") {
-      mediaProfil.sort(byTitle);
-    }
-  });
+  // document.addEventListener("click", (e) => {
+  //   console.log(e.target.dataset.date);
+  //   if (e.target.dataset.date === "date") {
+  //     mediaProfil.sort(byDate);
+  //   }
+  //   if (e.target.dataset.likes === "likes") {
+  //     return mediaProfil.sort(byLikes);
+  //   }
+  //   if (e.target.dataset.title === "title") {
+  //     mediaProfil.sort(byTitle);
+  //   }
+  // });
 
   return { medias: [...mediaProfil], photographers: [...photograhProfil] };
 }
@@ -119,18 +119,27 @@ function filterFeature(medias, photographers) {
         selected.innerText = option.innerText;
         if (selected.innerText === "Popularité") {
           // medias.sort((a, b) => a.likes.localeCompare(b.likes));
-          // displayData(medias, photographers);
-          // console.log("Popularité !!!!!!!!!!!!!!!!");
+          displayData(medias, photographers);
+          console.log("Popularité !!!!!!!!!!!!!!!!");
         }
         if (selected.innerText === "Date") {
-          // medias.sort((a, b) => a.date.localeCompare(b.date));
-          // displayData(medias, photographers);
-          // console.log("Date !!!!!!!!!!!!!!!!");
+          customSort = (a, b) => {
+            const dateA = new Date(a.date).valueOf();
+            const dateB = new Date(b.date).valueOf();
+            return dateA - dateB;
+            // if (dateA > dateB) return 1;
+            // else if (dateA < dateB) return -1;
+            // return 0;
+          };
+
+          displayData(medias, photographers);
+          console.log(medias.sort(customSort), medias);
+          // medias.sort(customSort);
         }
         if (selected.innerText === "Titre") {
           medias.sort((a, b) => a.title.localeCompare(b.title));
           displayData(medias, photographers);
-          console.log(medias, photographers, "Titre !!!!!!!!!!!!!!!!");
+          console.log(medias.date, photographers, "Titre !!!!!!!!!!!!!!!!");
         }
         select.classList.remove("select-clicked");
         arrow.classList.remove("arrow-rotate");
