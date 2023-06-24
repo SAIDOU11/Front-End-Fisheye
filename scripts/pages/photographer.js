@@ -14,7 +14,7 @@ async function getDataMedia() {
   // Filtre Médias
   let filterId = media;
   let mediaProfil = filterId.filter((obj) => obj.photographerId == numberId);
-  // mediaProfil.sort(byLikes);
+  mediaProfil.sort(byLikes);
   // mediaProfil.sort(byLikes);
   // document.addEventListener("click", (e) => {
   //   console.log(e.target.dataset.date);
@@ -118,28 +118,21 @@ function filterFeature(medias, photographers) {
         // console.log(option.innerText);
         selected.innerText = option.innerText;
         if (selected.innerText === "Popularité") {
-          // medias.sort((a, b) => a.likes.localeCompare(b.likes));
+          medias.sort(byLikes);
+          console.log(medias.sort(byLikes));
           displayData(medias, photographers);
           console.log("Popularité !!!!!!!!!!!!!!!!");
         }
         if (selected.innerText === "Date") {
-          customSort = (a, b) => {
-            const dateA = new Date(a.date).valueOf();
-            const dateB = new Date(b.date).valueOf();
-            return dateA - dateB;
-            // if (dateA > dateB) return 1;
-            // else if (dateA < dateB) return -1;
-            // return 0;
-          };
-
+          medias.sort(byDate);
+          console.log("Date !!!!!!!!!!!!!!!!");
+          console.log(medias.sort(byDate));
           displayData(medias, photographers);
-          console.log(medias.sort(customSort), medias);
-          // medias.sort(customSort);
         }
         if (selected.innerText === "Titre") {
-          medias.sort((a, b) => a.title.localeCompare(b.title));
+          medias.sort(byTitle);
           displayData(medias, photographers);
-          console.log(medias.date, photographers, "Titre !!!!!!!!!!!!!!!!");
+          console.log(medias, "Titre !!!!!!!!!!!!!!!!");
         }
         select.classList.remove("select-clicked");
         arrow.classList.remove("arrow-rotate");
@@ -152,7 +145,27 @@ function filterFeature(medias, photographers) {
     });
   });
 }
+
+// const dateA = new Date(a.date).valueOf();
+// const dateB = new Date(b.date).valueOf();
+// return dateA - dateB;
 function byDate(a, b) {
   // Chronologically by year, month then day
   return new Date(a.date).valueOf() - new Date(b.date).valueOf();
+}
+
+function byLikes(a, b) {
+  // By popularity
+  return parseInt(b.likes) - parseInt(a.likes);
+}
+
+function byTitle(a, b) {
+  // Alphabetically by Title
+  if (a.title > b.title) {
+    return 1;
+  } else if (b.title > a.title) {
+    return -1;
+  } else {
+    return 0;
+  }
 }
