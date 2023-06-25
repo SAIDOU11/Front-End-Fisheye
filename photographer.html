@@ -17,7 +17,8 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" alt="logo fisheye" />
+      <a href="/index.html"><img src="assets/images/logo.png" class="logo" alt="logo fisheye" /></a>
+      
     </header>
 
     <main id="main">
@@ -33,11 +34,17 @@
       <section class="photograph-header"></section>
 <section class="main_container">
       <div class="dropdownContainer">
-        <label for="selected">Trier par :</label>      
-        <div class="dropdown">
+       <label for="selected">Trier par </label>
+       <select name="orderBy" id="selected">
+         <option value="likes">Popularité</option>
+        <option value="title">Titre</option>
+        <option value="date">Date</option> 
+       </select>
+            
+        <!-- <div class="dropdown">
           <div class="select">
               <button
-              
+              id="selected"
               tabindex="0"
               type="button"
               role="listbox"
@@ -55,7 +62,7 @@
             <li data-title="title" id="title">Titre</li>
             <li data-likes="likes" id="likes" class="active">Popularité</li>
           </ul>
-        </div>
+        </div> -->
       </div>
       <div class="media_section"></div></section>
       <dialog role="dialog" id="contact_modal">
