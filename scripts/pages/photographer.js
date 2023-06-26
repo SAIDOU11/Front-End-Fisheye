@@ -2,7 +2,7 @@ async function getDataMedia() {
   let apiUrl = "./data/photographers.json";
   let response = await fetch(apiUrl);
   const { photographers, media } = await response.json();
-  // Extraire ID
+  // Extraire ID photographe
   let getUrlId = window.location.search;
   let getParamsId = new URLSearchParams(getUrlId);
   let numberId = getParamsId.get("id");
@@ -15,25 +15,11 @@ async function getDataMedia() {
   let filterId = media;
   let mediaProfil = filterId.filter((obj) => obj.photographerId == numberId);
   mediaProfil.sort(byLikes);
-  // mediaProfil.sort(byLikes);
-  // document.addEventListener("click", (e) => {
-  //   console.log(e.target.dataset.date);
-  //   if (e.target.dataset.date === "date") {
-  //     mediaProfil.sort(byDate);
-  //   }
-  //   if (e.target.dataset.likes === "likes") {
-  //     return mediaProfil.sort(byLikes);
-  //   }
-  //   if (e.target.dataset.title === "title") {
-  //     mediaProfil.sort(byTitle);
-  //   }
-  // });
 
   return { medias: [...mediaProfil], photographers: [...photograhProfil] };
 }
 
 async function displayLightbox(medias) {
-  // console.log(medias);
   document.querySelectorAll(".divContent").forEach((document) => {
     document.addEventListener("click", (e) => {
       console.log(e);
@@ -79,16 +65,7 @@ async function displayData(medias, photographers) {
   paraLikes.textContent = total;
 }
 
-async function init() {
-  // Récupère les datas des photographes
-  const { medias, photographers } = await getDataMedia();
-  displayData(medias, photographers);
-  displayLightbox(medias);
-  filterFeature(medias, photographers);
-}
-
-init();
-
+// Dropdown filter
 function filterFeature(medias, photographers) {
   const dropdowns = document.querySelectorAll(".dropdown");
   dropdowns.forEach((dropdown) => {
@@ -105,7 +82,7 @@ function filterFeature(medias, photographers) {
         menu.classList.toggle("menu-open");
       }
     });
-    select.addEventListener("click", (e) => {
+    select.addEventListener("click", () => {
       // console.log(e);
       select.classList.toggle("select-clicked");
       arrow.classList.toggle("arrow-rotate");
@@ -113,26 +90,22 @@ function filterFeature(medias, photographers) {
     });
     // loop options
     options.forEach((option) => {
-      option.addEventListener("click", (e) => {
-        // console.log(e, mediaProfil);
-        // console.log(option.innerText);
+      option.addEventListener("click", () => {
         selected.innerText = option.innerText;
         if (selected.innerText === "Popularité") {
           medias.sort(byLikes);
           console.log(medias.sort(byLikes));
           displayData(medias, photographers);
-          console.log("Popularité !!!!!!!!!!!!!!!!");
         }
         if (selected.innerText === "Date") {
           medias.sort(byDate);
-          console.log("Date !!!!!!!!!!!!!!!!");
+
           console.log(medias.sort(byDate));
           displayData(medias, photographers);
         }
         if (selected.innerText === "Titre") {
           medias.sort(byTitle);
           displayData(medias, photographers);
-          console.log(medias, "Titre !!!!!!!!!!!!!!!!");
         }
         select.classList.remove("select-clicked");
         arrow.classList.remove("arrow-rotate");
@@ -146,26 +119,12 @@ function filterFeature(medias, photographers) {
   });
 }
 
-// const dateA = new Date(a.date).valueOf();
-// const dateB = new Date(b.date).valueOf();
-// return dateA - dateB;
-function byDate(a, b) {
-  // Chronologically by year, month then day
-  return new Date(a.date).valueOf() - new Date(b.date).valueOf();
+async function init() {
+  // Récupère les datas des photographes
+  const { medias, photographers } = await getDataMedia();
+  displayData(medias, photographers);
+  displayLightbox(medias);
+  filterFeature(medias, photographers);
 }
 
-function byLikes(a, b) {
-  // By popularity
-  return parseInt(b.likes) - parseInt(a.likes);
-}
-
-function byTitle(a, b) {
-  // Alphabetically by Title
-  if (a.title > b.title) {
-    return 1;
-  } else if (b.title > a.title) {
-    return -1;
-  } else {
-    return 0;
-  }
-}
+init();

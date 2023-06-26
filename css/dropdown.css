@@ -3,27 +3,27 @@
 }
 
 .dropdownContainer {
+  position: relative;
   display: flex;
   flex-direction: row;
   margin: 2em 6.25em;
 }
 
-label {
+/* label {
   font-size: 1.25rem;
   font-weight: bold;
   margin-right: 1em;
-}
+} */
 
-select {
+/* select {
   color: white;
   background-color: #901c1c;
   font-size: 1.125rem;
   padding: 0.5em 1em 0.5em 1em;
   border-radius: 0.25em;
   border: none;
-}
+} */
 
-/* 
 .dropdown {
   position: relative;
   margin: 5px;
@@ -117,4 +117,4 @@ select {
     flex-direction: column;
     justify-content: center;
   }
-} */
+}

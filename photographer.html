@@ -16,13 +16,14 @@
     <title>Fisheye - photographe</title>
   </head>
   <body>
-    <header>
-      <a href="/index.html"><img src="assets/images/logo.png" class="logo" alt="logo fisheye" /></a>
-      
+    <header class="header-media">
+      <!-- Logo & back to home page -->
+      <a href="/index.html"><img src="assets/images/logo.png" class="logo" alt="logo fisheye" /></a>     
     </header>
 
     <main id="main">
       <div class="contact_price_like">
+        <!-- Price & likes by photographer -->
         <div class="divPrice">
           <h1 class="paraPrice"></h1>
         </div>
@@ -33,21 +34,14 @@
       </div>
       <section class="photograph-header"></section>
 <section class="main_container">
-      <div class="dropdownContainer">
-       <label for="selected">Trier par </label>
-       <select name="orderBy" id="selected">
-         <option value="likes">Popularité</option>
-        <option value="title">Titre</option>
-        <option value="date">Date</option> 
-       </select>
-            
-        <!-- <div class="dropdown">
-          <div class="select">
+      <div role="listbox" class="dropdownContainer">
+       <label class="order-by" >Trier par </>
+         <div class="dropdown">
+          <div  class="select">
               <button
-              id="selected"
+              
               tabindex="0"
               type="button"
-              role="listbox"
               aria-level="Ouvrir le menu déroulant"
               class="selected"
             >
@@ -58,11 +52,12 @@
             </div>
           </div>
           <ul class="menu">
-            <li data-date="date">Date</li>
-            <li data-title="title" id="title">Titre</li>
-            <li data-likes="likes" id="likes" class="active">Popularité</li>
+            <li role="option" >Date</li>
+            <li role="option" >Titre</li>
+            <li role="option" class="active">Popularité</li>
           </ul>
-        </div> -->
+        </div>  
+       
       </div>
       <div class="media_section"></div></section>
       <dialog role="dialog" id="contact_modal">
@@ -152,5 +147,6 @@
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
     <script src="/scripts/utils/Lightbox.js"></script>
+    <script src="/scripts/utils/function.js"></script>
   </body>
 </html>

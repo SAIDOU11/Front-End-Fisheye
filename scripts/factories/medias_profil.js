@@ -125,15 +125,18 @@ function mediaFactory(dataMedia) {
     if (video) {
       const vidName = document.createElement("a");
       const videoLink = document.createElement("video");
+      const sourceVideo = document.createElement("source");
+      const track = document.createElement("track");
       videoLink.setAttribute("id", `${id}`);
       videoLink.setAttribute("controls", multimediaVideo);
-      const sourceVideo = document.createElement("source");
+
       sourceVideo.setAttribute("src", multimediaVideo);
       sourceVideo.setAttribute("type", "video/mp4");
       sourceVideo.setAttribute("alt", `Vidéo : ${title}`);
       divContent.appendChild(vidName);
       vidName.appendChild(videoLink);
       videoLink.appendChild(sourceVideo);
+      videoLink.appendChild(track);
     }
 
     return divContainer;
