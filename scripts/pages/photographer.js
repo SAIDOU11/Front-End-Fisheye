@@ -30,6 +30,7 @@ async function displayLightbox(medias) {
     });
 
     document.addEventListener("keydown", (e) => {
+      // e.keyCode = Enter
       if (e.keyCode === 13) {
         photographer = medias.filter((elem) => e.target.id == elem.id)[0];
         let lightbox = new LightBox(medias, photographer);

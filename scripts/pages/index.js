@@ -1,4 +1,5 @@
 async function getPhotographers() {
+  // data json file
   let apiUrl = "./data/photographers.json";
   let response = await fetch(apiUrl);
   console.log(response);
