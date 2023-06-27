@@ -71,7 +71,7 @@
 }
 
 .media-section {
-  gap: 4.375em;
+  display: grid;
 }
 
 @media screen and (min-width: 768px) {
@@ -93,7 +93,9 @@
     /* justify-content: center; */
   }
   .media_section {
-    width: 100%;
+    display: grid;
+    gap: 1em;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     margin: 0;
   }
 }
@@ -101,15 +103,18 @@
 @media (min-width: 1024px) {
   .media_section {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2em;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    margin: 0;
   }
 }
 
 @media (min-width: 1280px) {
   .media_section {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 85%;
+    gap: 2em;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    margin: 0;
   }
 }
 
