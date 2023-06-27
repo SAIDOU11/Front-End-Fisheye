@@ -9,30 +9,33 @@
   text-align: center;
 }
 
-.header-media,
-.photograph-header,
-.media-section,
-.headBio,
-.headBtn,
-.headPicture {
-  margin: 0 2em;
+.logo-photo {
+  height: 50px;
+}
+
+/* main */
+
+#main,
+.header-media {
+  margin: 2em 2em;
+}
+
+.photograph-header {
+  background-color: #fafafa;
 }
 
 /* Photographer content */
 
-.photograph-header {
-  background-color: #fafafa;
-  height: 35em;
-}
-
 .headContainer {
   display: flex;
   flex-direction: column-reverse;
+  justify-content: center;
 }
 
 .headBio,
 .headBtn,
 .headPicture {
+  margin: 20px 0px;
   text-align: center;
   width: 100%;
 }
@@ -68,54 +71,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.media-section {
-  display: grid;
-}
-
-@media screen and (min-width: 768px) {
-  /* header */
-
-  .photograph-header {
-    background-color: inherit;
-  }
-
-  .headBio,
-  .headBtn,
-  .headPicture {
-    margin: 20px 0px;
-  }
-  .main_container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* justify-content: center; */
-  }
-  .media_section {
-    display: grid;
-    gap: 1em;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    margin: 0;
-  }
-}
-
-@media (min-width: 1024px) {
-  .media_section {
-    display: grid;
-    gap: 2em;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    margin: 0;
-  }
-}
-
-@media (min-width: 1280px) {
-  .media_section {
-    display: grid;
-    gap: 2em;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    margin: 0;
-  }
+  justify-content: space-between;
 }
 
 .button_hover:hover {
@@ -137,15 +93,14 @@
   cursor: pointer;
 }
 
-.divContainer {
-  height: 350px;
-  width: 350px;
-  margin-bottom: 30px;
-}
+/* main content */
 
 .divContainer {
   display: flex;
   flex-direction: column;
+  height: 350px;
+  width: 350px;
+  margin: 30px 10px;
 }
 
 .divContent a img {
@@ -153,6 +108,7 @@
   width: 100%;
   height: 300px;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 .divContent a video {
@@ -160,6 +116,7 @@
   width: 100%;
   height: 300px;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 .divBanner {
@@ -167,6 +124,7 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
 .divTitle {
   color: #901c1c;
 }
@@ -184,4 +142,56 @@
   cursor: pointer;
   color: #901c1c;
   height: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  /* Main container  */
+
+  .media_section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .divContainer {
+    width: 350px;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* header */
+
+  .header-media {
+    text-align: start;
+  }
+
+  /* photographer header */
+
+  .headContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .main-container {
+    justify-content: space-between;
+  }
+
+  .media_section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1280px) {
+  /* header */
+
+  .media_section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 }

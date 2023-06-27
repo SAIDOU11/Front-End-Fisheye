@@ -7,7 +7,6 @@
   right: 50px;
   font-weight: bold;
   color: black;
-  padding: 11px;
   width: 350px;
   height: 35px;
   border: none;
@@ -21,10 +20,40 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
+  font-size: 0.725em;
 }
 
 .blackheart {
   color: black;
   font-size: 25px;
+}
+
+@media (min-width: 768px) {
+  .contact_price_like {
+    padding: 1.25em 1.25em;
+  }
+  .divPrice,
+  .likes {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact_price_like {
+    padding: 1.25em 1.25em;
+  }
+  .divPrice,
+  .likes {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .contact_price_like {
+    padding: 1.25em 1.25em;
+  }
+  .divPrice,
+  .likes {
+    font-size: 1rem;
+  }
 }
