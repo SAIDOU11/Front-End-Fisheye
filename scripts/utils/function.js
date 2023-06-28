@@ -1,5 +1,5 @@
 function byDate(a, b) {
-  // Chronologically by year, month then day
+  // Chronologically by year, month, day then hour
   return new Date(a.date).valueOf() - new Date(b.date).valueOf();
 }
 

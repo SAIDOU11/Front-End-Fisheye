@@ -54,7 +54,6 @@ async function displayData(medias, photographers) {
   medias.forEach((media) => {
     const mediaModel = mediaFactory(media);
     const getUserIdWork = mediaModel.getUserIdWork();
-    // console.log(getUserIdWork.firstChild);
     mediasSection.appendChild(getUserIdWork);
   });
 
@@ -94,17 +93,17 @@ function filterFeature(medias, photographers) {
       option.addEventListener("click", () => {
         selected.innerText = option.innerText;
         if (selected.innerText === "Popularité") {
+          // sort by Popularity
           medias.sort(byLikes);
-          console.log(medias.sort(byLikes));
           displayData(medias, photographers);
         }
         if (selected.innerText === "Date") {
+          // sort by Date. Chronologically by year, month, day then hour
           medias.sort(byDate);
-
-          console.log(medias.sort(byDate));
           displayData(medias, photographers);
         }
         if (selected.innerText === "Titre") {
+          // sort Alphabetically by Title
           medias.sort(byTitle);
           displayData(medias, photographers);
         }
