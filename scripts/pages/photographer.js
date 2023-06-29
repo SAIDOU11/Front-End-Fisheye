@@ -2,10 +2,13 @@ async function getDataMedia() {
   let apiUrl = "./data/photographers.json";
   let response = await fetch(apiUrl);
   const { photographers, media } = await response.json();
+
   // Extraire ID photographe
   let getUrlId = window.location.search;
   let getParamsId = new URLSearchParams(getUrlId);
   let numberId = getParamsId.get("id");
+  // log de l'id du photographe
+  console.log(numberId);
 
   // Filtre Profil
   let filterProfil = photographers;

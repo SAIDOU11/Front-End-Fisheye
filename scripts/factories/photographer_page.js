@@ -17,7 +17,9 @@ function photographerFactory(data) {
     `;
 
     article.setAttribute("class", "article");
+    //  URLSearchParams link to id photographer
     linkPicName.setAttribute("href", `photographer.html?id=${id}`);
+
     linkPicName.setAttribute("title", `Voir la page de ${name}`);
     linkPicName.setAttribute("role", "link");
     linkPicName.setAttribute("target", "blank");
